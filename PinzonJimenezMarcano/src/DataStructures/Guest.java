@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DataStructures;
-
 /**
  *
  * @author Carlos Marcano
@@ -15,12 +14,11 @@ public class Guest {
     private int id;
     private String fullName;
 
-    public Guest(String firstName, String lastName, int id) {
+    public Guest(String firstName, String lastName) {
 
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.id = id;
-        this.fullName = firstName + lastName;
+        this.firstName = Functions.capitalizeFirstLetter(firstName);
+        this.lastName = Functions.capitalizeFirstLetter(lastName);
+        this.fullName = firstName.toLowerCase() + lastName.toLowerCase();
     }
 
     public int getRoom() {
@@ -50,13 +48,17 @@ public class Guest {
     public int getId() {
         return id;
     }
-
+    
     public String getFullName() {
         return fullName;
     }
 
     public void printGuest(){
         System.out.print(fullName + " Id: " + id + " Room: " + room);
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

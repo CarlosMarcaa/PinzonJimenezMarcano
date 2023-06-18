@@ -3,10 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package pinzonjimenezmarcano;
-
+import DataStructures.*;
 /**
  *
- * @author Carlol
+ * @author Carlos Marcano
  */
 public class Main {
 
@@ -14,7 +14,16 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        HashTableClass table = new HashTableClass(30);
+        //conseguir forma de inicializar las listas del array de listas, se crean null
+        table.put("carlos", "marcano", 23);
+        table.printHashTable();
+        
+        System.out.println(table.getGuestRoom("carlos", "marcano"));
+        
+        
+        
+        
     }
     
 }
