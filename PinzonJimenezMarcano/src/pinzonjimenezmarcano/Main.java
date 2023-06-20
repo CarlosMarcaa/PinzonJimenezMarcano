@@ -14,13 +14,25 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        /*
         HashTableClass table = new HashTableClass(30);
-        //conseguir forma de inicializar las listas del array de listas, se crean null
         table.put("carlos", "marcano", 23);
         table.printHashTable();
         
-        System.out.println(table.getGuestRoom("carlos", "marcano"));
+        System.out.println(table.getGuestRoom("carlos", "marcano"));*/
         
+        ABBClass tree = new ABBClass();
+        tree.insert(20, tree.getRoot());
+        tree.insert(45, tree.getRoot());
+        tree.insert(67, tree.getRoot());
+        tree.insert(15, tree.getRoot());
+        tree.insert(2, tree.getRoot());
+        tree.insert(3, tree.getRoot());
+        
+        tree.preOrden(tree.getRoot());
+        tree.delete(2, null, tree.getRoot());
+        tree.preOrden(tree.getRoot());
         
         
         
