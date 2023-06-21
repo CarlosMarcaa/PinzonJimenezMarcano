@@ -15,13 +15,20 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        /*
+        
         HashTableClass table = new HashTableClass(30);
-        table.put("carlos", "marcano", 23);
+        Guest carlos1 = new Guest("carlos", "marcano");        
+        table.put(carlos1, 23);
+        
+        Guest miguel = new Guest("miguel", "uwu");
+        table.put(miguel, 12);
+        table.printHashTable();
+        System.out.println(table.getGuestRoom("carlos", "marcano"));
+   
+        System.out.println(table.deleteGuest(carlos1));
         table.printHashTable();
         
-        System.out.println(table.getGuestRoom("carlos", "marcano"));*/
-        
+        /*
         ABBClass tree = new ABBClass();
         tree.insert(20, tree.getRoot());
         tree.insert(45, tree.getRoot());
@@ -33,6 +40,7 @@ public class Main {
         tree.preOrden(tree.getRoot());
         tree.delete(2, null, tree.getRoot());
         tree.preOrden(tree.getRoot());
+        */
         
         
         

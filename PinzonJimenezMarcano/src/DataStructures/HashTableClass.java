@@ -13,12 +13,13 @@ public class HashTableClass {
     private int tableSize;
     private int capacity;
     private int maxCapacity;
-    
+    private boolean[] occupiedRooms;
     public HashTableClass(int maxCapacity) {
         this.table = new ListaClass[maxCapacity*3];
         this.tableSize = maxCapacity*3;
         this.capacity = 0;
         this.maxCapacity = maxCapacity;
+        this.occupiedRooms = new boolean[maxCapacity];
         
     }
     
@@ -34,13 +35,21 @@ public class HashTableClass {
         return capacity == maxCapacity;
     }
     
-    public void put(String firstName, String lastName, int room) {
-        Guest guest = new Guest(firstName, lastName);
+    public void put(Guest guest, int room) {
+ 
         guest.setRoom(room);
+        if (occupiedRooms[room] == true){
+            System.out.println("The rooom " + room + " is already occupied");
+            return;
+        }
         if (isFull()){
             System.out.println("Sorry, we are at full capacity at the moment");
-            return;
-        }else{          
+            
+        }else{
+            if (room > maxCapacity || room <1){
+                System.out.println("The room " + room + " does not exist." + " Can't add " + guest.getFirstName() + " " + guest.getLastName());
+                return;
+            }
             
             int index = generateHashCode(guest);
             
@@ -48,42 +57,76 @@ public class HashTableClass {
                 table[index] = new ListaClass();
                 table[index].insertBegin(guest);
                 capacity++;
+                occupiedRooms[room] = true;
             }else{
-                if (getTable()[index].searchElement(guest.getFullName()) == null){
-                System.out.println(guest.getFullName() + " is already in the list");
-                }else{
+                
                    getTable()[index].insertBegin(guest);
                     capacity++; 
+                    occupiedRooms[room] = true;
                 }
-            }  
+              
         }
     }
     
-    public int getGuestRoom(String firstName, String lastName){
+    public String getGuestRoom(String firstName, String lastName){
         firstName = Functions.capitalizeFirstLetter(firstName);
         lastName = Functions.capitalizeFirstLetter(lastName);
         String fullName = firstName.toLowerCase() + lastName.toLowerCase();
-        
+        String roomsFound = "";
 
         Guest guest = new Guest(firstName, lastName); // Este Guest creado solo sirve para generar el hashcode, no contiene toda la informacion.
         int index = generateHashCode(guest);
         if (getTable()[index] == null){                 // Cuando no encuentra al huesped en el sistema, devuelve -1
             System.out.println(guest.getFullName() + " isn't staying at the hotel");
             
-            return -1;
+            return roomsFound;
             
         }else{
             Nodo pointer = table[index].getHead();
             
-            while (pointer != null){
+            while (pointer != null){ 
                 Guest pointerGuest = (Guest) pointer.getElement();
                 if (pointerGuest.getFullName().equals(fullName)){
-                    return pointerGuest.getRoom();
+                    String roomToAdd = String.valueOf(pointerGuest.getRoom());
+                    roomsFound = roomsFound + roomToAdd + " ";
+                    
                 }
                 pointer = pointer.getNext();
             }
-            return -1;
+            return roomsFound;
         }
+    }
+    
+    public Guest deleteGuest(Guest guestToDelete){
+        int index = generateHashCode(guestToDelete);
+        
+        if (getTable()[index] == null){
+            System.out.println(guestToDelete.getFullName() + " isn't staying at the hotel"); // Posible nullpointer, si no encuentra el Guest que se esta buscando, devuelve null
+            return null;
+        }else{
+            Nodo pointer = table[index].getHead();
+            boolean flag = false;
+            while (pointer != null){
+                Guest pointerGuest = (Guest) pointer.getElement();
+                if (pointerGuest == guestToDelete){
+                    //Poner habitacion disponible en el array, eliminar el elemento de la lista
+                    flag = true;
+                    
+                }
+                pointer = pointer.getNext();
+            }
+            if (flag== true){
+                occupiedRooms[guestToDelete.getRoom()] = false;
+                table[index].deleteElement(guestToDelete);
+                capacity--;
+                return guestToDelete;
+            }else{
+                System.out.println(guestToDelete.getFullName() + " isn't staying at the hotel");
+                return null;
+            }
+        }
+        
+        
     }
     
     public void printHashTable(){
