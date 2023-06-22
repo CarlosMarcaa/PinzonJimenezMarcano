@@ -5,8 +5,10 @@
 package DataManagement;
 
 import DataStructures.ABBClass;
-import DataStructures.Guest;
+import Objects.Guest;
 import DataStructures.HashTableClass;
+import DataStructures.List;
+import Objects.Room;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,6 +25,7 @@ public class CsvManager {
 
     public Object ReadText(String path) {
         ABBClass tree = new ABBClass();
+        List roomList = new List();
         HashTableClass hashTable = new HashTableClass(301);
 
         File cvsFile = new File(path);
@@ -69,14 +72,23 @@ public class CsvManager {
                         }
                     } //                    ROOMS
                     else if (path.equals("test/Booking_hotel_rooms.csv") && !data_split[i].equals("num_hab,tipo_hab,piso")) {
-                        System.out.println(data[0] + ", " + data[1] + ", " + data[2]);
+//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2]);
+                        Room room = new Room(Integer.parseInt(data[0]), data[1], Integer.parseInt(data[2]));
+                        room.printRoom();
+                        roomList.insertFinal(room);
+
                     } //                    HISTORIC
                     else if (path.equals("test/Booking_hotel_historic.csv") && !data_split[i].equals("ci,primer_nombre,apellido,email,genero,llegada,num_hab")) {
-//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);
-                        System.out.println(idToInt(data[0]));
+//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);\
+                        Guest guest = new Guest(data[1], data[2]);
+                        guest.setId(idToInt(data[0]));
+                        guest.setEmail(data[3]);
+                        guest.setGender(data[4]);
+                        guest.setArrival(data[5]);
+                        guest.setRoom(Integer.parseInt(data[6]));
+//                        guest.printGuest();
                     }
                 }
-//                hashTable.printHashTable();
             }
 
             lector.close();
@@ -85,8 +97,10 @@ public class CsvManager {
         }
         if ("test/Booking_hotel_reservations.csv".equals(path)) {
             return tree;
-        }else if ("test/Booking_hotel_status.csv".equals(path)){
+        } else if ("test/Booking_hotel_status.csv".equals(path)) {
             return hashTable;
+        }else if ("test/Booking_hotel_rooms.csv".equals(path)) {
+            return roomList;
         }
         return null;
     }

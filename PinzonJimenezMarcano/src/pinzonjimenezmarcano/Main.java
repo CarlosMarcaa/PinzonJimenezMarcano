@@ -23,6 +23,8 @@ public class Main {
 //        reservations.preOrden(reservations.getRoot());
 
         reservations.searchId(reservations.getRoot(), 10021555);
+        System.out.println("");
+        reservations.searchId(reservations.getRoot(), 17260509);
 //        System.out.println("");
 //        System.out.println("");
 //        System.out.println("");
@@ -30,12 +32,13 @@ public class Main {
 //        System.out.println("");
 //        System.out.println("");
 //        System.out.println("");
-//        cvsManager.ReadText("test/Booking_hotel_rooms.csv");
-//        System.out.println("");
-//        System.out.println("");
-//        System.out.println("");
-        HashTableClass status = (HashTableClass) cvsManager.ReadText("test/Booking_hotel_status.csv");
-        status.printHashTable();
+        List rooms = (List) cvsManager.ReadText("test/Booking_hotel_rooms.csv");
+//        rooms.printList();
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+//        HashTableClass status = (HashTableClass) cvsManager.ReadText("test/Booking_hotel_status.csv");
+//        status.printHashTable();
         System.out.println("");
         System.out.println("");
         System.out.println("");

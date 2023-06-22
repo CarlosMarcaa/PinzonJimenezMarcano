@@ -5,6 +5,8 @@
 
 package DataStructures;
 
+import Objects.Guest;
+
 /**
  *
  * @author Carlol
