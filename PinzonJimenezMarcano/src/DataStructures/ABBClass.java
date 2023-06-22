@@ -28,23 +28,23 @@ public class ABBClass {
         return root == null;
     }
     
-    public void insert(int element, ABBNode root){
-        ABBNode nodo = new ABBNode(element);
+    public void insert(Guest guest, ABBNode root){
+        ABBNode nodo = new ABBNode(guest);
         if (isEmpty()){
             setRoot(nodo);
         }else{
-                if (element < root.getElement()){
+                if (nodo.getElement() < root.getElement()){
                     if (root.getLeftSon() == null){
                         root.setLeftSon(nodo);
                     }else{
-                        insert(element, root.getLeftSon());
+                        insert(guest, root.getLeftSon());
                     }
                 }else{
 
                     if (root.getRightSon() == null){
                         root.setRightSon(nodo);
                     }else{
-                        insert(element, root.getRightSon());
+                        insert(guest, root.getRightSon());
                     }            
                 }
         }
@@ -53,6 +53,7 @@ public class ABBClass {
     }
     
     public void delete(int element, ABBNode previousNode, ABBNode root){
+
         if (isEmpty()){
             System.out.println("The tree is empty");
         }else{
@@ -64,6 +65,7 @@ public class ABBClass {
                 }
             }else{
                 //The root is leaf
+                if (root.isLeaf()){
                 if (previousNode == null){
                     root = null;
                 }else{
@@ -72,6 +74,7 @@ public class ABBClass {
                     }else{
                         previousNode.setLeftSon(null);
                     }
+                }
                 }
                 
                 //The root only has right son
@@ -111,19 +114,20 @@ public class ABBClass {
                         }else{
                             previousNode.setLeftSon(replacement);
                         }
-                        if (root.getLeftSon() != replacement){
-                            replacement.setLeftSon(root.getLeftSon());
-                            replacement.setRightSon(root.getRightSon());
-                        }else{
-                            replacement.setRightSon(root.getRightSon());
-                            }
+                    }
+                    if (root.getLeftSon() != replacement){
+                        replacement.setLeftSon(root.getLeftSon());
+                        replacement.setRightSon(root.getRightSon());
+                    }else{
+                        replacement.setRightSon(root.getRightSon());
                         }
                     }
+                   }
                     
                 }
                 
-            }
-        }
+    }
+        
     
        
     public void preOrden(ABBNode nodo){
@@ -150,6 +154,14 @@ public class ABBClass {
         }
     }
         
+    public void searchId(ABBNode root, int id){
+        if (root != null){
+            if (id == root.getElement()){
+                root.getGuest().printGuest();}
+        searchId(root.getLeftSon(), id);
+        searchId(root.getRightSon(), id);
+        }
+    }
         
     
     public ABBNode searchReplacementNode(ABBNode selected){
