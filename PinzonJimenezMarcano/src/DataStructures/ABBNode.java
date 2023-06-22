@@ -13,12 +13,14 @@ public class ABBNode {
     private ABBNode rightSon;
     private ABBNode leftSon;
     private int element;
-
-    public ABBNode(int element) {
-        this.element = element;
+    private Guest guest;
+    public ABBNode(Guest guest) {
+        this.element = guest.getId();
         this.leftSon = null;
         this.rightSon = null;
+        this.guest = guest;
     }
+    
     
     public boolean isLeaf(){
         return (getRightSon() == null && getLeftSon() == null);
@@ -43,6 +45,12 @@ public class ABBNode {
     public int getElement() {
         return element;
     }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    
     
     
     

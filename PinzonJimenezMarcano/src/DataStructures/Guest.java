@@ -13,6 +13,12 @@ public class Guest {
     private String lastName;
     private int id;
     private String fullName;
+    private String email;
+    private String gender;
+    private String roomType;
+    private String phone;
+    private String arrival;
+    private String checkout;
 
     public Guest(String firstName, String lastName) {
 
@@ -54,11 +60,64 @@ public class Guest {
     }
 
     public void printGuest(){
-        System.out.print(fullName + " Id: " + id + " Room: " + room);
+        System.out.println("Name: " + firstName + " " + lastName);
+        System.out.println("Id: " + id);
+        System.out.println("Email: " + email);
+        System.out.println("Phone number: " + phone);
+        System.out.println("Arrival: " + arrival);
+        System.out.println("Checkout: " + checkout);
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
+    }
+
+    public String getCheckout() {
+        return checkout;
+    }
+
+    public void setCheckout(String checkout) {
+        this.checkout = checkout;
     }
     
     
