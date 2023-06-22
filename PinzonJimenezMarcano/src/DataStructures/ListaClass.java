@@ -115,8 +115,11 @@ public class ListaClass {
         }
 
         // Eliminar el nodo
-        
-        previous.setNext(current.getNext());
+        if (previous != null){
+            previous.setNext(current.getNext());
+        }else{
+            setHead(null);
+        }
         length--;
         
         }
