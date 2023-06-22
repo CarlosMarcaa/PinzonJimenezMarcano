@@ -4,6 +4,7 @@
  */
 package DataManagement;
 
+import DataStructures.ABBClass;
 import DataStructures.Guest;
 import DataStructures.HashTableClass;
 import java.io.BufferedReader;
@@ -20,7 +21,8 @@ import java.io.PrintWriter;
  */
 public class CsvManager {
 
-    public void ReadText(String path) {
+    public Object ReadText(String path) {
+        ABBClass tree = new ABBClass();
         HashTableClass hashTable = new HashTableClass(301);
 
         File cvsFile = new File(path);
@@ -41,17 +43,31 @@ public class CsvManager {
                 String[] data_split = data_cvs.split("\n");
                 for (int i = 0; i < data_split.length; i++) {
                     String[] data = data_split[i].split("(,|, )");
+//                    RESERVATIONS
                     if (path.equals("test/Booking_hotel_reservations.csv") && !data_split[i].equals("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida")) {
-                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6] + ", " + data[7] + ", " + data[8]);
-                    } else if (path.equals("test/Booking_hotel_status.csv") && !data_split[i].equals("num_hab,primer_nombre,apellido,email,genero,celular,llegada")) {
+//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6] + ", " + data[7] + ", " + data[8]);
+                        Guest guest = new Guest(data[1], data[2]);
+                        guest.setId(idToInt(data[0]));
+                        guest.setEmail(data[3]);
+                        guest.setArrival(data[7]);
+                        guest.setCheckout(data[8]);
+                        guest.setGender(data[4]);
+                        guest.setPhone(data[6]);
+                        guest.setRoomType(data[5]);
+                        tree.insert(guest, tree.getRoot());
+                    } //                    STATUS
+                    else if (path.equals("test/Booking_hotel_status.csv") && !data_split[i].equals("num_hab,primer_nombre,apellido,email,genero,celular,llegada")) {
 //                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);
                         if (!data[0].equals("")) {
                             Guest guest = new Guest(data[1], data[2]);
                             hashTable.put(guest, Integer.parseInt(data[0]));
+                            return hashTable;
                         }
-                    } else if (path.equals("test/Booking_hotel_rooms.csv") && !data_split[i].equals("num_hab,tipo_hab,piso")) {
+                    } //                    ROOMS
+                    else if (path.equals("test/Booking_hotel_rooms.csv") && !data_split[i].equals("num_hab,tipo_hab,piso")) {
                         System.out.println(data[0] + ", " + data[1] + ", " + data[2]);
-                    } else if (path.equals("test/Booking_hotel_historic.csv") && !data_split[i].equals("ci,primer_nombre,apellido,email,genero,llegada,num_hab")) {
+                    } //                    HISTORIC
+                    else if (path.equals("test/Booking_hotel_historic.csv") && !data_split[i].equals("ci,primer_nombre,apellido,email,genero,llegada,num_hab")) {
 //                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);
                         System.out.println(idToInt(data[0]));
                     }
@@ -63,6 +79,10 @@ public class CsvManager {
         } catch (Exception e) {
             System.out.println(e);
         }
+        if (path == "test/Booking_hotel_reservations.csv") {
+            return tree;
+        }
+        return null;
     }
 
     public int idToInt(String idString) {
