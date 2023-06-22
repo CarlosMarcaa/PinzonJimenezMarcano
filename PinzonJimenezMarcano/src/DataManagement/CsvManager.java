@@ -60,8 +60,12 @@ public class CsvManager {
 //                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);
                         if (!data[0].equals("")) {
                             Guest guest = new Guest(data[1], data[2]);
+                            guest.setRoom(Integer.parseInt(data[0]));
+                            guest.setEmail(data[3]);
+                            guest.setGender(data[4]);
+                            guest.setPhone(data[5]);
+                            guest.setArrival(data[6]);
                             hashTable.put(guest, Integer.parseInt(data[0]));
-                            return hashTable;
                         }
                     } //                    ROOMS
                     else if (path.equals("test/Booking_hotel_rooms.csv") && !data_split[i].equals("num_hab,tipo_hab,piso")) {
@@ -79,8 +83,10 @@ public class CsvManager {
         } catch (Exception e) {
             System.out.println(e);
         }
-        if (path == "test/Booking_hotel_reservations.csv") {
+        if ("test/Booking_hotel_reservations.csv".equals(path)) {
             return tree;
+        }else if ("test/Booking_hotel_status.csv".equals(path)){
+            return hashTable;
         }
         return null;
     }

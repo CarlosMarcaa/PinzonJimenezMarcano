@@ -34,7 +34,8 @@ public class Main {
 //        System.out.println("");
 //        System.out.println("");
 //        System.out.println("");
-//        cvsManager.ReadText("test/Booking_hotel_status.csv");
+        HashTableClass status = (HashTableClass) cvsManager.ReadText("test/Booking_hotel_status.csv");
+        status.printHashTable();
         System.out.println("");
         System.out.println("");
         System.out.println("");
