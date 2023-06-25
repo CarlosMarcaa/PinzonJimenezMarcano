@@ -8,6 +8,7 @@ import DataStructures.ABBClass;
 import Objects.Guest;
 import DataStructures.HashTableClass;
 import DataStructures.List;
+import DataStructures.Nodo;
 import Objects.Room;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -68,13 +69,13 @@ public class CsvManager {
                             guest.setGender(data[4]);
                             guest.setPhone(data[5]);
                             guest.setArrival(data[6]);
-                            hashTable.put(guest, Integer.parseInt(data[0]));
+                            hashTable.put(guest, guest.getRoom());
                         }
                     } //                    ROOMS
                     else if (path.equals("test/Booking_hotel_rooms.csv") && !data_split[i].equals("num_hab,tipo_hab,piso")) {
 //                        System.out.println(data[0] + ", " + data[1] + ", " + data[2]);
                         Room room = new Room(Integer.parseInt(data[0]), data[1], Integer.parseInt(data[2]));
-                        room.printRoom();
+//                        room.printRoom();
                         roomList.insertFinal(room);
 
                     } //                    HISTORIC
@@ -95,12 +96,17 @@ public class CsvManager {
         } catch (Exception e) {
             System.out.println(e);
         }
-        if ("test/Booking_hotel_reservations.csv".equals(path)) {
-            return tree;
-        } else if ("test/Booking_hotel_status.csv".equals(path)) {
-            return hashTable;
-        }else if ("test/Booking_hotel_rooms.csv".equals(path)) {
-            return roomList;
+        if (null != path) {
+            switch (path) {
+                case "test/Booking_hotel_reservations.csv":
+                    return tree;
+                case "test/Booking_hotel_status.csv":
+                    return hashTable;
+                case "test/Booking_hotel_rooms.csv":
+                    return roomList;
+                default:
+                    break;
+            }
         }
         return null;
     }
@@ -117,6 +123,30 @@ public class CsvManager {
         return intId;
     }
 
-    public void WriteText(String path) {
+    public void WriteText(String path, Object element) {
+        try {
+            FileWriter w = new FileWriter(path);
+            BufferedWriter bw = new BufferedWriter(w);
+            PrintWriter wr = new PrintWriter(bw);
+            if ("test/Booking_hotel_status.csv".equals(path)) {
+                wr.append("num_hab,primer_nombre,apellido,email,genero,celular,llegada\n");
+                HashTableClass table = (HashTableClass) element;
+                for (int i = 0; i < table.getTableSize(); i++) {
+                    if (table.getTable()[i] != null) {
+                        Nodo pointer = table.getTable()[i].getHead();
+
+                        while (pointer != null) {
+                            Guest guestToAppend = (Guest) pointer.getElement();
+                            wr.append(String.valueOf(guestToAppend.getRoom()) + "," + guestToAppend.getFirstName() + "," + guestToAppend.getLastName() + "," + guestToAppend.getEmail() + "," + guestToAppend.getGender() + "," + guestToAppend.getPhone() + "," + guestToAppend.getArrival() + "\n");
+                            pointer = pointer.getNext();
+                        }
+                    }
+                }
+            }
+            wr.close();
+            bw.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
