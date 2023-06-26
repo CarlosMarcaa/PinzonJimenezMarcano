@@ -5,6 +5,7 @@
 package DataManagement;
 
 import DataStructures.ABBClass;
+import DataStructures.ABBNode;
 import Objects.Guest;
 import DataStructures.HashTableClass;
 import DataStructures.List;
@@ -142,11 +143,29 @@ public class CsvManager {
                         }
                     }
                 }
+            } else if ("test/Booking_hotel_reservations.csv".equals(path)) {
+                wr.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
+                ABBClass tree = (ABBClass) element;
+                getTree(tree.getRoot(), wr);
             }
+
             wr.close();
             bw.close();
         } catch (IOException e) {
             System.out.println(e);
+        }
+    }
+
+    public void getTree(ABBNode nodo, PrintWriter wr) {
+//        ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida
+        if (nodo != null) {
+            wr.append(String.valueOf(nodo.getGuest().getId()) + "," + nodo.getGuest().getFirstName() + ","
+                    + nodo.getGuest().getLastName() + "," + nodo.getGuest().getEmail() + "," + nodo.getGuest().getGender() + ","
+                    + nodo.getGuest().getRoomType() + "," + nodo.getGuest().getPhone() + "," + nodo.getGuest().getArrival() + ","
+                    + nodo.getGuest().getCheckout() + "\n");
+
+            getTree(nodo.getLeftSon(), wr);
+            getTree(nodo.getRightSon(), wr);
         }
     }
 }
