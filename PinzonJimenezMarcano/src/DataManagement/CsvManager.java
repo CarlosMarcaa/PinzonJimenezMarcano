@@ -88,7 +88,7 @@ public class CsvManager {
                         guest.setGender(data[4]);
                         guest.setArrival(data[5]);
                         guest.setRoom(Integer.parseInt(data[6]));
-//                        guest.printGuest();
+                        tree.insert(guest, tree.getRoot());
                     }
                 }
             }
@@ -105,6 +105,8 @@ public class CsvManager {
                     return hashTable;
                 case "test/Booking_hotel_rooms.csv":
                     return roomList;
+                case "test/Booking_hotel_historic.csv":
+                    return tree;
                 default:
                     break;
             }
@@ -138,7 +140,9 @@ public class CsvManager {
 
                         while (pointer != null) {
                             Guest guestToAppend = (Guest) pointer.getElement();
-                            wr.append(String.valueOf(guestToAppend.getRoom()) + "," + guestToAppend.getFirstName() + "," + guestToAppend.getLastName() + "," + guestToAppend.getEmail() + "," + guestToAppend.getGender() + "," + guestToAppend.getPhone() + "," + guestToAppend.getArrival() + "\n");
+                            wr.append(String.valueOf(guestToAppend.getRoom()) + "," + guestToAppend.getFirstName() + ","
+                                    + guestToAppend.getLastName() + "," + guestToAppend.getEmail() + "," + guestToAppend.getGender()
+                                    + "," + guestToAppend.getPhone() + "," + guestToAppend.getArrival() + "\n");
                             pointer = pointer.getNext();
                         }
                     }
@@ -146,26 +150,44 @@ public class CsvManager {
             } else if ("test/Booking_hotel_reservations.csv".equals(path)) {
                 wr.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
                 ABBClass tree = (ABBClass) element;
-                getTree(tree.getRoot(), wr);
+                getTree(tree.getRoot(), wr, "reservations");
+            } else if ("test/Booking_hotel_historic.csv".equals(path)) {
+                wr.append("ci,primer_nombre,apellido,email,genero,llegada,num_hab\n");
+                ABBClass tree = (ABBClass) element;
+                getTree(tree.getRoot(), wr, "historic");
             }
 
             wr.close();
             bw.close();
+            System.out.println("LISTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
         } catch (IOException e) {
             System.out.println(e);
         }
     }
 
-    public void getTree(ABBNode nodo, PrintWriter wr) {
-//        ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida
-        if (nodo != null) {
-            wr.append(String.valueOf(nodo.getGuest().getId()) + "," + nodo.getGuest().getFirstName() + ","
-                    + nodo.getGuest().getLastName() + "," + nodo.getGuest().getEmail() + "," + nodo.getGuest().getGender() + ","
-                    + nodo.getGuest().getRoomType() + "," + nodo.getGuest().getPhone() + "," + nodo.getGuest().getArrival() + ","
-                    + nodo.getGuest().getCheckout() + "\n");
+    public void getTree(ABBNode nodo, PrintWriter wr, String type) {
+        if (type.equals("reservations")) {
+            if (nodo != null) {
+//                ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida
 
-            getTree(nodo.getLeftSon(), wr);
-            getTree(nodo.getRightSon(), wr);
+                wr.append(String.valueOf(nodo.getGuest().getId()) + "," + nodo.getGuest().getFirstName() + ","
+                        + nodo.getGuest().getLastName() + "," + nodo.getGuest().getEmail() + "," + nodo.getGuest().getGender() + ","
+                        + nodo.getGuest().getRoomType() + "," + nodo.getGuest().getPhone() + "," + nodo.getGuest().getArrival() + ","
+                        + nodo.getGuest().getCheckout() + "\n");
+
+                getTree(nodo.getLeftSon(), wr, "reservations");
+                getTree(nodo.getRightSon(), wr, "reservations");
+            }
+        } else if (type.equals("historic")) {
+            if (nodo != null) {
+//                ci,primer_nombre,apellido,email,genero,llegada,num_hab
+                wr.append(String.valueOf(nodo.getGuest().getId()) + "," + nodo.getGuest().getFirstName() + ","
+                        + nodo.getGuest().getLastName() + "," + nodo.getGuest().getEmail() + "," + nodo.getGuest().getGender() + ","
+                        + nodo.getGuest().getArrival() + "," + nodo.getGuest().getRoom() + "\n");
+
+                getTree(nodo.getLeftSon(), wr, "historic");
+                getTree(nodo.getRightSon(), wr, "historic");
+            }
         }
     }
 }

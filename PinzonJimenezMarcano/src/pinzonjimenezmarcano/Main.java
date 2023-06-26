@@ -11,6 +11,8 @@ import Objects.Guest;
 /**
  *
  * @author Carlos Marcano
+ * @author Miguel Jiménez
+ * @author Nicoll Pinzón
  */
 public class Main {
 
@@ -18,16 +20,21 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+//
         CsvManager cvsManager = new CsvManager();
-        ABBClass reservations = (ABBClass) cvsManager.ReadText("test/Booking_hotel_reservations.csv");
-        
-        cvsManager.WriteText("test/Booking_hotel_reservations.csv", reservations);
-        reservations.searchId(reservations.getRoot(), 10021555);
+//        ABBClass reservations = (ABBClass) cvsManager.ReadText("test/Booking_hotel_reservations.csv");
+//        
+//        cvsManager.WriteText("test/Booking_hotel_reservations.csv", reservations);
+//        reservations.searchId(reservations.getRoot(), 10021555);
 //        System.out.println("");
 //        reservations.searchId(reservations.getRoot(), 17260509);
 ////        System.out.println("");
-////        cvsManager.ReadText("test/Booking_hotel_historic.csv");
+        Guest yonson = new Guest("Yonson", "Paleta");
+        ABBClass historic = (ABBClass) cvsManager.ReadText("test/Booking_hotel_historic.csv");
+        historic.searchRoom(historic.getRoot(), 1);
+        historic.insert(yonson, historic.getRoot());
+
+        cvsManager.WriteText("test/Booking_hotel_historic.csv", historic);
 ////        System.out.println("");
 //        List rooms = (List) cvsManager.ReadText("test/Booking_hotel_rooms.csv");
 ////        rooms.printList();
