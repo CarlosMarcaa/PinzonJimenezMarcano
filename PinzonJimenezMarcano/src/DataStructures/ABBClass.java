@@ -158,9 +158,17 @@ public class ABBClass {
         if (root != null) {
             if (id == root.getElement()) {
                 root.getGuest().printGuest();
+            } else {
+                if (id < root.getElement()) {
+                    if (root.getLeftSon() != null) {
+                        searchId(root.getLeftSon(), id);
+                    }
+                } else {
+                    if (root.getRightSon() != null) {
+                        searchId(root.getRightSon(), id);
+                    }
+                }
             }
-            searchId(root.getLeftSon(), id);
-            searchId(root.getRightSon(), id);
         }
     }
 
