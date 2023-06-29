@@ -52,6 +52,19 @@ public class NewClient extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,12 +116,12 @@ public class NewClient extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Fecha de llegada:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Fecha de salida:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 160, -1));
@@ -148,19 +161,70 @@ public class NewClient extends javax.swing.JFrame {
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/astronauta.png"))); // NOI18N
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cohete.png"))); // NOI18N
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, -1, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
 
-        jLabel18.setText("jLabel18");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, -1, -1));
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/planeta.png"))); // NOI18N
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 80, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
+        jTextField8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 110, -1));
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+        jLabel19.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel19.setText("\\");
+            getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 20, 20));
+
+            jLabel21.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+            jLabel21.setText("\\");
+                getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 20, 20));
+
+                jLabel22.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+                jLabel22.setText("2023");
+                getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
+
+                jTextField9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 40, -1));
+
+                jLabel23.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+                jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+                jLabel23.setText("DD");
+                getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
+
+                jLabel24.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+                jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+                jLabel24.setText("MM");
+                getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
+
+                jLabel20.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                jLabel20.setText("\\");
+                    getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 20, 20));
+
+                    jLabel25.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                    jLabel25.setText("\\");
+                        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 20, 20));
+
+                        jLabel26.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel26.setText("2023");
+                        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
+
+                        jTextField10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 40, -1));
+
+                        jTextField11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 40, -1));
+
+                        jTextField12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 40, -1));
+
+                        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo.png"))); // NOI18N
+                        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
+
+                        pack();
+                    }// </editor-fold>//GEN-END:initComponents
 
     /**
      * @param args the command line arguments
@@ -208,7 +272,15 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -218,11 +290,16 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

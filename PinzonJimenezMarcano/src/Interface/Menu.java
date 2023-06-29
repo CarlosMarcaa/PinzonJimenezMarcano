@@ -34,6 +34,7 @@ public class Menu extends javax.swing.JFrame {
         checkIn = new javax.swing.JButton();
         costumerRecord = new javax.swing.JButton();
         searchReservation = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +60,9 @@ public class Menu extends javax.swing.JFrame {
 
         searchReservation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Busqueda.png"))); // NOI18N
         getContentPane().add(searchReservation, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 270, 110));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/exit2.3.png"))); // NOI18N
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 30, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/MENU.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -105,6 +109,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton checkIn;
     private javax.swing.JButton checkOut;
     private javax.swing.JButton costumerRecord;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton newClient;
