@@ -5,17 +5,30 @@
  */
 package Interface;
 
+import static Interface.CostumerRecord.lastName45;
+import static Interface.CostumerRecord.name45;
+import static Interface.CostumerRecord.numberRoom;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class CostumerRecord2 extends javax.swing.JFrame {
-
+    public static CostumerRecord2 customerRecord2;
     /**
      * Creates new form CostumerRecord2
      */
-    public CostumerRecord2() {
+    public CostumerRecord2(CostumerRecord2 customerRecord2) {
         initComponents();
+        this.customerRecord2 = customerRecord2;
+        customerRecord2.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        
+        name.setText(name45);
+        lastName.setText(lastName45);
+        numberRoom45.setText(numberRoom);
+        
     }
 
     /**
@@ -31,10 +44,10 @@ public class CostumerRecord2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ok = new javax.swing.JButton();
         name = new javax.swing.JLabel();
         lastName = new javax.swing.JLabel();
-        numberRoom = new javax.swing.JLabel();
+        numberRoom45 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,23 +71,37 @@ public class CostumerRecord2 extends javax.swing.JFrame {
         jLabel4.setText("Numero de Habitacion:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 100, 70));
+        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 100, 70));
 
         name.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 170, 30));
 
         lastName.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lastName.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 150, 30));
 
-        numberRoom.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        getContentPane().add(numberRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 180, 30));
+        numberRoom45.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        numberRoom45.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(numberRoom45, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 180, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo5.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        
+        customerRecord2.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,13 +133,12 @@ public class CostumerRecord2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CostumerRecord2().setVisible(true);
+                new CostumerRecord2(customerRecord2).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -120,6 +146,7 @@ public class CostumerRecord2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lastName;
     private javax.swing.JLabel name;
-    private javax.swing.JLabel numberRoom;
+    private javax.swing.JLabel numberRoom45;
+    private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
 }

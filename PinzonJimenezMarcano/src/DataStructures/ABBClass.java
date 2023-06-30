@@ -180,28 +180,22 @@ public class ABBClass {
     }
 
     public String searchId(ABBNode root, int id) {
-        
         if (root != null) {
             if (id == root.getElement()) {
-               guest_find = root.getGuest().information();
-               
+                guest_find = root.getGuest().information();
             }
-            searchId(root.getLeftSon(), id);
-            searchId(root.getRightSon(), id);
-        }return  guest_find;
-                root.getGuest().printGuest();
+        } else {
+            if (id < root.getElement()) {
+                if (root.getLeftSon() != null) {
+                    searchId(root.getLeftSon(), id);
+                }
             } else {
-                if (id < root.getElement()) {
-                    if (root.getLeftSon() != null) {
-                        searchId(root.getLeftSon(), id);
-                    }
-                } else {
-                    if (root.getRightSon() != null) {
-                        searchId(root.getRightSon(), id);
-                    }
+                if (root.getRightSon() != null) {
+                    searchId(root.getRightSon(), id);
                 }
             }
         }
+        return guest_find;
     }
 
     public Room searchRoom(ABBNode root, int room) {
@@ -213,12 +207,12 @@ public class ABBClass {
             } else {
                 if (room < root.getRoom().getRoomNumber()) {
                     if (root.getLeftSon() != null) {
-                       return searchRoom(root.getLeftSon(), room);
+                        return searchRoom(root.getLeftSon(), room);
 //                        
                     }
                 } else {
                     if (root.getRightSon() != null) {
-                       return searchRoom(root.getRightSon(), room);
+                        return searchRoom(root.getRightSon(), room);
                     }
                 }
             }

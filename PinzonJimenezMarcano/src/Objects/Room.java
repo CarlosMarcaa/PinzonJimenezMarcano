@@ -49,6 +49,7 @@ public class Room {
     }
 
     public void printRoomHistory() {
+        
         System.out.println("Room: " + roomNumber);
         System.out.println("Type: " + roomType);
         System.out.println("Floor: " + floor);

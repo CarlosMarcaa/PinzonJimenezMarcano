@@ -6,6 +6,7 @@
 package Interface;
 
 import DataStructures.Functions;
+import static Interface.Menu.reservations;
 import Objects.Guest;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,7 @@ public class NewClient extends javax.swing.JFrame {
      * Creates new form NewClient
      */
     public static Menu menu;
+
     public NewClient(Menu menu) {
         initComponents();
         this.menu = menu;
@@ -48,10 +50,10 @@ public class NewClient extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         name = new javax.swing.JTextField();
-        lastName = new javax.swing.JTextField();
-        idNew = new javax.swing.JTextField();
-        gender = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
+        lastName2 = new javax.swing.JTextField();
+        id2 = new javax.swing.JTextField();
+        gender2 = new javax.swing.JTextField();
+        email2 = new javax.swing.JTextField();
         cell = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -60,7 +62,7 @@ public class NewClient extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        typeRoom = new javax.swing.JTextField();
+        typeRoom2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         month1 = new javax.swing.JTextField();
@@ -74,8 +76,8 @@ public class NewClient extends javax.swing.JFrame {
         day1 = new javax.swing.JTextField();
         year1 = new javax.swing.JTextField();
         year2 = new javax.swing.JTextField();
-        back = new javax.swing.JButton();
         ok = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,17 +139,22 @@ public class NewClient extends javax.swing.JFrame {
         name.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 160, -1));
 
-        lastName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(lastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 160, -1));
+        lastName2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(lastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 160, -1));
 
-        idNew.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(idNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 160, -1));
+        id2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        id2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 160, -1));
 
-        gender.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 160, -1));
+        gender2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(gender2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 160, -1));
 
-        email.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 330, -1));
+        email2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 330, -1));
 
         cell.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(cell, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 50, -1));
@@ -177,8 +184,8 @@ public class NewClient extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cohete.png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
 
-        typeRoom.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(typeRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 110, -1));
+        typeRoom2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(typeRoom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 110, -1));
 
         jLabel19.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel19.setText("\\");
@@ -229,21 +236,21 @@ public class NewClient extends javax.swing.JFrame {
                         year2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                         getContentPane().add(year2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 60, -1));
 
-                        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
-                        back.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                backActionPerformed(evt);
-                            }
-                        });
-                        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 100, 50));
-
                         ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
                         ok.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 okActionPerformed(evt);
                             }
                         });
-                        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, 100, 70));
+                        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 100, 70));
+
+                        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
+                        back.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                backActionPerformed(evt);
+                            }
+                        });
+                        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 90, 50));
 
                         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo.png"))); // NOI18N
                         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
@@ -252,32 +259,167 @@ public class NewClient extends javax.swing.JFrame {
                     }// </editor-fold>//GEN-END:initComponents
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        try{
-            boolean  dateExist = false;
-            
+        try {
+            boolean dateExist = false;
+            boolean findspace = true;
+            boolean findSpace1 = true;
+            boolean emailGood = false;
+            boolean typeRoomExist = false;
+            boolean cellphone = false;
             Functions verifyDateExits = new Functions();
-            boolean dateExist = verifyDateExits.dateExist();
-            if ((dateExist == true)&&(emailGood == True)&&(typeRoomExist ==True)&&(cellphone==True)){
+            String information1 = name.getText() + "/" + lastName2.getText() + "/" + id2.getText() + "/" + gender2.getText() + "/" + email2.getText() + "/" + cell.getText() + "/" + phone.getText() + "/" + typeRoom2.getText() + "/" + day1.getText() + "/" + month1.getText() + "/" + year1.getText() + "/" + day2.getText() + "/" + month2.getText() + "/" + year2.getText();
+            String[] information2 = information1.split("/");
+            for (int i = 0; i > information2.length; i++) {
+                findSpace1 = space(information2[0]);
+                if (findSpace1 == false) {
+                    findspace = false;
+                }
+            }
+
+            int id3 = Integer.parseInt(id2.getText());
+            int phone1 = Integer.parseInt(phone.getText());
+            int cell1 = Integer.parseInt(cell.getText());
+
+            if ((email2.getText().contains("@")) && (email2.getText().contains(".com"))) {
+                emailGood = true;
+            }
+
+            char day6 = day1.getText().charAt(0);
+
+            char day5 = day2.getText().charAt(0);
+            int day3 = 0;
+            int day4 = 0;
+
+            if ((Integer.parseInt(Integer.toString(day6)) == 0) || (Integer.parseInt(Integer.toString(day5)) == 0)) {
+                if (Integer.parseInt(Integer.toString(day5)) == 0) {
+
+                    day3 = Integer.parseInt(day2.getText().substring(1));
+                    if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                        day4 = Integer.parseInt(day1.getText().substring(1));
+                    } else {
+                        day4 = Integer.parseInt(day1.getText());
+                    }
+                } else if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                    day4 = Integer.parseInt(day1.getText().substring(1));
+                    if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                        day3 = Integer.parseInt(day2.getText().substring(1));
+
+                    } else {
+                        day3 = Integer.parseInt(day2.getText());
+                    }
+                }
+            } else {
+                day4 = Integer.parseInt(day1.getText());
+                day3 = Integer.parseInt(day2.getText());
+            }
+
+            char month6 = month1.getText().charAt(0);
+
+            char month5 = month2.getText().charAt(0);
+            int month3 = 0;
+            int month4 = 0;
+
+            if ((Integer.parseInt(Integer.toString(month6)) == 0) || (Integer.parseInt(Integer.toString(month5)) == 0)) {
+                if (Integer.parseInt(Integer.toString(month5)) == 0) {
+
+                    month3 = Integer.parseInt(month2.getText().substring(1));
+                    if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                        month4 = Integer.parseInt(month1.getText().substring(1));
+                    } else {
+                        month4 = Integer.parseInt(month1.getText());
+                    }
+                } else if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                    month4 = Integer.parseInt(month1.getText().substring(1));
+                    if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                        month3 = Integer.parseInt(month2.getText().substring(1));
+
+                    } else {
+                        month3 = Integer.parseInt(month2.getText());
+                    }
+                }
+            } else {
+                month4 = Integer.parseInt(month1.getText());
+                month3 = Integer.parseInt(month2.getText());
+            }
+
+            int year4 = Integer.parseInt(year1.getText());
+            int year3 = Integer.parseInt(year2.getText());
+
+            dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
+            String dateArrival1 = "";
+            String dateCheckout1 ="";
+            if (dateExist=true){
+                dateArrival1 = day1.getText()+"/"+month1.getText()+"/"+year1.getText();
+                dateCheckout1 = day2.getText()+"/"+month2.getText()+"/"+year2.getText();
+            }
+
+            if (cell1 >= 100 && cell1 <= 999) {
+                if (phone1 >= 1000000 && phone1 <= 9999999) {
+                    cellphone = true;
+                }
+            }
+
+            String cellphone4 = "";
             
+            if (cellphone==true){
+                cellphone4 = "("+cell.getText()+")"+phone.getText();
+            }
+            
+            if (typeRoom2.getText().toUpperCase()== "SIMPLE"){
+                typeRoomExist = true;
+            }else if(typeRoom2.getText().toUpperCase()== "DOBLE"){
+                typeRoomExist = true;
+            }else if(typeRoom2.getText().toUpperCase()== "SUITE"){
+                typeRoomExist = true;
+            }else if(typeRoom2.getText().toUpperCase()== "TRIPLE"){
+                typeRoomExist = true;
+            }
+            
+            if ((findspace = true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
+
                 Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que pusiste todos los datos bien?");
-            
-            Guest guest = new Guest(name.getText(), lastName.getText());
-                        guest.setId(idToInt(data[0]));
-                        guest.setEmail(data[3]);
-                        guest.setArrival(data[7]);
-                        guest.setCheckout(data[8]);
-                        guest.setGender(data[4]);
-                        guest.setPhone(data[6]);
-                        guest.setRoomType(data[5]);
-                        tree.insert(guest, tree.getRoot());}
-        }catch (Exception e){
+
+                Guest guest = new Guest(name.getText(), lastName2.getText());
+                guest.setId(id3);
+                guest.setEmail(email2.getText());
+                guest.setArrival(dateArrival1);
+                guest.setCheckout(dateCheckout1);
+                guest.setGender(gender2.getText());
+                guest.setPhone(cellphone4);
+                guest.setRoomType(typeRoom2.getText().toLowerCase());
+                reservations.insert(guest, reservations.getRoot());
+                reservations.insert(guest, reservations.getRoot());
+                menu.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
+            }
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
         }
     }//GEN-LAST:event_okActionPerformed
 
+    public boolean space(String information2) {
+        boolean flag = true;
+        if (information2 == "") {
+            flag = false;
+        }
+        return flag;
+    }
+
+
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        // TODO add your handling code here:
+        Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que no quieres continuar con la reserva?");
+
+        if (confirm.equals(0)) {
+            menu.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_backActionPerformed
+
+    private void id2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,9 +461,9 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JTextField cell;
     private javax.swing.JTextField day1;
     private javax.swing.JTextField day2;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField gender;
-    private javax.swing.JTextField idNew;
+    private javax.swing.JTextField email2;
+    private javax.swing.JTextField gender2;
+    private javax.swing.JTextField id2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -347,13 +489,13 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField lastName;
+    private javax.swing.JTextField lastName2;
     private javax.swing.JTextField month1;
     private javax.swing.JTextField month2;
     private javax.swing.JTextField name;
     private javax.swing.JButton ok;
     private javax.swing.JTextField phone;
-    private javax.swing.JTextField typeRoom;
+    private javax.swing.JTextField typeRoom2;
     private javax.swing.JTextField year1;
     private javax.swing.JTextField year2;
     // End of variables declaration//GEN-END:variables

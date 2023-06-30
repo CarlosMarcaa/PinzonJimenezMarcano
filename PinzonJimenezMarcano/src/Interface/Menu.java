@@ -16,24 +16,26 @@ import javax.swing.JOptionPane;
  * @author Nicoll Pinzon
  */
 public class Menu extends javax.swing.JFrame {
-    public static CsvManager cvsManager = new CsvManager();
-    
+
+    public static CsvManager csvManager = new CsvManager();
+
     public static boolean save = false;
-    public static ABBClass historic = (ABBClass) cvsManager.ReadText("test/Booking_hotel_historic.csv");
-    public static List rooms = (List) cvsManager.ReadText("test/Booking_hotel_rooms.csv");
-    public static HashTableClass status = (HashTableClass) cvsManager.ReadText("test/Booking_hotel_status.csv");
-    public static ABBClass reservations = (ABBClass) cvsManager.ReadText("test/Booking_hotel_reservations.csv");
-    public static ABBClass reservationsHistory = (ABBClass) cvsManager.ReadText("test/Booking_hotel_reservations_1.csv");
+
+    public static ABBClass reservations = (ABBClass) csvManager.ReadText("test/Booking_hotel_reservations.csv");
+    public static ABBClass rooms = (ABBClass) csvManager.ReadText("test/Booking_hotel_rooms.csv");
+    public static ABBClass historic = (ABBClass) csvManager.ReadText("test/Booking_hotel_historic.csv");
+    public static HashTableClass status = (HashTableClass) csvManager.ReadText("test/Booking_hotel_status.csv");
+    public static ABBClass reservationsHistory = (ABBClass) csvManager.ReadText("test/Booking_hotel_reservations_1.csv");
+
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
-         
+
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,7 +138,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void searchReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchReservationActionPerformed
         SearchReservation searchReservation = new SearchReservation(this);
-        
+
     }//GEN-LAST:event_searchReservationActionPerformed
 
     private void newClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newClientActionPerformed
@@ -144,8 +146,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_newClientActionPerformed
 
     private void costumerRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costumerRecordActionPerformed
-//        CostumerRecord costumerRecord = new CostumerRecord(this);
-        
+        CostumerRecord costumerRecord = new CostumerRecord(this);
+
     }//GEN-LAST:event_costumerRecordActionPerformed
 
     private void roomHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomHistoryActionPerformed
@@ -161,25 +163,25 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_checkOutActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        
-        if (true == save){
+
+        if (true == save) {
             System.exit(0);
-        }else{
-            Object verdad = JOptionPane.showConfirmDialog(null,"Seguro que no quieres guardar los cambios?");
-        if (verdad.equals(0)){
-              System.exit(0);
-              
-          }
-        
+        } else {
+            Object verdad = JOptionPane.showConfirmDialog(null, "Seguro que no quieres guardar los cambios?");
+            if (verdad.equals(0)) {
+                System.exit(0);
+
+            }
+
         }
     }//GEN-LAST:event_exitActionPerformed
 
     private void saveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDataActionPerformed
         save = true;
-        cvsManager.WriteText("test/Booking_hotel_reservations.csv", reservations);
-        cvsManager.WriteText("test/Booking_hotel_status.csv", status);
-        cvsManager.WriteText("test/Booking_hotel_reservations_1.csv", reservationsHistory);
-        cvsManager.WriteText("test/Booking_hotel_historic.csv", historic);
+        csvManager.WriteText("test/Booking_hotel_reservations.csv", reservations);
+        csvManager.WriteText("test/Booking_hotel_status.csv", status);
+        csvManager.WriteText("test/Booking_hotel_reservations_1.csv", reservationsHistory);
+        csvManager.WriteText("test/Booking_hotel_historic.csv", historic);
     }//GEN-LAST:event_saveDataActionPerformed
 
     /**
