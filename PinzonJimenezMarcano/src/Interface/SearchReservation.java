@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import static Interface.Menu.reservations;
 import javax.swing.JOptionPane;
 
 /**
@@ -93,7 +94,14 @@ public class SearchReservation extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         try {
             id = Integer.parseInt(CI.getText());
-            SearchReservation2 reservation2 = new SearchReservation(this);
+            String information = reservations.searchId(reservations.getRoot(), id);
+            if (!information.equals("")){
+            SearchReservation2 reservation2 = new SearchReservation2(this);
+            reservation2.information(id);
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Error. Este id no tiene ninguna reservacion"); 
+            }
         }catch ( Exception e){
         JOptionPane.showMessageDialog(null, "Error. No coloco solo numeros sin ningun espacio");
     }

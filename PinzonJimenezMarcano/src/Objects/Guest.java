@@ -70,6 +70,12 @@ public class Guest {
         System.out.println("Arrival: " + arrival);
         System.out.println("Checkout: " + checkout);
     }
+    
+    public String information(){
+        String guest = "";
+        guest = firstName +","+ lastName+","+Integer.toString(id)+","+email+","+phone+","+gender+","+roomType+","+arrival+","+checkout;
+        return guest;
+    }
 
     public void setId(int id) {
         this.id = id;

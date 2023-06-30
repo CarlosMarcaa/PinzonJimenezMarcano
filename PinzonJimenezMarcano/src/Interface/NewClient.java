@@ -5,6 +5,10 @@
  */
 package Interface;
 
+import DataStructures.Functions;
+import Objects.Guest;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicoll Pinzon
@@ -14,8 +18,13 @@ public class NewClient extends javax.swing.JFrame {
     /**
      * Creates new form NewClient
      */
-    public NewClient() {
+    public static Menu menu;
+    public NewClient(Menu menu) {
         initComponents();
+        this.menu = menu;
+        menu.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -38,34 +47,35 @@ public class NewClient extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        lastName = new javax.swing.JTextField();
+        idNew = new javax.swing.JTextField();
+        gender = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        cell = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        phone = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        typeRoom = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        month1 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
+        day2 = new javax.swing.JTextField();
+        month2 = new javax.swing.JTextField();
+        day1 = new javax.swing.JTextField();
+        year1 = new javax.swing.JTextField();
+        year2 = new javax.swing.JTextField();
+        back = new javax.swing.JButton();
+        ok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,23 +134,23 @@ public class NewClient extends javax.swing.JFrame {
         jLabel11.setText("Fecha de salida:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 160, -1));
+        name.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 160, -1));
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 160, -1));
+        lastName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(lastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 160, -1));
 
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 160, -1));
+        idNew.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(idNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 160, -1));
 
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 160, -1));
+        gender.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 160, -1));
 
-        jTextField5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 330, -1));
+        email.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 330, -1));
 
-        jTextField6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 50, -1));
+        cell.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(cell, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 50, -1));
 
         jLabel12.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel12.setText(")");
@@ -150,8 +160,8 @@ public class NewClient extends javax.swing.JFrame {
         jLabel13.setText("(");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 20, -1));
 
-        jTextField7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 140, -1));
+        phone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 140, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setText("# # #");
@@ -167,11 +177,8 @@ public class NewClient extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cohete.png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/planeta.png"))); // NOI18N
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 80, 80));
-
-        jTextField8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 110, -1));
+        typeRoom.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(typeRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 110, -1));
 
         jLabel19.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel19.setText("\\");
@@ -181,8 +188,8 @@ public class NewClient extends javax.swing.JFrame {
             jLabel21.setText("\\");
                 getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 20, 20));
 
-                jTextField9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 40, -1));
+                month1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                getContentPane().add(month1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 40, -1));
 
                 jLabel23.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
                 jLabel23.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,26 +214,70 @@ public class NewClient extends javax.swing.JFrame {
                         jLabel26.setText("AAAA");
                         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, -1));
 
-                        jTextField10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 40, -1));
+                        day2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(day2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 40, -1));
 
-                        jTextField11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                        getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 40, -1));
+                        month2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(month2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 40, -1));
 
-                        jTextField12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                        getContentPane().add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 40, -1));
+                        day1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(day1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 40, -1));
 
-                        jTextField13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                        getContentPane().add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 60, -1));
+                        year1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(year1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 60, -1));
 
-                        jTextField14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                        getContentPane().add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 60, -1));
+                        year2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(year2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 60, -1));
+
+                        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
+                        back.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                backActionPerformed(evt);
+                            }
+                        });
+                        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 100, 50));
+
+                        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
+                        ok.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                okActionPerformed(evt);
+                            }
+                        });
+                        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, 100, 70));
 
                         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo.png"))); // NOI18N
                         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
                         pack();
                     }// </editor-fold>//GEN-END:initComponents
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        try{
+            boolean  dateExist = false;
+            
+            Functions verifyDateExits = new Functions();
+            boolean dateExist = verifyDateExits.dateExist();
+            if ((dateExist == true)&&(emailGood == True)&&(typeRoomExist ==True)&&(cellphone==True)){
+            
+                Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que pusiste todos los datos bien?");
+            
+            Guest guest = new Guest(name.getText(), lastName.getText());
+                        guest.setId(idToInt(data[0]));
+                        guest.setEmail(data[3]);
+                        guest.setArrival(data[7]);
+                        guest.setCheckout(data[8]);
+                        guest.setGender(data[4]);
+                        guest.setPhone(data[6]);
+                        guest.setRoomType(data[5]);
+                        tree.insert(guest, tree.getRoot());}
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
+        }
+    }//GEN-LAST:event_okActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,12 +309,19 @@ public class NewClient extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewClient().setVisible(true);
+                new NewClient(menu).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back;
+    private javax.swing.JTextField cell;
+    private javax.swing.JTextField day1;
+    private javax.swing.JTextField day2;
+    private javax.swing.JTextField email;
+    private javax.swing.JTextField gender;
+    private javax.swing.JTextField idNew;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -273,7 +331,6 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -290,19 +347,14 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField lastName;
+    private javax.swing.JTextField month1;
+    private javax.swing.JTextField month2;
+    private javax.swing.JTextField name;
+    private javax.swing.JButton ok;
+    private javax.swing.JTextField phone;
+    private javax.swing.JTextField typeRoom;
+    private javax.swing.JTextField year1;
+    private javax.swing.JTextField year2;
     // End of variables declaration//GEN-END:variables
 }

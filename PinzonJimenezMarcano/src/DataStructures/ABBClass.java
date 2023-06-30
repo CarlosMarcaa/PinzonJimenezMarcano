@@ -14,6 +14,7 @@ import Objects.Guest;
 public class ABBClass {
 
     private ABBNode root;
+    String guest_find = "";
 
     public ABBClass() {
         this.root = null;
@@ -154,15 +155,16 @@ public class ABBClass {
         }
     }
 
-    public Object searchId(ABBNode root, int id) {
-        Object guest_find = new Object();
+    public String searchId(ABBNode root, int id) {
+        
         if (root != null) {
             if (id == root.getElement()) {
-               guest_find = root.getGuest();
+               guest_find = root.getGuest().information();
+               
             }
             searchId(root.getLeftSon(), id);
             searchId(root.getRightSon(), id);
-        }return guest_find;
+        }return  guest_find;
     }
 
     public void searchRoom(ABBNode root, int room) {

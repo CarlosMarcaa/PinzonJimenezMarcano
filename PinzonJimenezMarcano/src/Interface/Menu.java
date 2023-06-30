@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class Menu extends javax.swing.JFrame {
     public static CsvManager cvsManager = new CsvManager();
+    
     public static boolean save = false;
     public static ABBClass historic = (ABBClass) cvsManager.ReadText("test/Booking_hotel_historic.csv");
     public static List rooms = (List) cvsManager.ReadText("test/Booking_hotel_rooms.csv");
@@ -28,9 +29,11 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+         
         this.setVisible(true);
-        this.setLocationRelativeTo(null); 
+        this.setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,20 +144,20 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_newClientActionPerformed
 
     private void costumerRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costumerRecordActionPerformed
-        CostumerRecord costumerRecord = new CostumerRecord(this);
+//        CostumerRecord costumerRecord = new CostumerRecord(this);
         
     }//GEN-LAST:event_costumerRecordActionPerformed
 
     private void roomHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomHistoryActionPerformed
-        RoomHistory roomHistory = new RoomHistory(this);
+//        RoomHistory roomHistory = new RoomHistory(this);
     }//GEN-LAST:event_roomHistoryActionPerformed
 
     private void checkInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInActionPerformed
-        CheckIn checkIn = new CheckIn(this);
+//        CheckIn checkIn = new CheckIn(this);
     }//GEN-LAST:event_checkInActionPerformed
 
     private void checkOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOutActionPerformed
-        CheckOut checkOut = new CheckOut(this);
+//        CheckOut checkOut = new CheckOut(this);
     }//GEN-LAST:event_checkOutActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed

@@ -7,6 +7,8 @@ package Interface;
 
 import static Interface.Menu.reservations;
 import static Interface.SearchReservation.id;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -19,11 +21,34 @@ public class SearchReservation2 extends javax.swing.JFrame {
      */
     public SearchReservation2(SearchReservation reservation2) {
         initComponents();
+       
+        
         this.reservation2 = reservation2;
         reservation2.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        Object guest_find1 = reservations.(reservations, id);
+        
+        
+        
+        
+        
+        
+    }
+    
+    public void information(int id1){
+        String guest_find1 = reservations.searchId(reservations.getRoot(), id1);
+        
+       String[] information1 = guest_find1.split(",");
+        
+        name.setText(information1[0]);
+        lastName.setText(information1[1]);
+       CI.setText(information1[2]);
+       email.setText(information1[3]);
+       cellphone.setText(information1[4]);
+        gender.setText(information1[5]);
+        roomType.setText(information1[6]);
+        dateArrival.setText(information1[7]);
+        dateExit.setText(information1[8]);
     }
     
     
@@ -46,14 +71,14 @@ public class SearchReservation2 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        name = new javax.swing.JLabel();
         lastName = new javax.swing.JLabel();
         CI = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         cellphone = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         gender = new javax.swing.JLabel();
-        numberRoom = new javax.swing.JLabel();
+        roomType = new javax.swing.JLabel();
         dateArrival = new javax.swing.JLabel();
         dateExit = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -106,36 +131,45 @@ public class SearchReservation2 extends javax.swing.JFrame {
         jLabel9.setText("Fecha de llegada:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
 
+        lastName.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        lastName.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 110, 30));
+
+        CI.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        CI.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 140, 30));
+
+        name.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 110, 30));
+
+        cellphone.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        cellphone.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(cellphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 190, 30));
+
+        email.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        email.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 270, 30));
+
         jLabel10.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Fecha de salida:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
 
-        name.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 110, 30));
-
-        lastName.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        getContentPane().add(lastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 110, 30));
-
-        CI.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        getContentPane().add(CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 140, 30));
-
-        email.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 270, 30));
-
-        cellphone.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        getContentPane().add(cellphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 190, 30));
-
         gender.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        gender.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 180, 20));
 
-        numberRoom.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        getContentPane().add(numberRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 200, 30));
+        roomType.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        roomType.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(roomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 200, 30));
 
         dateArrival.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        dateArrival.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(dateArrival, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 180, 30));
 
         dateExit.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        dateExit.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(dateExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 190, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/astronauta.png"))); // NOI18N
@@ -156,7 +190,8 @@ public class SearchReservation2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        // TODO add your handling code here:
+        reservation2.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_okActionPerformed
 
     /**
@@ -215,7 +250,7 @@ public class SearchReservation2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lastName;
     private javax.swing.JLabel name;
-    private javax.swing.JLabel numberRoom;
     private javax.swing.JButton ok;
+    private javax.swing.JLabel roomType;
     // End of variables declaration//GEN-END:variables
 }
