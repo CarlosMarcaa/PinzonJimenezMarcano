@@ -25,9 +25,18 @@ import java.io.PrintWriter;
  */
 public class CsvManager {
 
+    private ABBClass historyTree;
+
+    public ABBClass getHistoryTree() {
+        return historyTree;
+    }
+
+    public void setHistoryTree(ABBClass historyTree) {
+        this.historyTree = historyTree;
+    }
+
     public Object ReadText(String path) {
         ABBClass tree = new ABBClass();
-        List roomList = new List();
         HashTableClass hashTable = new HashTableClass(301);
 
         File cvsFile = new File(path);
@@ -35,7 +44,6 @@ public class CsvManager {
 
         String line;
         String data_cvs = "";
-
         try {
             lector = new BufferedReader(new FileReader(cvsFile));
             while ((line = lector.readLine()) != null) {
@@ -60,6 +68,8 @@ public class CsvManager {
                         guest.setPhone(data[6]);
                         guest.setRoomType(data[5]);
                         tree.insert(guest, tree.getRoot());
+//                        tree.preOrden(tree.getRoot());
+
                     } //                    STATUS
                     else if (path.equals("test/Booking_hotel_status.csv") && !data_split[i].equals("num_hab,primer_nombre,apellido,email,genero,celular,llegada")) {
 //                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);
@@ -75,9 +85,13 @@ public class CsvManager {
                     } //                    ROOMS
                     else if (path.equals("test/Booking_hotel_rooms.csv") && !data_split[i].equals("num_hab,tipo_hab,piso")) {
 //                        System.out.println(data[0] + ", " + data[1] + ", " + data[2]);
-                        Room room = new Room(Integer.parseInt(data[0]), data[1], Integer.parseInt(data[2]));
+                        List roomList = new List();
+
+                        Room room = new Room(Integer.parseInt(data[0]), data[1], Integer.parseInt(data[2]), roomList);
 //                        room.printRoom();
-                        roomList.insertFinal(room);
+//                        roomList.insertFinal(room);
+                        tree.insert(room, tree.getRoot());
+                        setHistoryTree(tree);
 
                     } //                    HISTORIC
                     else if (path.equals("test/Booking_hotel_historic.csv") && !data_split[i].equals("ci,primer_nombre,apellido,email,genero,llegada,num_hab")) {
@@ -88,6 +102,9 @@ public class CsvManager {
                         guest.setGender(data[4]);
                         guest.setArrival(data[5]);
                         guest.setRoom(Integer.parseInt(data[6]));
+//                            getHistoryTree().searchRoom(getHistoryTree().getRoot(), guest.getRoom()).printRoom();
+                        getHistoryTree().searchRoom(getHistoryTree().getRoot(), guest.getRoom()).getGuestHistory().insertFinal(guest);
+
                         tree.insert(guest, tree.getRoot());
                     }
                 }
@@ -97,6 +114,7 @@ public class CsvManager {
         } catch (Exception e) {
             System.out.println(e);
         }
+
         if (null != path) {
             switch (path) {
                 case "test/Booking_hotel_reservations.csv":
@@ -104,9 +122,9 @@ public class CsvManager {
                 case "test/Booking_hotel_status.csv":
                     return hashTable;
                 case "test/Booking_hotel_rooms.csv":
-                    return roomList;
-                case "test/Booking_hotel_historic.csv":
                     return tree;
+                case "test/Booking_hotel_historic.csv":
+                    return getHistoryTree();
                 default:
                     break;
             }

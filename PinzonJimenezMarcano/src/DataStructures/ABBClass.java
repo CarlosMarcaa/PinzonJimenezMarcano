@@ -5,6 +5,7 @@
 package DataStructures;
 
 import Objects.Guest;
+import Objects.Room;
 
 /**
  *
@@ -31,27 +32,50 @@ public class ABBClass {
         return root == null;
     }
 
-    public void insert(Guest guest, ABBNode root) {
-        ABBNode nodo = new ABBNode(guest);
-        if (isEmpty()) {
-            setRoot(nodo);
-        } else {
-            if (nodo.getElement() < root.getElement()) {
-                if (root.getLeftSon() == null) {
-                    root.setLeftSon(nodo);
-                } else {
-                    insert(guest, root.getLeftSon());
-                }
-            } else {
+    public void insert(Object element, ABBNode root) {
+        if (element instanceof Guest) {
+            ABBNode nodo = new ABBNode((Guest) element, null);
 
-                if (root.getRightSon() == null) {
-                    root.setRightSon(nodo);
+            if (isEmpty()) {
+                setRoot(nodo);
+            } else {
+                if (nodo.getElement() < root.getElement()) {
+                    if (root.getLeftSon() == null) {
+                        root.setLeftSon(nodo);
+                    } else {
+                        insert((Guest) element, root.getLeftSon());
+                    }
                 } else {
-                    insert(guest, root.getRightSon());
+
+                    if (root.getRightSon() == null) {
+                        root.setRightSon(nodo);
+                    } else {
+                        insert((Guest) element, root.getRightSon());
+                    }
+                }
+            }
+        } else {
+            ABBNode nodo = new ABBNode(null, (Room) element);
+
+            if (isEmpty()) {
+                setRoot(nodo);
+            } else {
+                if (nodo.getElement() < root.getElement()) {
+                    if (root.getLeftSon() == null) {
+                        root.setLeftSon(nodo);
+                    } else {
+                        insert((Room) element, root.getLeftSon());
+                    }
+                } else {
+
+                    if (root.getRightSon() == null) {
+                        root.setRightSon(nodo);
+                    } else {
+                        insert((Room) element, root.getRightSon());
+                    }
                 }
             }
         }
-
     }
 
     public void delete(int element, ABBNode previousNode, ABBNode root) {
@@ -172,15 +196,26 @@ public class ABBClass {
         }
     }
 
-    public void searchRoom(ABBNode root, int room) {
+    public Room searchRoom(ABBNode root, int room) {
         if (root != null) {
-            if (room == root.getGuest().getRoom()) {
-                root.getGuest().printGuest();
-                System.out.println("");
+            if (room == root.getRoom().getRoomNumber()) {
+//                root.getRoom().printRoom();
+//                System.out.println("");
+                return root.getRoom();
+            } else {
+                if (room < root.getRoom().getRoomNumber()) {
+                    if (root.getLeftSon() != null) {
+                       return searchRoom(root.getLeftSon(), room);
+//                        
+                    }
+                } else {
+                    if (root.getRightSon() != null) {
+                       return searchRoom(root.getRightSon(), room);
+                    }
+                }
             }
-            searchRoom(root.getLeftSon(), room);
-            searchRoom(root.getRightSon(), room);
         }
+        return null;
     }
 
     public ABBNode searchReplacementNode(ABBNode selected) {

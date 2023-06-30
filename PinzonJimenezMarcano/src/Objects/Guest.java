@@ -63,12 +63,12 @@ public class Guest {
     }
 
     public void printGuest(){
-        System.out.println("Name: " + firstName + " " + lastName);
-        System.out.println("Id: " + id);
-        System.out.println("Email: " + email);
-        System.out.println("Phone number: " + phone);
-        System.out.println("Arrival: " + arrival);
-        System.out.println("Checkout: " + checkout);
+        System.out.println("     Name: " + firstName + " " + lastName);
+        System.out.println("     Id: " + id);
+        System.out.println("     Email: " + email);
+        System.out.println("     Phone number: " + phone);
+        System.out.println("     Arrival: " + arrival);
+        System.out.println("     Checkout: " + checkout);
     }
 
     public void setId(int id) {
