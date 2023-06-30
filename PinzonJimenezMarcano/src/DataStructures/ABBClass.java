@@ -154,14 +154,15 @@ public class ABBClass {
         }
     }
 
-    public void searchId(ABBNode root, int id) {
+    public Object searchId(ABBNode root, int id) {
+        Object guest_find = new Object();
         if (root != null) {
             if (id == root.getElement()) {
-                root.getGuest().printGuest();
+               guest_find = root.getGuest();
             }
             searchId(root.getLeftSon(), id);
             searchId(root.getRightSon(), id);
-        }
+        }return guest_find;
     }
 
     public void searchRoom(ABBNode root, int room) {

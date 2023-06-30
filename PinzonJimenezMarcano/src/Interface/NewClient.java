@@ -55,7 +55,6 @@ public class NewClient extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -65,6 +64,8 @@ public class NewClient extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -180,11 +181,6 @@ public class NewClient extends javax.swing.JFrame {
             jLabel21.setText("\\");
                 getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 20, 20));
 
-                jLabel22.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-                jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel22.setText("2023");
-                getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
-
                 jTextField9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 40, -1));
 
@@ -206,10 +202,10 @@ public class NewClient extends javax.swing.JFrame {
                     jLabel25.setText("\\");
                         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 20, 20));
 
-                        jLabel26.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                        jLabel26.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
                         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-                        jLabel26.setText("2023");
-                        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
+                        jLabel26.setText("AAAA");
+                        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, -1));
 
                         jTextField10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                         getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 40, -1));
@@ -219,6 +215,12 @@ public class NewClient extends javax.swing.JFrame {
 
                         jTextField12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                         getContentPane().add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 40, -1));
+
+                        jTextField13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 60, -1));
+
+                        jTextField14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                        getContentPane().add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 60, -1));
 
                         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo.png"))); // NOI18N
                         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
@@ -276,7 +278,6 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -293,6 +294,8 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
