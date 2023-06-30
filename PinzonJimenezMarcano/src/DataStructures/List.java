@@ -9,7 +9,8 @@ package DataStructures;
  * @author Miguel
  */
 public class List {
-     private Nodo head;
+
+    private Nodo head;
     private int length;
 
     public List() {
@@ -21,6 +22,10 @@ public class List {
         return head;
     }
 
+    public int getLength() {
+        return length;
+    }
+    
     public void setHead(Nodo head) {
         this.head = head;
     }
@@ -59,13 +64,13 @@ public class List {
         if (isEmpty()) {
             setHead(node);
         } else {
-            if (index == 0){
+            if (index == 0) {
                 insertBegin(element);
             } else {
                 if (index < length) {
                     Nodo pointer = getHead();
                     int cont = 0;
-                    while ( cont< index-1 && pointer != null) {
+                    while (cont < index - 1 && pointer != null) {
                         pointer = (Nodo) pointer.getNext();
                         cont++;
                     }
@@ -79,14 +84,14 @@ public class List {
         length++;
     }
 
-    public Nodo deleteFinal(){
+    public Nodo deleteFinal() {
         if (isEmpty()) {
             System.out.println("List is Empty");
         } else {
             Nodo pointer = getHead();
             Nodo pointer2;
 
-            if (length > 1){
+            if (length > 1) {
                 while (((Nodo) (pointer.getNext())).getNext() != null) {
                     pointer = (Nodo) pointer.getNext();
                 }
@@ -102,7 +107,7 @@ public class List {
         return null;
     }
 
-    public Nodo deleteBegin(){
+    public Nodo deleteBegin() {
         if (isEmpty()) {
             System.out.println("List is Empty");
         } else {
@@ -116,18 +121,18 @@ public class List {
         return null;
     }
 
-    public Nodo deleteInIndex(int index){
+    public Nodo deleteInIndex(int index) {
         if (isEmpty()) {
             System.out.println("List is Empty");
         } else {
-            if (index == 0){
+            if (index == 0) {
                 deleteBegin();
             } else {
                 if (index < length) {
                     Nodo pointer = getHead();
                     Nodo pointer2;
                     int cont = 0;
-                    while ( cont< index-1 && pointer != null) {
+                    while (cont < index - 1 && pointer != null) {
                         pointer = (Nodo) pointer.getNext();
                         cont++;
                     }
@@ -147,7 +152,7 @@ public class List {
     public void printList() {
         Nodo pointer = getHead();
         while (pointer != null) {
-            System.out.println("[ "+pointer.getElement()+" ]");
+            System.out.println("[ " + pointer.getElement() + " ]");
             pointer = (Nodo) pointer.getNext();
         }
     }
