@@ -160,10 +160,12 @@ public class NewClient extends javax.swing.JFrame {
         getContentPane().add(cell, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 50, -1));
 
         jLabel12.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText(")");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 10, -1));
 
         jLabel13.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("(");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 20, -1));
 
@@ -171,10 +173,12 @@ public class NewClient extends javax.swing.JFrame {
         getContentPane().add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 140, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("# # #");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("# # # # # # #");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
@@ -188,10 +192,12 @@ public class NewClient extends javax.swing.JFrame {
         getContentPane().add(typeRoom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 110, -1));
 
         jLabel19.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("\\");
             getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 20, 20));
 
             jLabel21.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+            jLabel21.setForeground(new java.awt.Color(255, 255, 255));
             jLabel21.setText("\\");
                 getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 20, 20));
 
@@ -209,10 +215,12 @@ public class NewClient extends javax.swing.JFrame {
                 getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
 
                 jLabel20.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                jLabel20.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel20.setText("\\");
                     getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 20, 20));
 
                     jLabel25.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                    jLabel25.setForeground(new java.awt.Color(255, 255, 255));
                     jLabel25.setText("\\");
                         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 20, 20));
 

@@ -11,6 +11,8 @@ package Interface;
  */
 public class CheckIn2 extends javax.swing.JFrame {
 
+    
+    
     /**
      * Creates new form CheckIn2
      */
@@ -31,9 +33,9 @@ public class CheckIn2 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RoomAvailable = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        ok = new javax.swing.JButton();
+        back = new javax.swing.JButton();
+        numberSelected = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -54,12 +56,22 @@ public class CheckIn2 extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 310, 120));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 194, 100, 70));
+        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 194, 100, 70));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 90, 50));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 130, 30));
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 90, 50));
+        getContentPane().add(numberSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 130, 30));
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,6 +83,15 @@ public class CheckIn2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backActionPerformed
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        Menu menu = new Menu(this);
+        
+    }//GEN-LAST:event_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,13 +130,13 @@ public class CheckIn2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea RoomAvailable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField numberSelected;
+    private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
 }

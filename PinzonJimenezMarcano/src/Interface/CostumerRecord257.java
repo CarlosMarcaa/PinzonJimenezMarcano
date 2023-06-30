@@ -99,8 +99,7 @@ public class CostumerRecord257 extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         
-        costumerRecord.setVisible(true);
-        this.setVisible(false);
+        Menu menu = new Menu(this);
     }//GEN-LAST:event_okActionPerformed
 
     /**

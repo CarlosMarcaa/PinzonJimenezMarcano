@@ -40,9 +40,9 @@ public class RoomHistory extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        numberRoom16 = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         back = new javax.swing.JButton();
+        numberRoom16 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,15 +61,6 @@ public class RoomHistory extends javax.swing.JFrame {
         jLabel2.setText("Numero de Habitacion:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
-        numberRoom16.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        numberRoom16.setForeground(new java.awt.Color(255, 255, 255));
-        numberRoom16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numberRoom16ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(numberRoom16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 100, -1));
-
         ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
         ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,15 +77,20 @@ public class RoomHistory extends javax.swing.JFrame {
         });
         getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 90, 50));
 
+        numberRoom16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        numberRoom16.setForeground(new java.awt.Color(0, 0, 0));
+        numberRoom16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberRoom16ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(numberRoom16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 90, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo5.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void numberRoom16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberRoom16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numberRoom16ActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         try {
@@ -114,6 +110,10 @@ public class RoomHistory extends javax.swing.JFrame {
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_backActionPerformed
+
+    private void numberRoom16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberRoom16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberRoom16ActionPerformed
 
     /**
      * @param args the command line arguments

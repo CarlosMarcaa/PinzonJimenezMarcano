@@ -17,6 +17,10 @@ import javax.swing.JOptionPane;
  */
 public class Menu extends javax.swing.JFrame {
 
+    public static CheckIn2 checkIn2;
+    public static RoomHistory2 roomhistory2;
+    public static SearchReservation2 searchResetrvation2;
+    public static CostumerRecord257 costumerRecord57;
     public static CsvManager csvManager = new CsvManager();
 
     public static boolean save = false;
@@ -36,6 +40,36 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
+
+    public Menu(CheckIn2 checkIn2) {
+        initComponents();
+        this.checkIn2 = checkIn2;
+        checkIn2.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+    }
+    public Menu(RoomHistory2 roomhistory2) {
+        initComponents();
+        this.roomhistory2 = roomhistory2;
+        roomhistory2.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+    }
+    public Menu(SearchReservation2 searchResetrvation2) {
+        initComponents();
+        this.searchResetrvation2 = searchResetrvation2;
+        searchResetrvation2.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+    }
+    public Menu(CostumerRecord257 costumerRecord57) {
+        initComponents();
+        this.costumerRecord57 = costumerRecord57;
+        costumerRecord57.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -155,7 +189,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_roomHistoryActionPerformed
 
     private void checkInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInActionPerformed
-//        CheckIn checkIn = new CheckIn(this);
+        CheckIn checkIn = new CheckIn(this);
     }//GEN-LAST:event_checkInActionPerformed
 
     private void checkOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOutActionPerformed
@@ -214,7 +248,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Menu(checkIn2).setVisible(true);
             }
         });
     }

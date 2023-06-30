@@ -190,8 +190,7 @@ public class SearchReservation2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        reservation2.setVisible(true);
-        this.setVisible(false);
+        Menu menu = new Menu(this);
     }//GEN-LAST:event_okActionPerformed
 
     /**

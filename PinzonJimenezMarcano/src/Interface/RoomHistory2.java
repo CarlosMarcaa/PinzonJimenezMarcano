@@ -71,8 +71,7 @@ public class RoomHistory2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        roomHistory.setVisible(false);
-        this.setVisible(true);
+        Menu menu = new Menu(this);
     }//GEN-LAST:event_okActionPerformed
 
     /**

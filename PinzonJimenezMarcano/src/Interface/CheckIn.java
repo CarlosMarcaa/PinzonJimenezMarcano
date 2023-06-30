@@ -5,17 +5,24 @@
  */
 package Interface;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class CheckIn extends javax.swing.JFrame {
-
+    public static Menu menu;
+    
     /**
      * Creates new form ChechIn
      */
-    public CheckIn() {
+    public CheckIn(Menu menu) {
         initComponents();
+        this.menu = menu;
+        menu.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -41,7 +48,7 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         ok = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,10 +116,20 @@ public class CheckIn extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 20, 30));
 
         ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(667, 174, 100, 70));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 90, 50));
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 90, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo4.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
@@ -123,6 +140,21 @@ public class CheckIn extends javax.swing.JFrame {
     private void id57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id57ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_id57ActionPerformed
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_okActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que no quieres seguir con el check-in?");
+
+        if (confirm.equals(0)) {
+            
+            menu.setVisible(true);
+            this.setVisible(false);
+            
+        }
+    }//GEN-LAST:event_backActionPerformed
 
     /**
     AAAAam args the command line arguments
@@ -155,16 +187,16 @@ public class CheckIn extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CheckIn().setVisible(true);
+                new CheckIn(menu).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AAAA;
+    private javax.swing.JButton back;
     private javax.swing.JTextField day;
     private javax.swing.JTextField id57;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -29,14 +29,14 @@ public class CheckOut extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        back = new javax.swing.JButton();
+        ok = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        id57 = new javax.swing.JTextField();
+        day57 = new javax.swing.JTextField();
+        month57 = new javax.swing.JTextField();
+        year57 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -55,11 +55,11 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel10.setText("Check Out");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 90, 50));
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 90, 50));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 100, 70));
+        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 100, 70));
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,17 +71,17 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel3.setText("CI:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 140, 30));
+        id57.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(id57, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 140, 30));
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 60, 30));
+        day57.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(day57, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 60, 30));
 
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 60, 30));
+        month57.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(month57, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 60, 30));
 
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 90, 30));
+        year57.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(year57, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 90, 30));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,8 +150,9 @@ public class CheckOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton back;
+    private javax.swing.JTextField day57;
+    private javax.swing.JTextField id57;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -162,9 +163,8 @@ public class CheckOut extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField month57;
+    private javax.swing.JButton ok;
+    private javax.swing.JTextField year57;
     // End of variables declaration//GEN-END:variables
 }
