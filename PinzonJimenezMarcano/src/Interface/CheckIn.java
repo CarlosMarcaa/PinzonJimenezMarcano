@@ -41,6 +41,7 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         ok = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,6 +111,9 @@ public class CheckIn extends javax.swing.JFrame {
         ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(667, 174, 100, 70));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 90, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo4.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
@@ -160,6 +164,7 @@ public class CheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel AAAA;
     private javax.swing.JTextField day;
     private javax.swing.JTextField id57;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
