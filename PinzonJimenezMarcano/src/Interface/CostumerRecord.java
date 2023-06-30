@@ -107,7 +107,8 @@ public class CostumerRecord extends javax.swing.JFrame {
         if (!haveARoom.equals("")){
         
         numberRoom = haveARoom;
-        CostumerRecord2 Record2 = new CostumerRecord2(this);
+        CostumerRecord257 Record2 = new CostumerRecord257(this);
+        
         }
         
     }//GEN-LAST:event_okActionPerformed

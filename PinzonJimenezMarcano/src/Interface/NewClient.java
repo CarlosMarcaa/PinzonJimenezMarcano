@@ -344,8 +344,9 @@ public class NewClient extends javax.swing.JFrame {
 
             int year4 = Integer.parseInt(year1.getText());
             int year3 = Integer.parseInt(year2.getText());
-
-            dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
+            if ((year3 <= 9999 && year3 >= 2000) || (year4 <= 9999 && year4 >= 2000)){
+            dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);}
+            
             String dateArrival1 = "";
             String dateCheckout1 ="";
             if (dateExist=true){

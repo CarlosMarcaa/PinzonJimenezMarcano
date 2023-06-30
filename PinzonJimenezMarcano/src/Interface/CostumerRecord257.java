@@ -13,15 +13,15 @@ import static Interface.CostumerRecord.numberRoom;
  *
  * @author Nicoll Pinzon
  */
-public class CostumerRecord2 extends javax.swing.JFrame {
-    public static CostumerRecord2 Record2;
+public class CostumerRecord257 extends javax.swing.JFrame {
+    public static CostumerRecord costumerRecord;
     /**
      * Creates new form CostumerRecord2
      */
-    public CostumerRecord2(CostumerRecord2 Record2) {
+    public CostumerRecord257(CostumerRecord costumerRecord) {
         initComponents();
-        this.Record2 = Record2;
-        Record2.setVisible(false);
+        this.costumerRecord = costumerRecord;
+        costumerRecord.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         
@@ -99,7 +99,7 @@ public class CostumerRecord2 extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         
-        Record2.setVisible(true);
+        costumerRecord.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_okActionPerformed
 
@@ -120,20 +120,21 @@ public class CostumerRecord2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CostumerRecord2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CostumerRecord257.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CostumerRecord2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CostumerRecord257.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CostumerRecord2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CostumerRecord257.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CostumerRecord2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CostumerRecord257.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CostumerRecord2(Record2).setVisible(true);
+                new CostumerRecord257(costumerRecord).setVisible(true);
             }
         });
     }

@@ -31,17 +31,16 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        day = new javax.swing.JTextField();
+        month = new javax.swing.JTextField();
+        year = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        AAAA = new javax.swing.JLabel();
+        id57 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        ok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,14 +64,14 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel4.setText("CI del cliente:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 70, -1));
+        day.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(day, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 70, -1));
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 60, -1));
+        month.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(month, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 60, -1));
 
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 70, -1));
+        year.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(year, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 70, -1));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -84,30 +83,32 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel6.setText("MM");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        AAAA.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        AAAA.setForeground(new java.awt.Color(255, 255, 255));
+        AAAA.setText("AAAA");
+        getContentPane().add(AAAA, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, -1));
+
+        id57.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        id57.setForeground(new java.awt.Color(255, 255, 255));
+        id57.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id57ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(id57, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 270, -1));
+
+        jLabel7.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("AAAA");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+        jLabel7.setText("/");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 20, 20));
 
         jLabel8.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("/");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 10, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 20, 30));
 
-        jLabel10.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("/");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 10, -1));
-
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 200, -1));
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 100, 70));
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 100, 50));
+        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(667, 174, 100, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo4.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
@@ -115,8 +116,12 @@ public class CheckIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void id57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id57ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id57ActionPerformed
+
     /**
-     * @param args the command line arguments
+    AAAAam args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -152,10 +157,10 @@ public class CheckIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel AAAA;
+    private javax.swing.JTextField day;
+    private javax.swing.JTextField id57;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -164,9 +169,8 @@ public class CheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField month;
+    private javax.swing.JButton ok;
+    private javax.swing.JTextField year;
     // End of variables declaration//GEN-END:variables
 }
