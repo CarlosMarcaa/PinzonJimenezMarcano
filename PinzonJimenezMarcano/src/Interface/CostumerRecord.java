@@ -105,8 +105,9 @@ public class CostumerRecord extends javax.swing.JFrame {
         lastName45 = lastName5.getText();
         String haveARoom = status.getGuestRoom(name45, lastName45);
         if (!haveARoom.equals("")){
-        CostumerRecord2 costumerRecord2 = new CostumerRecord2(this);
+        
         numberRoom = haveARoom;
+        CostumerRecord2 Record2 = new CostumerRecord2(this);
         }
         
     }//GEN-LAST:event_okActionPerformed

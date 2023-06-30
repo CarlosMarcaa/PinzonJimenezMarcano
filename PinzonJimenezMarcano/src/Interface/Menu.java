@@ -151,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_costumerRecordActionPerformed
 
     private void roomHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomHistoryActionPerformed
-//        RoomHistory roomHistory = new RoomHistory(this);
+        RoomHistory roomHistory = new RoomHistory(this);
     }//GEN-LAST:event_roomHistoryActionPerformed
 
     private void checkInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInActionPerformed

@@ -5,17 +5,27 @@
  */
 package Interface;
 
+import static Interface.Menu.historic;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class RoomHistory extends javax.swing.JFrame {
 
+    public static Menu menu;
+    public static String historyRoom16;
+
     /**
      * Creates new form RoomHistory
      */
-    public RoomHistory() {
+    public RoomHistory(Menu menu) {
         initComponents();
+        this.menu = menu;
+        menu.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,11 +38,11 @@ public class RoomHistory extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        numberRoom16 = new javax.swing.JTextField();
+        ok = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,30 +51,69 @@ public class RoomHistory extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Historial de habitacion:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
+
         jLabel2.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Historial de habitacion:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        jLabel2.setText("Numero de Habitacion:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, 100, 70));
+        numberRoom16.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        numberRoom16.setForeground(new java.awt.Color(255, 255, 255));
+        numberRoom16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberRoom16ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(numberRoom16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 100, -1));
 
-        jLabel3.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Numero de habitacion:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
+        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 100, 70));
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 150, 30));
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 90, 50));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atras2.2.png"))); // NOI18N
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 100, 50));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo3.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo5.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void numberRoom16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberRoom16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberRoom16ActionPerformed
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        try {
+            if (Integer.parseInt(numberRoom16.getText()) <= 300) {
+                historyRoom16 = historic.searchRoom(historic.getRoot(), Integer.parseInt(numberRoom16.getText())).stringRoomHistory();
+                RoomHistory2 roomHistory2 = new RoomHistory2(this);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Error. Coloco el numero erroneo.");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error. Coloco el numero erroneo.");
+        }
+    }//GEN-LAST:event_okActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_backActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,18 +145,18 @@ public class RoomHistory extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RoomHistory().setVisible(true);
+                new RoomHistory(menu).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField numberRoom16;
+    private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
 }

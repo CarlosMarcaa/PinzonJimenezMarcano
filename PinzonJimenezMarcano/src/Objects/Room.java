@@ -48,21 +48,19 @@ public class Room {
         System.out.println("");
     }
 
-    public void printRoomHistory() {
-        
-        System.out.println("Room: " + roomNumber);
-        System.out.println("Type: " + roomType);
-        System.out.println("Floor: " + floor);
-        System.out.println("Guests History: ");
+    public String stringRoomHistory() {
+        String RoomHistory = "";
+        RoomHistory = "Room: " + roomNumber+ "ln"+"Type: " + roomType+"ln"+"Floor: " + floor+"ln"+"Guests History: "+"ln";
         if (getGuestHistory() != null) {
             Nodo pointer = getGuestHistory().getHead();
             while (pointer != null) {
                 Guest guest = (Guest) pointer.getElement();
-                guest.printGuest();
+                RoomHistory += guest.stringGuest();
                 System.out.println("");
                 pointer = pointer.getNext();
             }
         }
-        System.out.println("");
+        RoomHistory += "ln";
+        return RoomHistory;
     }
 }

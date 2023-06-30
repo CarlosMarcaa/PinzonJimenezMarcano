@@ -62,13 +62,10 @@ public class Guest {
         return fullName;
     }
 
-    public void printGuest(){
-        System.out.println("     Name: " + firstName + " " + lastName);
-        System.out.println("     Id: " + id);
-        System.out.println("     Email: " + email);
-        System.out.println("     Phone number: " + phone);
-        System.out.println("     Arrival: " + arrival);
-        System.out.println("     Checkout: " + checkout);
+    public String stringGuest(){
+        String guest = "";
+        guest = "ln"+"     Name: " + firstName + " " + lastName+"ln"+"     Id: " + id+"ln"+"     Email: " + email+"ln"+"     Phone number: " + phone+"ln"+"     Arrival: " + arrival+"ln"+"     Checkout: " + checkout+"ln";
+        return guest;
     }
     
     public String information(){

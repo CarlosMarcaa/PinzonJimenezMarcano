@@ -52,7 +52,7 @@ public class Main {
                 System.out.print("Ingrese el número de habitación que desea consultar: ");
                 String room = sc.next();
                 if (Integer.parseInt(room) <= 300) {
-                    historic.searchRoom(historic.getRoot(), Integer.parseInt(room)).printRoomHistory();
+                    historic.searchRoom(historic.getRoot(), Integer.parseInt(room)).stringRoomHistory();
                 } else{
                     System.out.println("Valor inválido");
                 }

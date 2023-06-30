@@ -5,17 +5,28 @@
  */
 package Interface;
 
+import static Interface.RoomHistory.historyRoom16;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class RoomHistory2 extends javax.swing.JFrame {
 
+    public static RoomHistory roomHistory;
+
     /**
      * Creates new form RoomHistory2
      */
-    public RoomHistory2() {
+    public RoomHistory2(RoomHistory roomHistory) {
         initComponents();
+        this.roomHistory = roomHistory;
+        roomHistory.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+
+        HistoryRoom20.setText(historyRoom16);
+
     }
 
     /**
@@ -29,8 +40,8 @@ public class RoomHistory2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        HistoryRoom20 = new javax.swing.JTextArea();
+        ok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,21 +50,30 @@ public class RoomHistory2 extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        HistoryRoom20.setColumns(20);
+        HistoryRoom20.setRows(5);
+        jScrollPane1.setViewportView(HistoryRoom20);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 610, 220));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 100, 70));
+        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ok2.2.png"))); // NOI18N
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 100, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo3.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo5.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        roomHistory.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -85,16 +105,16 @@ public class RoomHistory2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RoomHistory2().setVisible(true);
+                new RoomHistory2(roomHistory).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextArea HistoryRoom20;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
 }

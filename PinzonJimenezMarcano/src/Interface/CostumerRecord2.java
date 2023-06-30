@@ -14,14 +14,14 @@ import static Interface.CostumerRecord.numberRoom;
  * @author Nicoll Pinzon
  */
 public class CostumerRecord2 extends javax.swing.JFrame {
-    public static CostumerRecord2 customerRecord2;
+    public static CostumerRecord2 Record2;
     /**
      * Creates new form CostumerRecord2
      */
-    public CostumerRecord2(CostumerRecord2 customerRecord2) {
+    public CostumerRecord2(CostumerRecord2 Record2) {
         initComponents();
-        this.customerRecord2 = customerRecord2;
-        customerRecord2.setVisible(false);
+        this.Record2 = Record2;
+        Record2.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         
@@ -99,7 +99,7 @@ public class CostumerRecord2 extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         
-        customerRecord2.setVisible(true);
+        Record2.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_okActionPerformed
 
@@ -133,7 +133,7 @@ public class CostumerRecord2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CostumerRecord2(customerRecord2).setVisible(true);
+                new CostumerRecord2(Record2).setVisible(true);
             }
         });
     }
