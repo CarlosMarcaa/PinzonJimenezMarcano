@@ -178,7 +178,8 @@ public class ABBClass {
         }
     }
 
-    public void searchId(ABBNode root, int id) {
+    public Object searchId(ABBNode root, int id) {
+        Object guest_find = new Object();
         if (root != null) {
             if (id == root.getElement()) {
                 root.getGuest().printGuest();

@@ -71,6 +71,19 @@ public class CsvManager {
 //                        tree.preOrden(tree.getRoot());
 
                     } //                    STATUS
+                    if (path.equals("test/Booking_hotel_reservations_1.csv") && !data_split[i].equals("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida")) {
+//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6] + ", " + data[7] + ", " + data[8]);
+                        Guest guest = new Guest(data[1], data[2]);
+                        guest.setId(idToInt(data[0]));
+                        guest.setEmail(data[3]);
+                        guest.setArrival(data[7]);
+                        guest.setCheckout(data[8]);
+                        guest.setGender(data[4]);
+                        guest.setPhone(data[6]);
+                        guest.setRoomType(data[5]);
+                        tree.insert(guest, tree.getRoot());
+                        
+                    }
                     else if (path.equals("test/Booking_hotel_status.csv") && !data_split[i].equals("num_hab,primer_nombre,apellido,email,genero,celular,llegada")) {
 //                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);
                         if (!data[0].equals("")) {
@@ -118,6 +131,8 @@ public class CsvManager {
         if (null != path) {
             switch (path) {
                 case "test/Booking_hotel_reservations.csv":
+                    return tree;
+                case "test/Booking_hotel_reservations_1.csv":
                     return tree;
                 case "test/Booking_hotel_status.csv":
                     return hashTable;
@@ -173,6 +188,10 @@ public class CsvManager {
                 wr.append("ci,primer_nombre,apellido,email,genero,llegada,num_hab\n");
                 ABBClass tree = (ABBClass) element;
                 getTree(tree.getRoot(), wr, "historic");
+            }else if ("test/Booking_hotel_reservations_1.csv".equals(path)) {
+                wr.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
+                ABBClass tree = (ABBClass) element;
+                getTree(tree.getRoot(), wr, "reservations_1");
             }
 
             wr.close();
