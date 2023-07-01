@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import DataManagement.CsvManager;
 import DataStructures.Functions;
 import DataStructures.HashTableClass;
 import DataStructures.Nodo;
@@ -12,6 +13,7 @@ import static Interface.Menu.historic;
 import static Interface.Menu.reservations;
 import static Interface.Menu.reservationsHistory;
 import static Interface.Menu.status;
+import static Interface.SearchReservation.id;
 import Objects.Guest;
 import javax.swing.JOptionPane;
 
@@ -168,7 +170,7 @@ public class CheckIn extends javax.swing.JFrame {
                 }
             }
             int idGuest = Integer.parseInt(id57.getText());
-            Object guestArrival = reservations.searchIdCheck(reservations.getRoot(), idGuest);
+            Guest guestArrival = reservations.searchIdCheck(reservations.getRoot(), idGuest);
 
             if (guestArrival != null) {
                 String[] dateGuest = guestArrival.getArrival().split("/");
@@ -380,8 +382,8 @@ public class CheckIn extends javax.swing.JFrame {
                                     flag2 = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
                                     if (flag2 == false) {
                                         if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
-                                            getHistoryTree().searchRoom(getHistoryTree().getRoot(), guestToAppend.getRoom()).getGuestHistory().insertFinal(guestToAppend);
-
+                                           
+                                           
                                             historic.insert(guestToAppend, historic.getRoot());
                                         }
                                         status.deleteGuest(guestToAppend);
@@ -396,7 +398,7 @@ public class CheckIn extends javax.swing.JFrame {
                                     status.deleteGuest(guestToAppend);
                                 } else {
                                     if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
-                                        getHistoryTree().searchRoom(getHistoryTree().getRoot(), guestToAppend.getRoom()).getGuestHistory().insertFinal(guestToAppend);
+                                       
 
                                         historic.insert(guestToAppend, historic.getRoot());
                                     }
@@ -407,9 +409,35 @@ public class CheckIn extends javax.swing.JFrame {
                         }
                     }
                 }
-
-                CheckIn2 checkIn2 = new CheckIn2(this);
-
+                
+                
+            historic.searchInHistoric(historic.getRoot(),day1.getText(),month1.getText(),year1.getText(),reservationsHistory,status);
+            status.printHashTable();
+            
+                for (int i = 0; i < table.getTableSize(); i++) {
+                    if (table.getTable()[i] != null) {
+                        Nodo pointer = table.getTable()[i].getHead();
+                        boolean[] occuped = status.getOccupiedRooms();
+                        int j = 1;
+                        for (; j <= 300; j++) {
+                            Guest guestToAppend  = (Guest) pointer.getElement();
+                            if (occuped[j] ==false) {
+                            if (j<=100 && j>=1 && "simple".equals(reservations.searchIdCheck(reservations.getRoot(),idGuest).getRoomType().toLowerCase())) {break;}
+                            if (j<=224 && j>=101 && "doble".equals(reservations.searchIdCheck(reservations.getRoot(),idGuest).getRoomType().toLowerCase())) {break;}
+                            if (j<=265 && j>=225 && "triple".equals(reservations.searchIdCheck(reservations.getRoot(),idGuest).getRoomType().toLowerCase())) {break;}
+                            if (j<=300 && j>=266 && "suite".equals(reservations.searchIdCheck(reservations.getRoot(),idGuest).getRoomType().toLowerCase())) {break;}
+                            }
+                            }
+                            status.put(reservations.searchIdCheck(reservations.getRoot(),idGuest), j);
+                            
+                            
+                            pointer = pointer.getNext();
+                        
+                    }
+                }
+                
+                menu.setVisible(true);
+                this.setVisible(false);
             } else if (findspace == false) {
                 JOptionPane.showMessageDialog(null, "Error, dejo un argumento sin rellenar ");
             } else if (dateExist == false) {

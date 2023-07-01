@@ -19,6 +19,11 @@ public class HashTableClass {
     private int maxCapacity;
     private boolean[] occupiedRooms;
 
+    public boolean[] getOccupiedRooms() {
+        return occupiedRooms;
+    }
+
+    
     public HashTableClass(int maxCapacity) {
         this.table = new ListaClass[maxCapacity * 3];
         this.tableSize = maxCapacity * 3;

@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class Menu extends javax.swing.JFrame {
 
-    public static CheckIn2 checkIn2;
+    
     public static RoomHistory2 roomhistory2;
     public static SearchReservation2 searchResetrvation2;
     public static CostumerRecord257 costumerRecord57;
@@ -41,13 +41,7 @@ public class Menu extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-    public Menu(CheckIn2 checkIn2) {
-        initComponents();
-        this.checkIn2 = checkIn2;
-        checkIn2.setVisible(false);
-        this.setVisible(true);
-        this.setLocationRelativeTo(null);
-    }
+    
     public Menu(RoomHistory2 roomhistory2) {
         initComponents();
         this.roomhistory2 = roomhistory2;
@@ -193,7 +187,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_checkInActionPerformed
 
     private void checkOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOutActionPerformed
-//        CheckOut checkOut = new CheckOut(this);
+        CheckOut checkOut = new CheckOut(this);
     }//GEN-LAST:event_checkOutActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -248,7 +242,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu(checkIn2).setVisible(true);
+                new Menu().setVisible(true);
             }
         });
     }

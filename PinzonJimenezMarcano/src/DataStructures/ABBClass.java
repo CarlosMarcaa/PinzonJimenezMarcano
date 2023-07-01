@@ -16,8 +16,10 @@ public class ABBClass {
 
     private ABBNode root;
     String guest_find = "";
-    Object guestFind = null;
+    Guest guestFind = null;
     boolean flag = false;
+    Functions verifyDateExits = new Functions();
+    
 
     public ABBClass() {
         this.root = null;
@@ -200,7 +202,7 @@ public class ABBClass {
         return guest_find;
     }
     
-    public Object searchIdCheck(ABBNode root, int id) {
+    public Guest searchIdCheck(ABBNode root, int id) {
         
         if (root != null) {
             if (id == root.getElement()) {
@@ -278,15 +280,160 @@ public class ABBClass {
             }return flag;
         
     }
-    public boolean searchIfisInHistoric(ABBNode nodo, int id) {
-        
-            if (nodo != null) {
-                if (nodo.getGuest().getId()== id){
-                    flag = true;}
+    public void searchInHistoric(ABBNode nodo, String day1,String month1,String year1, ABBClass reservationsHistory, HashTableClass status) {
+        boolean dateExist = false;
+        boolean flag2 = false;
+        boolean flag3 = false;
+        boolean dateExist2 = false;
+            if (nodo.getGuest() != null) {
+                String[] dateGuest = nodo.getGuest().getArrival().split("/");
 
-                searchIfisInHistoric(nodo.getLeftSon(), id);
-                searchIfisInHistoric(nodo.getRightSon(), id);
-            }return flag;
+                char day6 = day1.charAt(0);
+
+                char day5 = dateGuest[0].charAt(0);
+                int day3 = 0;
+                int day4 = 0;
+
+                if ((Integer.parseInt(Integer.toString(day6)) == 0) || (Integer.parseInt(Integer.toString(day5)) == 0)) {
+                    if (Integer.parseInt(Integer.toString(day5)) == 0) {
+
+                        day3 = Integer.parseInt(dateGuest[0].substring(1));
+                        if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                            day4 = Integer.parseInt(day1.substring(1));
+                        } else {
+                            day4 = Integer.parseInt(day1);
+                        }
+                    } else if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                        day4 = Integer.parseInt(day1.substring(1));
+                        if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                            day3 = Integer.parseInt(dateGuest[0].substring(1));
+
+                        } else {
+                            day3 = Integer.parseInt(dateGuest[0]);
+                        }
+                    }
+                } else {
+                    day4 = Integer.parseInt(day1);
+                    day3 = Integer.parseInt(dateGuest[0]);
+                }
+
+                char month6 = month1.charAt(0);
+
+                char month5 = dateGuest[1].charAt(0);
+                int month3 = 0;
+                int month4 = 0;
+
+                if ((Integer.parseInt(Integer.toString(month6)) == 0) || (Integer.parseInt(Integer.toString(month5)) == 0)) {
+                    if (Integer.parseInt(Integer.toString(month5)) == 0) {
+
+                        month3 = Integer.parseInt(dateGuest[1].substring(1));
+                        if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                            month4 = Integer.parseInt(month1.substring(1));
+                        } else {
+                            month4 = Integer.parseInt(month1);
+                        }
+                    } else if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                        month4 = Integer.parseInt(month1.substring(1));
+                        if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                            month3 = Integer.parseInt(dateGuest[1].substring(1));
+
+                        } else {
+                            month3 = Integer.parseInt(dateGuest[1]);
+                        }
+                    }
+                } else {
+                    month4 = Integer.parseInt(month1);
+                    month3 = Integer.parseInt(dateGuest[1]);
+                }
+
+                int year4 = Integer.parseInt(year1);
+                int year3 = Integer.parseInt(dateGuest[2]);
+                if ((year3 <= 9999 && year3 >= 2000) || (year4 <= 9999 && year4 >= 2000)) {
+                    dateExist = verifyDateExits.equalsDate(day3, day4, month3, month4, year3, year4);
+                    dateExist2 = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
+                }
+                
+                if(dateExist == true || dateExist2 == false){
+                    Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), nodo.getGuest().getEmail());
+                                if (guestNew != null) {
+                                    String[] dateGuest1 = nodo.getGuest().getCheckout().split("/");
+
+                                    day5 = dateGuest1[0].charAt(0);
+                                    day3 = 0;
+                                    day4 = 0;
+
+                                    if ((Integer.parseInt(Integer.toString(day6)) == 0) || (Integer.parseInt(Integer.toString(day5)) == 0)) {
+                                        if (Integer.parseInt(Integer.toString(day5)) == 0) {
+
+                                            day3 = Integer.parseInt(dateGuest1[0].substring(1));
+                                            if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                                                day4 = Integer.parseInt(day1.substring(1));
+                                            } else {
+                                                day4 = Integer.parseInt(day1);
+                                            }
+                                        } else if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                                            day4 = Integer.parseInt(day1.substring(1));
+                                            if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                                                day3 = Integer.parseInt(dateGuest1[0].substring(1));
+
+                                            } else {
+                                                day3 = Integer.parseInt(dateGuest1[0]);
+                                            }
+                                        }
+                                    } else {
+                                        day4 = Integer.parseInt(day1);
+                                        day3 = Integer.parseInt(dateGuest1[0]);
+                                    }
+
+                                    month6 = month1.charAt(0);
+
+                                    month5 = dateGuest1[1].charAt(0);
+                                    month3 = 0;
+                                    month4 = 0;
+
+                                    if ((Integer.parseInt(Integer.toString(month6)) == 0) || (Integer.parseInt(Integer.toString(month5)) == 0)) {
+                                        if (Integer.parseInt(Integer.toString(month5)) == 0) {
+
+                                            month3 = Integer.parseInt(dateGuest1[1].substring(1));
+                                            if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                                                month4 = Integer.parseInt(month1.substring(1));
+                                            } else {
+                                                month4 = Integer.parseInt(month1);
+                                            }
+                                        } else if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                                            month4 = Integer.parseInt(month1.substring(1));
+                                            if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                                                month3 = Integer.parseInt(dateGuest1[1].substring(1));
+
+                                            } else {
+                                                month3 = Integer.parseInt(dateGuest1[1]);
+                                            }
+                                        }
+                                    } else {
+                                        month4 = Integer.parseInt(month1);
+                                        month3 = Integer.parseInt(dateGuest1[1]);
+                                    }
+
+                                    year4 = Integer.parseInt(year1);
+                                    year3 = Integer.parseInt(dateGuest1[2]);
+                                    flag2 = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
+                                    flag3 = verifyDateExits.equalsDate(day3, day4, month3, month4, year3, year4);
+                                    if (flag2 == true || flag3 == true) {
+                                       status.put(nodo.getGuest(), nodo.getGuest().getRoom());
+                                    }
+                    
+                }else {
+                                    nodo.getGuest().setPhone("");
+                                    status.put(nodo.getGuest(), nodo.getGuest().getRoom());}}
+
+//                wr.append(String.valueOf(nodo.getGuest().getId()) + "," + nodo.getGuest().getFirstName() + ","
+//                        + nodo.getGuest().getLastName() + "," + nodo.getGuest().getEmail() + "," + nodo.getGuest().getGender() + ","
+//                        + nodo.getGuest().getRoomType() + "," + nodo.getGuest().getPhone() + "," + nodo.getGuest().getArrival() + ","
+//                        + nodo.getGuest().getCheckout() + "\n");
+
+                searchInHistoric(nodo.getLeftSon(), day1,month1, year1,  reservationsHistory, status);
+                searchInHistoric(nodo.getRightSon(),  day1,month1,year1,  reservationsHistory, status);
+            }
         
     }
 }
