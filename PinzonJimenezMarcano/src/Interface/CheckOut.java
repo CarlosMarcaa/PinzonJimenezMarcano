@@ -245,7 +245,7 @@ public class CheckOut extends javax.swing.JFrame {
                 
             }
 
-            if (dateExist == true && findspace == true) {
+            if (dateExist == false && findspace == true) {
                 HashTableClass table = (HashTableClass) status;
                 for (int i = 0; i < table.getTableSize(); i++) {
                     if (table.getTable()[i] != null) {
@@ -394,8 +394,8 @@ public class CheckOut extends javax.swing.JFrame {
 
                                 } else {
                                     status.deleteGuest(guestToAppend);
-                                }
-                            } else {
+                                
+                            }
 //                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
 //                                if (guestNew == null) {
 //                                    status.deleteGuest(guestToAppend);
@@ -407,7 +407,7 @@ public class CheckOut extends javax.swing.JFrame {
                                     }
                                     status.deleteGuest(guestToAppend);
 //                                }
-                            }
+                            
 
                         }
                     }
@@ -440,7 +440,7 @@ public class CheckOut extends javax.swing.JFrame {
                 this.setVisible(false);
             } else if (findspace == false) {
                 JOptionPane.showMessageDialog(null, "Error, dejo un argumento sin rellenar ");
-            } else if (dateExist == false) {
+            } else if (dateExist == true) {
                 JOptionPane.showMessageDialog(null, "Error, Usuario no encontrado o la fecha de hoy no es su fecha de llegada.");
             }
 

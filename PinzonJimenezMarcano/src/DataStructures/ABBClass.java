@@ -186,7 +186,7 @@ public class ABBClass {
     public String searchId(ABBNode root, int id) {
         if (root != null) {
             if (id == root.getElement()) {
-               return root.getGuest().information();
+               return guest_find = root.getGuest().information();
             }
         } else {
             if (id < root.getElement()) {
@@ -199,7 +199,7 @@ public class ABBClass {
                 }
             }
         }
-        return "";
+        return guest_find;
     }
     
     public Guest searchIdCheck(ABBNode root, int id) {
@@ -357,8 +357,8 @@ public class ABBClass {
                 }
                 
                 if(dateExist == true || dateExist2 == false){
-                    Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), nodo.getGuest().getEmail());
-                                if (guestNew != null) {
+//                    Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), nodo.getGuest().getEmail());
+//                                if (guestNew != null) {
                                     String[] dateGuest1 = nodo.getGuest().getCheckout().split("/");
 
                                     day5 = dateGuest1[0].charAt(0);
@@ -425,9 +425,10 @@ public class ABBClass {
                                        status.put(nodo.getGuest(), nodo.getGuest().getRoom());
                                     }
                     
-                }else {
-                                    nodo.getGuest().setPhone("");
-                                    status.put(nodo.getGuest(), nodo.getGuest().getRoom());}}
+//                }else {
+//                                    nodo.getGuest().setPhone("");
+//                                    status.put(nodo.getGuest(), nodo.getGuest().getRoom());}
+}
 
 //                wr.append(String.valueOf(nodo.getGuest().getId()) + "," + nodo.getGuest().getFirstName() + ","
 //                        + nodo.getGuest().getLastName() + "," + nodo.getGuest().getEmail() + "," + nodo.getGuest().getGender() + ","

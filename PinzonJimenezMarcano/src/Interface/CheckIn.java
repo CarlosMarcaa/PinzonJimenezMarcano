@@ -244,7 +244,7 @@ public class CheckIn extends javax.swing.JFrame {
                 
             }
 
-            if (dateExist == false && findspace == true) {
+            if (dateExist == true || findspace == false) {
                 HashTableClass table = (HashTableClass) status;
                 for (int i = 0; i < table.getTableSize(); i++) {
                     if (table.getTable()[i] != null) {
