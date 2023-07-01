@@ -6,6 +6,7 @@
 package Interface;
 
 import static Interface.Menu.reservations;
+import Objects.Guest;
 import javax.swing.JOptionPane;
 
 /**

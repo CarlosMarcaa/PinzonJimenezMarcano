@@ -7,6 +7,7 @@ package Interface;
 
 import static Interface.Menu.reservations;
 import static Interface.SearchReservation.id;
+import Objects.Guest;
 import javax.swing.JOptionPane;
 
 
@@ -38,17 +39,17 @@ public class SearchReservation2 extends javax.swing.JFrame {
     public void information(int id1){
         String guest_find1 = reservations.searchId(reservations.getRoot(), id1).information();
         
-       String[] information1 = guest_find1.split(",");
+       
         
-        name.setText(information1[0]);
-        lastName.setText(information1[1]);
-       CI.setText(information1[2]);
-       email.setText(information1[3]);
-       cellphone.setText(information1[4]);
-        gender.setText(information1[5]);
-        roomType.setText(information1[6]);
-        dateArrival.setText(information1[7]);
-        dateExit.setText(information1[8]);
+        name.setText(guest_find1.getFirstName());
+        lastName.setText(guest_find1.getLastName());
+       CI.setText(Integer.toString(guest_find1.getId()));
+       email.setText(guest_find1.getEmail());
+       cellphone.setText(guest_find1.getPhone());
+        gender.setText(guest_find1.getGender());
+        roomType.setText(guest_find1.getRoomType());
+        dateArrival.setText(guest_find1.getArrival());
+        dateExit.setText(guest_find1.getCheckout());
     }
     
     
