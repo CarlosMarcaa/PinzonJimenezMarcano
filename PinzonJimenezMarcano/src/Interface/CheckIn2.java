@@ -5,19 +5,26 @@
  */
 package Interface;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class CheckIn2 extends javax.swing.JFrame {
-
+    
+    public static CheckIn checkIn;
     
     
     /**
      * Creates new form CheckIn2
      */
-    public CheckIn2() {
+    public CheckIn2(CheckIn checkIn) {
         initComponents();
+        this.checkIn = checkIn;
+        checkIn.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -85,7 +92,13 @@ public class CheckIn2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        // TODO add your handling code here:
+        Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que no quieres seguir con el check-in?");
+
+        if (confirm.equals(0)) {
+            
+            Menu menu = new Menu(this);
+            
+        }
     }//GEN-LAST:event_backActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
@@ -123,7 +136,7 @@ public class CheckIn2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CheckIn2().setVisible(true);
+                new CheckIn2(checkIn).setVisible(true);
             }
         });
     }

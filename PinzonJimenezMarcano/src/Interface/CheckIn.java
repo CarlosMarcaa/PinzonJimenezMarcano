@@ -5,6 +5,14 @@
  */
 package Interface;
 
+import DataStructures.Functions;
+import DataStructures.HashTableClass;
+import DataStructures.Nodo;
+import static Interface.Menu.historic;
+import static Interface.Menu.reservations;
+import static Interface.Menu.reservationsHistory;
+import static Interface.Menu.status;
+import Objects.Guest;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,8 +20,9 @@ import javax.swing.JOptionPane;
  * @author Nicoll Pinzon
  */
 public class CheckIn extends javax.swing.JFrame {
+
     public static Menu menu;
-    
+
     /**
      * Creates new form ChechIn
      */
@@ -38,9 +47,9 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        day = new javax.swing.JTextField();
-        month = new javax.swing.JTextField();
-        year = new javax.swing.JTextField();
+        day1 = new javax.swing.JTextField();
+        month1 = new javax.swing.JTextField();
+        year1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         AAAA = new javax.swing.JLabel();
@@ -72,14 +81,14 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel4.setText("CI del cliente:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
 
-        day.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(day, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 70, -1));
+        day1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(day1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 70, -1));
 
-        month.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(month, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 60, -1));
+        month1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(month1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 60, -1));
 
-        year.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(year, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 70, -1));
+        year1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(year1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 70, -1));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,22 +151,299 @@ public class CheckIn extends javax.swing.JFrame {
     }//GEN-LAST:event_id57ActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        // TODO add your handling code here:
+
+        try {
+            boolean dateExist = false;
+            boolean findspace = true;
+            boolean findSpace1 = true;
+            boolean flag = false;
+            boolean flag2 = true;
+            Functions verifyDateExits = new Functions();
+            String information1 = id57.getText() + "/" + day1.getText() + "/" + month1.getText() + "/" + year1.getText();
+            String[] information2 = information1.split("/");
+            for (int i = 0; i > information2.length; i++) {
+                findSpace1 = space(information2[0]);
+                if (findSpace1 == false) {
+                    findspace = false;
+                }
+            }
+            int idGuest = Integer.parseInt(id57.getText());
+            Object guestArrival = reservations.searchIdCheck(reservations.getRoot(), idGuest);
+
+            if (guestArrival != null) {
+                String[] dateGuest = guestArrival.getArrival().split("/");
+
+                char day6 = day1.getText().charAt(0);
+
+                char day5 = dateGuest[0].charAt(0);
+                int day3 = 0;
+                int day4 = 0;
+
+                if ((Integer.parseInt(Integer.toString(day6)) == 0) || (Integer.parseInt(Integer.toString(day5)) == 0)) {
+                    if (Integer.parseInt(Integer.toString(day5)) == 0) {
+
+                        day3 = Integer.parseInt(dateGuest[0].substring(1));
+                        if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                            day4 = Integer.parseInt(day1.getText().substring(1));
+                        } else {
+                            day4 = Integer.parseInt(day1.getText());
+                        }
+                    } else if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                        day4 = Integer.parseInt(day1.getText().substring(1));
+                        if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                            day3 = Integer.parseInt(dateGuest[0].substring(1));
+
+                        } else {
+                            day3 = Integer.parseInt(dateGuest[0]);
+                        }
+                    }
+                } else {
+                    day4 = Integer.parseInt(day1.getText());
+                    day3 = Integer.parseInt(dateGuest[0]);
+                }
+
+                char month6 = month1.getText().charAt(0);
+
+                char month5 = dateGuest[1].charAt(0);
+                int month3 = 0;
+                int month4 = 0;
+
+                if ((Integer.parseInt(Integer.toString(month6)) == 0) || (Integer.parseInt(Integer.toString(month5)) == 0)) {
+                    if (Integer.parseInt(Integer.toString(month5)) == 0) {
+
+                        month3 = Integer.parseInt(dateGuest[1].substring(1));
+                        if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                            month4 = Integer.parseInt(month1.getText().substring(1));
+                        } else {
+                            month4 = Integer.parseInt(month1.getText());
+                        }
+                    } else if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                        month4 = Integer.parseInt(month1.getText().substring(1));
+                        if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                            month3 = Integer.parseInt(dateGuest[1].substring(1));
+
+                        } else {
+                            month3 = Integer.parseInt(dateGuest[1]);
+                        }
+                    }
+                } else {
+                    month4 = Integer.parseInt(month1.getText());
+                    month3 = Integer.parseInt(dateGuest[1]);
+                }
+
+                int year4 = Integer.parseInt(year1.getText());
+                int year3 = Integer.parseInt(dateGuest[2]);
+                if ((year3 <= 9999 && year3 >= 2000) || (year4 <= 9999 && year4 >= 2000)) {
+                    dateExist = verifyDateExits.equalsDate(day3, day4, month3, month4, year3, year4);
+                }
+
+                String dateArrival1 = "";
+                String dateCheckout1 = "";
+            }
+
+            if (dateExist == true && findspace == true) {
+                HashTableClass table = (HashTableClass) status;
+                for (int i = 0; i < table.getTableSize(); i++) {
+                    if (table.getTable()[i] != null) {
+                        Nodo pointer = table.getTable()[i].getHead();
+
+                        while (pointer != null) {
+                            Guest guestToAppend = (Guest) pointer.getElement();
+                            String[] dateGuest = guestToAppend.getArrival().split("/");
+
+                            char day6 = day1.getText().charAt(0);
+
+                            char day5 = dateGuest[0].charAt(0);
+                            int day3 = 0;
+                            int day4 = 0;
+
+                            if ((Integer.parseInt(Integer.toString(day6)) == 0) || (Integer.parseInt(Integer.toString(day5)) == 0)) {
+                                if (Integer.parseInt(Integer.toString(day5)) == 0) {
+
+                                    day3 = Integer.parseInt(dateGuest[0].substring(1));
+                                    if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                                        day4 = Integer.parseInt(day1.getText().substring(1));
+                                    } else {
+                                        day4 = Integer.parseInt(day1.getText());
+                                    }
+                                } else if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                                    day4 = Integer.parseInt(day1.getText().substring(1));
+                                    if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                                        day3 = Integer.parseInt(dateGuest[0].substring(1));
+
+                                    } else {
+                                        day3 = Integer.parseInt(dateGuest[0]);
+                                    }
+                                }
+                            } else {
+                                day4 = Integer.parseInt(day1.getText());
+                                day3 = Integer.parseInt(dateGuest[0]);
+                            }
+
+                            char month6 = month1.getText().charAt(0);
+
+                            char month5 = dateGuest[1].charAt(0);
+                            int month3 = 0;
+                            int month4 = 0;
+
+                            if ((Integer.parseInt(Integer.toString(month6)) == 0) || (Integer.parseInt(Integer.toString(month5)) == 0)) {
+                                if (Integer.parseInt(Integer.toString(month5)) == 0) {
+
+                                    month3 = Integer.parseInt(dateGuest[1].substring(1));
+                                    if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                                        month4 = Integer.parseInt(month1.getText().substring(1));
+                                    } else {
+                                        month4 = Integer.parseInt(month1.getText());
+                                    }
+                                } else if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                                    month4 = Integer.parseInt(month1.getText().substring(1));
+                                    if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                                        month3 = Integer.parseInt(dateGuest[1].substring(1));
+
+                                    } else {
+                                        month3 = Integer.parseInt(dateGuest[1]);
+                                    }
+                                }
+                            } else {
+                                month4 = Integer.parseInt(month1.getText());
+                                month3 = Integer.parseInt(dateGuest[1]);
+                            }
+
+                            int year4 = Integer.parseInt(year1.getText());
+                            int year3 = Integer.parseInt(dateGuest[2]);
+                            if ((year3 <= 9999 && year3 >= 2000) || (year4 <= 9999 && year4 >= 2000)) {
+                                flag = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
+                            }
+                            if (flag == true) {
+                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
+                                if (guestNew != null) {
+                                    String[] dateGuest1 = guestToAppend.getCheckout().split("/");
+
+                                    day5 = dateGuest1[0].charAt(0);
+                                    day3 = 0;
+                                    day4 = 0;
+
+                                    if ((Integer.parseInt(Integer.toString(day6)) == 0) || (Integer.parseInt(Integer.toString(day5)) == 0)) {
+                                        if (Integer.parseInt(Integer.toString(day5)) == 0) {
+
+                                            day3 = Integer.parseInt(dateGuest1[0].substring(1));
+                                            if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                                                day4 = Integer.parseInt(day1.getText().substring(1));
+                                            } else {
+                                                day4 = Integer.parseInt(day1.getText());
+                                            }
+                                        } else if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                                            day4 = Integer.parseInt(day1.getText().substring(1));
+                                            if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                                                day3 = Integer.parseInt(dateGuest1[0].substring(1));
+
+                                            } else {
+                                                day3 = Integer.parseInt(dateGuest1[0]);
+                                            }
+                                        }
+                                    } else {
+                                        day4 = Integer.parseInt(day1.getText());
+                                        day3 = Integer.parseInt(dateGuest1[0]);
+                                    }
+
+                                    month6 = month1.getText().charAt(0);
+
+                                    month5 = dateGuest1[1].charAt(0);
+                                    month3 = 0;
+                                    month4 = 0;
+
+                                    if ((Integer.parseInt(Integer.toString(month6)) == 0) || (Integer.parseInt(Integer.toString(month5)) == 0)) {
+                                        if (Integer.parseInt(Integer.toString(month5)) == 0) {
+
+                                            month3 = Integer.parseInt(dateGuest1[1].substring(1));
+                                            if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                                                month4 = Integer.parseInt(month1.getText().substring(1));
+                                            } else {
+                                                month4 = Integer.parseInt(month1.getText());
+                                            }
+                                        } else if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                                            month4 = Integer.parseInt(month1.getText().substring(1));
+                                            if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                                                month3 = Integer.parseInt(dateGuest1[1].substring(1));
+
+                                            } else {
+                                                month3 = Integer.parseInt(dateGuest1[1]);
+                                            }
+                                        }
+                                    } else {
+                                        month4 = Integer.parseInt(month1.getText());
+                                        month3 = Integer.parseInt(dateGuest1[1]);
+                                    }
+
+                                    year4 = Integer.parseInt(year1.getText());
+                                    year3 = Integer.parseInt(dateGuest1[2]);
+                                    flag2 = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
+                                    if (flag2 == false) {
+                                        if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
+                                            getHistoryTree().searchRoom(getHistoryTree().getRoot(), guestToAppend.getRoom()).getGuestHistory().insertFinal(guestToAppend);
+
+                                            historic.insert(guestToAppend, historic.getRoot());
+                                        }
+                                        status.deleteGuest(guestToAppend);
+                                    }
+
+                                } else {
+                                    status.deleteGuest(guestToAppend);
+                                }
+                            } else {
+                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
+                                if (guestNew == null) {
+                                    status.deleteGuest(guestToAppend);
+                                } else {
+                                    if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
+                                        getHistoryTree().searchRoom(getHistoryTree().getRoot(), guestToAppend.getRoom()).getGuestHistory().insertFinal(guestToAppend);
+
+                                        historic.insert(guestToAppend, historic.getRoot());
+                                    }
+                                    status.deleteGuest(guestToAppend);
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                CheckIn2 checkIn2 = new CheckIn2(this);
+
+            } else if (findspace == false) {
+                JOptionPane.showMessageDialog(null, "Error, dejo un argumento sin rellenar ");
+            } else if (dateExist == false) {
+                JOptionPane.showMessageDialog(null, "Error, Usuario no encontrado o la fecha de hoy no es su fecha de llegada.");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error, coloco un dato mal");
+        }
+
+
     }//GEN-LAST:event_okActionPerformed
+
+    public boolean space(String information2) {
+        boolean flag = true;
+        if (information2 == "") {
+            flag = false;
+        }
+        return flag;
+    }
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que no quieres seguir con el check-in?");
 
         if (confirm.equals(0)) {
-            
+
             menu.setVisible(true);
             this.setVisible(false);
-            
+
         }
     }//GEN-LAST:event_backActionPerformed
 
     /**
-    AAAAam args the command line arguments
+     * AAAAam args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -195,7 +481,7 @@ public class CheckIn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AAAA;
     private javax.swing.JButton back;
-    private javax.swing.JTextField day;
+    private javax.swing.JTextField day1;
     private javax.swing.JTextField id57;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -206,8 +492,8 @@ public class CheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField month;
+    private javax.swing.JTextField month1;
     private javax.swing.JButton ok;
-    private javax.swing.JTextField year;
+    private javax.swing.JTextField year1;
     // End of variables declaration//GEN-END:variables
 }

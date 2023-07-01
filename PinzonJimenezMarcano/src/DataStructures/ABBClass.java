@@ -16,6 +16,8 @@ public class ABBClass {
 
     private ABBNode root;
     String guest_find = "";
+    Object guestFind = null;
+    boolean flag = false;
 
     public ABBClass() {
         this.root = null;
@@ -197,6 +199,45 @@ public class ABBClass {
         }
         return guest_find;
     }
+    
+    public Object searchIdCheck(ABBNode root, int id) {
+        
+        if (root != null) {
+            if (id == root.getElement()) {
+                guestFind = root.getGuest();
+            }
+        } else {
+            if (id < root.getElement()) {
+                if (root.getLeftSon() != null) {
+                    searchIdCheck(root.getLeftSon(), id);
+                }
+            } else {
+                if (root.getRightSon() != null) {
+                    searchIdCheck(root.getRightSon(), id);
+                }
+            }
+        }
+        return guestFind;
+    }
+    public Object searchEmailCheck(ABBNode root, String email) {
+        
+        if (root != null) {
+            if (email == root.getGuest().getEmail()) {
+                guestFind = root.getGuest();
+            }
+        
+           
+                    searchEmailCheck(root.getLeftSon(), email);
+                
+            
+                    searchEmailCheck(root.getRightSon(), email);
+               
+            
+        }
+        return guestFind;
+    }
+    
+//    public void CheckOutAutomatic(String date, String dateToday,ABBNode root, int id,
 
     public Room searchRoom(ABBNode root, int room) {
         if (root != null) {
@@ -225,5 +266,27 @@ public class ABBClass {
             selected = selected.getRightSon();
         }
         return selected;
+    }
+    public boolean searchIfisInHistoric(ABBNode nodo, int id) {
+        
+            if (nodo != null) {
+                if (nodo.getGuest().getId()== id){
+                    flag = true;}
+
+                searchIfisInHistoric(nodo.getLeftSon(), id);
+                searchIfisInHistoric(nodo.getRightSon(), id);
+            }return flag;
+        
+    }
+    public boolean searchIfisInHistoric(ABBNode nodo, int id) {
+        
+            if (nodo != null) {
+                if (nodo.getGuest().getId()== id){
+                    flag = true;}
+
+                searchIfisInHistoric(nodo.getLeftSon(), id);
+                searchIfisInHistoric(nodo.getRightSon(), id);
+            }return flag;
+        
     }
 }

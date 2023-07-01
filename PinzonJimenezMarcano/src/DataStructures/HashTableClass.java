@@ -155,5 +155,7 @@ public class HashTableClass {
     public ListaClass[] getTable() {
         return table;
     }
+    
+    
 
 }

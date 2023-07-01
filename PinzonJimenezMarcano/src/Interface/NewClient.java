@@ -7,6 +7,7 @@ package Interface;
 
 import DataStructures.Functions;
 import static Interface.Menu.reservations;
+import static Interface.Menu.reservationsHistory;
 import Objects.Guest;
 import javax.swing.JOptionPane;
 
@@ -397,7 +398,7 @@ public class NewClient extends javax.swing.JFrame {
                 guest.setPhone(cellphone4);
                 guest.setRoomType(typeRoom2.getText().toLowerCase());
                 reservations.insert(guest, reservations.getRoot());
-                reservations.insert(guest, reservations.getRoot());
+                reservationsHistory.insert(guest, reservationsHistory.getRoot());
                 menu.setVisible(true);
                 this.setVisible(false);
             } else {
