@@ -50,7 +50,7 @@ public class Room {
 
     public String stringRoomHistory() {
         String RoomHistory = "";
-        RoomHistory = "Room: " + roomNumber+ "ln"+"Type: " + roomType+"ln"+"Floor: " + floor+"ln"+"Guests History: "+"ln";
+        RoomHistory = "Room: " + roomNumber+ "\n"+"Type: " + roomType+"\n"+"Floor: " + floor+"\n"+"Guests History: "+"\n";
         if (getGuestHistory() != null) {
             Nodo pointer = getGuestHistory().getHead();
             while (pointer != null) {
@@ -60,7 +60,7 @@ public class Room {
                 pointer = pointer.getNext();
             }
         }
-        RoomHistory += "ln";
+        RoomHistory += "\n";
         return RoomHistory;
     }
 }

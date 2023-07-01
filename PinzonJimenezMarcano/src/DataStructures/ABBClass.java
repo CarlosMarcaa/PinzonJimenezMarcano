@@ -183,10 +183,10 @@ public class ABBClass {
         }
     }
 
-    public String searchId(ABBNode root, int id) {
+    public Guest searchId(ABBNode root, int id) {
         if (root != null) {
             if (id == root.getElement()) {
-               return guest_find = root.getGuest().information();
+               return root.getGuest();
             }
         } else {
             if (id < root.getElement()) {
@@ -199,7 +199,7 @@ public class ABBClass {
                 }
             }
         }
-        return guest_find;
+        return null;
     }
     
     public Guest searchIdCheck(ABBNode root, int id) {

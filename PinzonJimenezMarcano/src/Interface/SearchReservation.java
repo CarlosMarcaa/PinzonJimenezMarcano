@@ -6,6 +6,7 @@
 package Interface;
 
 import static Interface.Menu.reservations;
+import Objects.Guest;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,8 +95,8 @@ public class SearchReservation extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         try {
             id = Integer.parseInt(CI.getText());
-            String information = reservations.searchId(reservations.getRoot(), id);
-            if (!information.equals("")){
+            Guest information = reservations.searchId(reservations.getRoot(), id);
+            if (information != null){
             SearchReservation2 reservation2 = new SearchReservation2(this);
             reservation2.information(id);
             }
