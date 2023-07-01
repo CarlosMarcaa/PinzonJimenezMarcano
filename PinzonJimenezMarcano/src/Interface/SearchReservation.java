@@ -94,7 +94,7 @@ public class SearchReservation extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         try {
             id = Integer.parseInt(CI.getText());
-            String information = reservations.searchId(reservations.getRoot(), id);
+            String information = reservations.searchId(reservations.getRoot(), id).information();
             if (!information.equals("")){
             SearchReservation2 reservation2 = new SearchReservation2(this);
             reservation2.information(id);

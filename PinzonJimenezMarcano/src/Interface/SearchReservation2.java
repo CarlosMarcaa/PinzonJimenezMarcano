@@ -36,7 +36,7 @@ public class SearchReservation2 extends javax.swing.JFrame {
     }
     
     public void information(int id1){
-        String guest_find1 = reservations.searchId(reservations.getRoot(), id1);
+        String guest_find1 = reservations.searchId(reservations.getRoot(), id1).information();
         
        String[] information1 = guest_find1.split(",");
         
