@@ -64,7 +64,6 @@ public class NewClient extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        typeRoom2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         month1 = new javax.swing.JTextField();
@@ -80,6 +79,7 @@ public class NewClient extends javax.swing.JFrame {
         year2 = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         back = new javax.swing.JButton();
+        typeRoom2 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -190,9 +190,6 @@ public class NewClient extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cohete.png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
 
-        typeRoom2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(typeRoom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 110, -1));
-
         jLabel19.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("\\");
@@ -261,6 +258,11 @@ public class NewClient extends javax.swing.JFrame {
                             }
                         });
                         getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 90, 50));
+
+                        typeRoom2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                        typeRoom2.setForeground(new java.awt.Color(255, 255, 255));
+                        typeRoom2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Doble", "Triple", "Suite" }));
+                        getContentPane().add(typeRoom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
 
                         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo.png"))); // NOI18N
                         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
@@ -384,13 +386,13 @@ public class NewClient extends javax.swing.JFrame {
                 cellphone4 = "("+cell.getText()+")"+phone.getText();
             }
             
-            if (typeRoom2.getText().toUpperCase().equals("SIMPLE")){
+            if (typeRoom2.getSelectedItem().toString().toUpperCase().equals("SIMPLE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase().equals("DOBLE")){
+            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("DOBLE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase().equals("SUITE")){
+            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("SUITE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase().equals("TRIPLE")){
+            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("TRIPLE")){
                 typeRoomExist = true;
             }
             
@@ -415,7 +417,7 @@ public class NewClient extends javax.swing.JFrame {
                 guest.setCheckout(dateCheckout1);
                 guest.setGender(gender2.getText());
                 guest.setPhone(cellphone4);
-                guest.setRoomType(typeRoom2.getText().toLowerCase());
+                guest.setRoomType(typeRoom2.getSelectedItem().toString().toLowerCase());
                 reservations.insert(guest, reservations.getRoot());
                 reservationsHistory.insert(guest, reservationsHistory.getRoot());
                 
@@ -529,7 +531,7 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JTextField name;
     private javax.swing.JButton ok;
     private javax.swing.JTextField phone;
-    private javax.swing.JTextField typeRoom2;
+    private javax.swing.JComboBox<String> typeRoom2;
     private javax.swing.JTextField year1;
     private javax.swing.JTextField year2;
     // End of variables declaration//GEN-END:variables

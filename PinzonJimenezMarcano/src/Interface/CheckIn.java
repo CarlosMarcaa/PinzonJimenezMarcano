@@ -154,6 +154,7 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
+
 //        try {
             boolean dateExist = false;
             boolean findspace = true;
@@ -462,7 +463,6 @@ public class CheckIn extends javax.swing.JFrame {
 //        } catch (Exception e) {
 //            JOptionPane.showMessageDialog(null, "Error, coloco un dato mal");
 //        }
-
 
     }//GEN-LAST:event_okActionPerformed
 
