@@ -224,23 +224,23 @@ public class ABBClass {
     }
 
    
-    public Guest searchEmailCheck(ABBNode root, String email) {
-        
-        if (root != null) {
-            if (email == root.getGuest().getEmail()) {
-                return root.getGuest();
-            }
-        
-           
-                    return searchEmailCheck(root.getLeftSon(), email);
-                
-            
-                   return searchEmailCheck(root.getRightSon(), email);
-               
-            
-        }
-        return null;
-    }
+//    public Guest searchEmailCheck(ABBNode root, String email) {
+//        
+//        if (root != null) {
+//            if (email == root.getGuest().getEmail()) {
+//                return root.getGuest();
+//            }
+//        
+//           
+//                    return searchEmailCheck(root.getLeftSon(), email);
+//                
+//            
+//                   return searchEmailCheck(root.getRightSon(), email);
+//               
+//            
+//        }
+//        return null;
+//    }
     
 //    public void CheckOutAutomatic(String date, String dateToday,ABBNode root, int id,
 

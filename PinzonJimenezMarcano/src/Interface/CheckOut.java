@@ -319,8 +319,8 @@ public class CheckOut extends javax.swing.JFrame {
                                 flag = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
                             }
                             if (flag == false) {
-                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
-                                if (guestNew != null) {
+//                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
+//                                if (guestNew != null) {
                                     String[] dateGuest1 = guestToAppend.getCheckout().split("/");
 
                                     day5 = dateGuest1[0].charAt(0);
@@ -396,17 +396,17 @@ public class CheckOut extends javax.swing.JFrame {
                                     status.deleteGuest(guestToAppend);
                                 }
                             } else {
-                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
-                                if (guestNew == null) {
-                                    status.deleteGuest(guestToAppend);
-                                } else {
+//                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
+//                                if (guestNew == null) {
+//                                    status.deleteGuest(guestToAppend);
+//                                } else {
                                     if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
                                         
 
                                         historic.insert(guestToAppend, historic.getRoot());
                                     }
                                     status.deleteGuest(guestToAppend);
-                                }
+//                                }
                             }
 
                         }
