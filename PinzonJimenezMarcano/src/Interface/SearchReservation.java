@@ -95,8 +95,8 @@ public class SearchReservation extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         try {
             id = Integer.parseInt(CI.getText());
-            String information = reservations.searchId(reservations.getRoot(), id).information();
-            if (!information.equals("")){
+            Guest information3 = reservations.searchId(reservations.getRoot(), id);
+            if (information3!= null){
             SearchReservation2 reservation2 = new SearchReservation2(this);
             reservation2.information(id);
             }
@@ -104,6 +104,7 @@ public class SearchReservation extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error. Este id no tiene ninguna reservacion"); 
             }
         }catch ( Exception e){
+            System.out.println(e);
         JOptionPane.showMessageDialog(null, "Error. No coloco solo numeros sin ningun espacio");
     }
     }//GEN-LAST:event_okActionPerformed
