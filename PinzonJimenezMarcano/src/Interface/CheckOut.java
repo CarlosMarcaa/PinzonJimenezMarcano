@@ -48,17 +48,8 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         ok = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         id57 = new javax.swing.JTextField();
-        day1 = new javax.swing.JTextField();
-        month1 = new javax.swing.JTextField();
-        year1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,17 +77,12 @@ public class CheckOut extends javax.swing.JFrame {
                 okActionPerformed(evt);
             }
         });
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 100, 70));
-
-        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Fecha de hoy:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 100, 70));
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CI:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 40, 40));
 
         id57.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         id57.addActionListener(new java.awt.event.ActionListener() {
@@ -104,41 +90,7 @@ public class CheckOut extends javax.swing.JFrame {
                 id57ActionPerformed(evt);
             }
         });
-        getContentPane().add(id57, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 140, 30));
-
-        day1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(day1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 60, 30));
-
-        month1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(month1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 60, 30));
-
-        year1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(year1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 90, 30));
-
-        jLabel5.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("/");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 20, 20));
-
-        jLabel6.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText(" /");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 30, 20));
-
-        jLabel4.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("DD");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("MM");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("AAAA");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, -1, -1));
+        getContentPane().add(id57, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 230, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo3.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -161,10 +113,16 @@ public class CheckOut extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         
-        String id3 = id57.getName();
+        String id3 = id57.getText();
         try {
-            Guest guest = reservationsHistory.searchId(reservations.getRoot(), Integer.parseInt(id3));
+            System.out.println(reservationsHistory.searchId(reservationsHistory.getRoot(), Integer.parseInt(id3)));
+            System.out.println("HHHHHHHH");
+            Guest guest = reservationsHistory.searchId(reservationsHistory.getRoot(), Integer.parseInt(id3));
+            System.out.println("NNNNNNNN");
+            System.out.println(guest);
             String room = status.getGuestRoom(guest.getFirstName(), guest.getLastName());
+            System.out.println("PPPPPPPP");
+            System.out.println(room);
             if ((guest != null) && (!room.equals(""))) {
                 LocalDate today = LocalDate.now(); //fecha de hoy
                 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //ejemplo de como se hace el formato de fecha
@@ -187,10 +145,10 @@ public class CheckOut extends javax.swing.JFrame {
                     
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "La persona con esta cedula no tiene reservacion para el dia de hoy." + "\n" + today.format(dateFormat));
+                    JOptionPane.showMessageDialog(null, "La persona con esta cedula no tiene su dia de checkOut para el dia de hoy." + "\n" + today.format(dateFormat));
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "No esxiste una persona con esa cedula el hotel");
+                JOptionPane.showMessageDialog(null, "No existe una persona con esa cedula el hotel");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Pofavor ponga un dato numerico.");
@@ -246,20 +204,11 @@ public class CheckOut extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
-    private javax.swing.JTextField day1;
     private javax.swing.JTextField id57;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField month1;
     private javax.swing.JButton ok;
-    private javax.swing.JTextField year1;
     // End of variables declaration//GEN-END:variables
 }

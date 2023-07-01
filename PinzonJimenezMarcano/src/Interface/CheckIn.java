@@ -108,9 +108,13 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        String id3 = id57.getName();
+        String id3 = id57.getText();
         try {
+            System.out.println(reservations.searchId(reservations.getRoot(), Integer.parseInt(id3)));
+             System.out.println("HHHHHHHH");
             Guest guest = reservations.searchId(reservations.getRoot(), Integer.parseInt(id3));
+            System.out.println(guest);
+            System.out.println("HHHHHHHH");
             if (guest != null) {
                 LocalDate today = LocalDate.now(); //fecha de hoy
                 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //ejemplo de como se hace el formato de fecha
@@ -170,6 +174,7 @@ public class CheckIn extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No esxiste una persona con esa cedula en reservaciones.");
             }
         } catch (Exception e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "Pofavor ponga un dato numerico.");
         }
     }//GEN-LAST:event_okActionPerformed
