@@ -186,20 +186,20 @@ public class ABBClass {
     public String searchId(ABBNode root, int id) {
         if (root != null) {
             if (id == root.getElement()) {
-                guest_find = root.getGuest().information();
+               return root.getGuest().information();
             }
         } else {
             if (id < root.getElement()) {
                 if (root.getLeftSon() != null) {
-                    searchId(root.getLeftSon(), id);
+                    return searchId(root.getLeftSon(), id);
                 }
             } else {
                 if (root.getRightSon() != null) {
-                    searchId(root.getRightSon(), id);
+                   return searchId(root.getRightSon(), id);
                 }
             }
         }
-        return guest_find;
+        return "";
     }
     
     public Guest searchIdCheck(ABBNode root, int id) {
@@ -207,7 +207,7 @@ public class ABBClass {
         if (root != null) {
             if (id == root.getElement()) {
                 guestFind = root.getGuest();
-                return guestFind = root.getGuest();
+                return root.getGuest();
             }
         } else {
             if (id < root.getElement()) {
@@ -219,33 +219,27 @@ public class ABBClass {
                     return searchIdCheck(root.getRightSon(), id);
                 }
             }
-        }return guestFind;
+        }return null;
         
     }
 
-    public Guest getGuestFind() {
-        return guestFind;
-    }
-
-    public void setGuestFind(Guest guestFind) {
-        this.guestFind = guestFind;
-    }
-    public Object searchEmailCheck(ABBNode root, String email) {
+   
+    public Guest searchEmailCheck(ABBNode root, String email) {
         
         if (root != null) {
             if (email == root.getGuest().getEmail()) {
-                return guestFind = root.getGuest();
+                return root.getGuest();
             }
         
            
-                    searchEmailCheck(root.getLeftSon(), email);
+                    return searchEmailCheck(root.getLeftSon(), email);
                 
             
-                    searchEmailCheck(root.getRightSon(), email);
+                   return searchEmailCheck(root.getRightSon(), email);
                
             
         }
-        return guestFind;
+        return null;
     }
     
 //    public void CheckOutAutomatic(String date, String dateToday,ABBNode root, int id,

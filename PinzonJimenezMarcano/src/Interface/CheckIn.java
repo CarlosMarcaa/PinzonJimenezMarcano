@@ -172,7 +172,7 @@ public class CheckIn extends javax.swing.JFrame {
             int idGuest = Integer.parseInt(id57.getText());
             reservations.searchIdCheck(reservations.getRoot(), idGuest);
                                        
-            Guest guestArrival = reservations.getGuestFind();
+            Guest guestArrival = reservations.searchIdCheck(reservations.getRoot(), idGuest);
 
             if (guestArrival != null) {
                 String[] dateGuest = guestArrival.getArrival().split("/");
@@ -241,8 +241,7 @@ public class CheckIn extends javax.swing.JFrame {
                     dateExist = verifyDateExits.equalsDate(day3, day4, month3, month4, year3, year4);
                 }
 
-                String dateArrival1 = "";
-                String dateCheckout1 = "";
+                
             }
 
             if (dateExist == false && findspace == true) {
@@ -319,8 +318,8 @@ public class CheckIn extends javax.swing.JFrame {
                                 flag = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
                             }
                             if (flag == true) {
-                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
-                                if (guestNew != null) {
+//                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
+//                                if (guestNew != null) {
                                     String[] dateGuest1 = guestToAppend.getCheckout().split("/");
 
                                     day5 = dateGuest1[0].charAt(0);
@@ -390,20 +389,20 @@ public class CheckIn extends javax.swing.JFrame {
                                         status.deleteGuest(guestToAppend);
                                     }
 
-                                } else {
-                                    status.deleteGuest(guestToAppend);
-                                }
+//                                } else {
+//                                    status.deleteGuest(guestToAppend);
+//                                }
                             } else {
-                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
-                                if (guestNew == null) {
-                                    status.deleteGuest(guestToAppend);
-                                } else {
-                                    if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
-
-                                        historic.insert(guestToAppend, historic.getRoot());
-                                    }
-                                    status.deleteGuest(guestToAppend);
-                                }
+//                                Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), guestToAppend.getEmail());
+//                                if (guestNew == null) {
+//                                    status.deleteGuest(guestToAppend);
+//                                } else {
+//                                    if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
+//
+//                                        historic.insert(guestToAppend, historic.getRoot());
+//                                    }
+//                                    status.deleteGuest(guestToAppend);
+//                                }
                             }
                             pointer = pointer.getNext();
                         }
@@ -444,7 +443,7 @@ public class CheckIn extends javax.swing.JFrame {
                                 }
                             }
                         }
-                        Guest hii = reservations.getGuestFind();
+                        Guest hii = reservations.searchIdCheck(reservations.getRoot(), idGuest);
                         status.put(hii, j);
 
                         pointer = pointer.getNext();
