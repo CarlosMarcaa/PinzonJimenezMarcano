@@ -10,6 +10,7 @@ import static Interface.Menu.reservations;
 import static Interface.Menu.reservationsHistory;
 import Objects.Guest;
 import javax.swing.JOptionPane;
+import javax.swing.SpringLayout;
 
 /**
  *
@@ -275,7 +276,9 @@ public class NewClient extends javax.swing.JFrame {
             boolean emailGood = false;
             boolean typeRoomExist = false;
             boolean cellphone = false;
+            
             Functions verifyDateExits = new Functions();
+            
             String information1 = name.getText() + "/" + lastName2.getText() + "/" + id2.getText() + "/" + gender2.getText() + "/" + email2.getText() + "/" + cell.getText() + "/" + phone.getText() + "/" + typeRoom2.getText() + "/" + day1.getText() + "/" + month1.getText() + "/" + year1.getText() + "/" + day2.getText() + "/" + month2.getText() + "/" + year2.getText();
             String[] information2 = information1.split("/");
             for (int i = 0; i > information2.length; i++) {
@@ -362,6 +365,9 @@ public class NewClient extends javax.swing.JFrame {
                 dateArrival1 = day1.getText()+"/"+month1.getText()+"/"+year1.getText();
                 dateCheckout1 = day2.getText()+"/"+month2.getText()+"/"+year2.getText();
             }
+            System.out.println("HOLAAAAAAA");
+            System.out.println(dateArrival1);
+            System.out.println(dateCheckout1);
 
             if (cell1 >= 100 && cell1 <= 999) {
                 if (phone1 >= 1000000 && phone1 <= 9999999) {
@@ -375,15 +381,25 @@ public class NewClient extends javax.swing.JFrame {
                 cellphone4 = "("+cell.getText()+")"+phone.getText();
             }
             
-            if (typeRoom2.getText().toUpperCase()== "SIMPLE"){
+            if (typeRoom2.getText().toUpperCase().equals("SIMPLE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase()== "DOBLE"){
+            }else if(typeRoom2.getText().toUpperCase().equals("DOBLE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase()== "SUITE"){
+            }else if(typeRoom2.getText().toUpperCase().equals("SUITE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase()== "TRIPLE"){
+            }else if(typeRoom2.getText().toUpperCase().equals("TRIPLE")){
                 typeRoomExist = true;
             }
+            
+            System.out.println(findspace);
+            System.out.println("HHHHHH");
+            System.out.println(dateExist);
+            System.out.println("NNNNNNN");
+            System.out.println(emailGood);
+            System.out.println("PPPPPP");
+            System.out.println(typeRoomExist);
+            System.out.println("BBBBB ");
+            System.out.println(cellphone);
             
             if ((findspace = true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
 
@@ -406,6 +422,8 @@ public class NewClient extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
+            System.out.println("ERRROOOOORRR");
+            System.out.println(e);
         }
     }//GEN-LAST:event_okActionPerformed
 
