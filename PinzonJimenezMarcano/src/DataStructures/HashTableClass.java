@@ -6,6 +6,7 @@ package DataStructures;
 
 import Objects.Guest;
 import java.util.Objects;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -89,7 +90,7 @@ public class HashTableClass {
         Guest guest = new Guest(firstName, lastName); // Este Guest creado solo sirve para generar el hashcode, no contiene toda la informacion.
         int index = generateHashCode(guest);
         if (getTable()[index] == null) {                 // Cuando no encuentra al huesped en el sistema, devuelve -1
-            System.out.println(guest.getFullName() + " isn't staying at the hotel");
+            JOptionPane.showMessageDialog(null, guest.getFullName() + "no se esta quedando en el hotel");
 
             return roomsFound;
 

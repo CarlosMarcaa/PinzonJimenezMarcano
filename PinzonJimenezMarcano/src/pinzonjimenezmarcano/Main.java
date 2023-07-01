@@ -7,6 +7,7 @@ package pinzonjimenezmarcano;
 import DataStructures.*;
 import DataManagement.CsvManager;
 import java.util.Scanner;
+import Interface.Menu;
 
 /**
  *
@@ -20,13 +21,15 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Menu menu = new Menu();
+        
 //        Scanner sc = new Scanner(System.in);
-        CsvManager cvsManager = new CsvManager();
-        ABBClass reservations = (ABBClass) cvsManager.ReadText("test/Booking_hotel_reservations.csv");
-        ABBClass reservationsHistory = (ABBClass) cvsManager.ReadText("test/Booking_hotel_reservations_1.csv");
-        ABBClass rooms = (ABBClass) cvsManager.ReadText("test/Booking_hotel_rooms.csv");
-        ABBClass historic = (ABBClass) cvsManager.ReadText("test/Booking_hotel_historic.csv");
-        HashTableClass status = (HashTableClass) cvsManager.ReadText("test/Booking_hotel_status.csv");
+//        CsvManager cvsManager = new CsvManager();
+//        ABBClass reservations = (ABBClass) cvsManager.ReadText("test/Booking_hotel_reservations.csv");
+//        ABBClass reservationsHistory = (ABBClass) cvsManager.ReadText("test/Booking_hotel_reservations_1.csv");
+//        ABBClass rooms = (ABBClass) cvsManager.ReadText("test/Booking_hotel_rooms.csv");
+//        ABBClass historic = (ABBClass) cvsManager.ReadText("test/Booking_hotel_historic.csv");
+//        HashTableClass status = (HashTableClass) cvsManager.ReadText("test/Booking_hotel_status.csv");
 //
 //        while (true) {
 //            System.out.println("");
@@ -64,11 +67,11 @@ public class Main {
 //            }
 //        }
 //        ABBNode nodo, String day1,String month1,String year1, ABBClass reservationsHistory, HashTableClass status
-String day1 = "09";
-String month1 = "09";
-String year1 = "2023";
-    historic.searchInHistoric(historic.getRoot(),day1,month1,year1,reservationsHistory,status );
-            status.printHashTable();
+//String day1 = "09";
+//String month1 = "09";
+//String year1 = "2023";
+//    historic.searchInHistoric(historic.getRoot(),day1,month1,year1,reservationsHistory,status );
+//            status.printHashTable();
     }
 
 

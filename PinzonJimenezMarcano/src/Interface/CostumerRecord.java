@@ -103,7 +103,9 @@ public class CostumerRecord extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         name45 = name5.getText();
         lastName45 = lastName5.getText();
+       
         String haveARoom = status.getGuestRoom(name45, lastName45);
+        
         if (!haveARoom.equals("")){
         
         numberRoom = haveARoom;
