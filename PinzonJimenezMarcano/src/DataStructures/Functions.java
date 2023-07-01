@@ -177,32 +177,32 @@ public class Functions {
 
     public static boolean GoodDate(int day3, int day4, int month3, int month4, int year3, int year4) {
         boolean dateExist1 = false;
-        if (year3 > year4) {
+        if (year4 > year3) {
             dateExist1 = dateExist(day3, month3, year3);
             if (dateExist1 == true) {
                 dateExist1 = dateExist(day4, month4, year4);
             }
         } else if (year3 == year4) {
-            if (month3 > month4) {
+            if (month4 > month3) {
                 dateExist1 = dateExist(day3, month3, year3);
                 if (dateExist1 == true) {
                     dateExist1 = dateExist(day4, month4, year4);
                 }
             } else if (month4 == month3) {
-                if (day3 > day4) {
+                if (day4 > day3) {
                     dateExist1 = dateExist(day3, month3, year3);
                     if (dateExist1 == true) {
                         dateExist1 = dateExist(day4, month4, year4);
                     }
                 } else if (day3 == day4) {
                     dateExist1 = false;
-                } else if (day4 > day3) {
+                } else if (day3 > day4) {
                     dateExist1 = false;
                 }
             } else if (month4 > month3) {
                 dateExist1 = false;
             }
-        } else if (year4 > year3) {
+        } else if (year3 > year4) {
             dateExist1 = false;
         }
         return dateExist1;

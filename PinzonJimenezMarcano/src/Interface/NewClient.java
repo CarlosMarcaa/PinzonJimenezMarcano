@@ -296,72 +296,75 @@ public class NewClient extends javax.swing.JFrame {
                 emailGood = true;
             }
 
-            char day6 = day1.getText().charAt(0);
+            char day5 = day1.getText().charAt(0);
 
-            char day5 = day2.getText().charAt(0);
+            char day6 = day2.getText().charAt(0);
             int day3 = 0;
             int day4 = 0;
 
             if ((Integer.parseInt(Integer.toString(day6)) == 0) || (Integer.parseInt(Integer.toString(day5)) == 0)) {
-                if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                if (Integer.parseInt(Integer.toString(day6)) == 0) {
 
-                    day3 = Integer.parseInt(day2.getText().substring(1));
-                    if (Integer.parseInt(Integer.toString(day6)) == 0) {
-                        day4 = Integer.parseInt(day1.getText().substring(1));
-                    } else {
-                        day4 = Integer.parseInt(day1.getText());
-                    }
-                } else if (Integer.parseInt(Integer.toString(day6)) == 0) {
-                    day4 = Integer.parseInt(day1.getText().substring(1));
+                    day4 = Integer.parseInt(day2.getText().substring(1));
                     if (Integer.parseInt(Integer.toString(day5)) == 0) {
-                        day3 = Integer.parseInt(day2.getText().substring(1));
+                        day3 = Integer.parseInt(day1.getText().substring(1));
+                    } else {
+                        day3 = Integer.parseInt(day1.getText());
+                    }
+                } else if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                    day3 = Integer.parseInt(day1.getText().substring(1));
+                    if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                        day4 = Integer.parseInt(day2.getText().substring(1));
 
                     } else {
-                        day3 = Integer.parseInt(day2.getText());
+                        day4 = Integer.parseInt(day2.getText());
                     }
                 }
             } else {
-                day4 = Integer.parseInt(day1.getText());
-                day3 = Integer.parseInt(day2.getText());
+                day3 = Integer.parseInt(day1.getText());
+                day4 = Integer.parseInt(day2.getText());
             }
 
-            char month6 = month1.getText().charAt(0);
+            char month5 = month1.getText().charAt(0);
 
-            char month5 = month2.getText().charAt(0);
+            char month6 = month2.getText().charAt(0);
             int month3 = 0;
             int month4 = 0;
 
             if ((Integer.parseInt(Integer.toString(month6)) == 0) || (Integer.parseInt(Integer.toString(month5)) == 0)) {
-                if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                if (Integer.parseInt(Integer.toString(month6)) == 0) {
 
-                    month3 = Integer.parseInt(month2.getText().substring(1));
-                    if (Integer.parseInt(Integer.toString(month6)) == 0) {
-                        month4 = Integer.parseInt(month1.getText().substring(1));
-                    } else {
-                        month4 = Integer.parseInt(month1.getText());
-                    }
-                } else if (Integer.parseInt(Integer.toString(month6)) == 0) {
-                    month4 = Integer.parseInt(month1.getText().substring(1));
+                    month4 = Integer.parseInt(month2.getText().substring(1));
                     if (Integer.parseInt(Integer.toString(month5)) == 0) {
-                        month3 = Integer.parseInt(month2.getText().substring(1));
+                        month3 = Integer.parseInt(month1.getText().substring(1));
+                    } else {
+                        month3 = Integer.parseInt(month1.getText());
+                    }
+                } else if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                    month3 = Integer.parseInt(month1.getText().substring(1));
+                    if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                        month4 = Integer.parseInt(month2.getText().substring(1));
 
                     } else {
-                        month3 = Integer.parseInt(month2.getText());
+                        month4 = Integer.parseInt(month2.getText());
                     }
                 }
             } else {
-                month4 = Integer.parseInt(month1.getText());
-                month3 = Integer.parseInt(month2.getText());
+                month3 = Integer.parseInt(month1.getText());
+                month4 = Integer.parseInt(month2.getText());
             }
 
-            int year4 = Integer.parseInt(year1.getText());
-            int year3 = Integer.parseInt(year2.getText());
-            if ((year3 <= 9999 && year3 >= 2000) || (year4 <= 9999 && year4 >= 2000)){
-            dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);}
+            int year3 = Integer.parseInt(year1.getText());
+            int year4 = Integer.parseInt(year2.getText());
+            System.out.println(day3 +"\n" + day4+"\n" +month3+"\n" + month4+"\n" + year3+"\n" + year4);
+            System.out.println("PRueba");
+            
+            if ((year3 <= 9999 && year3 >= 2000) && (year4 <= 9999 && year4 >= 2000)){
+            dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3,year4);}
             
             String dateArrival1 = "";
             String dateCheckout1 ="";
-            if (dateExist=true){
+            if (dateExist==true){
                 dateArrival1 = day1.getText()+"/"+month1.getText()+"/"+year1.getText();
                 dateCheckout1 = day2.getText()+"/"+month2.getText()+"/"+year2.getText();
             }
@@ -401,7 +404,7 @@ public class NewClient extends javax.swing.JFrame {
             System.out.println("BBBBB ");
             System.out.println(cellphone);
             
-            if ((findspace = true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
+            if ((findspace == true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
 
                 Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que pusiste todos los datos bien?");
 
@@ -415,8 +418,11 @@ public class NewClient extends javax.swing.JFrame {
                 guest.setRoomType(typeRoom2.getText().toLowerCase());
                 reservations.insert(guest, reservations.getRoot());
                 reservationsHistory.insert(guest, reservationsHistory.getRoot());
-                menu.setVisible(true);
-                this.setVisible(false);
+                
+        if (confirm.equals(0)) {
+            menu.setVisible(true);
+            this.setVisible(false);
+        }
             } else {
                 JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
             }

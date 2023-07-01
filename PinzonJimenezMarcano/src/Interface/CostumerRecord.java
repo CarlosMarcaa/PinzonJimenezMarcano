@@ -6,6 +6,7 @@
 package Interface;
 
 import static Interface.Menu.status;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -111,6 +112,8 @@ public class CostumerRecord extends javax.swing.JFrame {
         numberRoom = haveARoom;
         CostumerRecord257 Record2 = new CostumerRecord257(this);
         
+        }else{
+            JOptionPane.showMessageDialog(null, "Este Usuario no existe");
         }
         
     }//GEN-LAST:event_okActionPerformed
