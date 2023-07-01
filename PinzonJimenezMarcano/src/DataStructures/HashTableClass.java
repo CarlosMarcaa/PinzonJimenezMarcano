@@ -24,7 +24,6 @@ public class HashTableClass {
         return occupiedRooms;
     }
 
-    
     public HashTableClass(int maxCapacity) {
         this.table = new ListaClass[maxCapacity * 3];
         this.tableSize = maxCapacity * 3;
@@ -161,7 +160,5 @@ public class HashTableClass {
     public ListaClass[] getTable() {
         return table;
     }
-    
-    
 
 }
