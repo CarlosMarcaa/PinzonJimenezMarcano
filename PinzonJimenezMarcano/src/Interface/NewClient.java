@@ -294,7 +294,7 @@ public class NewClient extends javax.swing.JFrame {
             int phone1 = Integer.parseInt(phone.getText());
             int cell1 = Integer.parseInt(cell.getText());
 
-            if ((email2.getText().contains("@")) && (email2.getText().contains(".com"))) {
+            if ((email2.getText().contains("@")) ) {
                 emailGood = true;
             }
 
@@ -408,7 +408,7 @@ public class NewClient extends javax.swing.JFrame {
             
             if ((findspace == true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
 
-                Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que pusiste todos los datos bien?");
+                Object confirm = JOptionPane.showConfirmDialog(null, "Desea continuar con la reservación? (Asegúrese que puso los datos correctos)");
 
                 Guest guest = new Guest(name.getText(), lastName2.getText());
                 guest.setId(id3);
