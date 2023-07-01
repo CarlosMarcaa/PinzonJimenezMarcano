@@ -97,6 +97,11 @@ public class CheckOut extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
 
         id57.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        id57.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id57ActionPerformed(evt);
+            }
+        });
         getContentPane().add(id57, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 140, 30));
 
         day1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -443,6 +448,10 @@ public class CheckOut extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error, coloco un dato mal");
         }
     }//GEN-LAST:event_okActionPerformed
+
+    private void id57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id57ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id57ActionPerformed
 
     public boolean space(String information2) {
         boolean flag = true;

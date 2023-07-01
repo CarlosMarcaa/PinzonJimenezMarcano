@@ -108,7 +108,7 @@ public class CheckIn extends javax.swing.JFrame {
         getContentPane().add(AAAA, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, -1));
 
         id57.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        id57.setForeground(new java.awt.Color(255, 255, 255));
+        id57.setForeground(new java.awt.Color(0, 0, 0));
         id57.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 id57ActionPerformed(evt);
@@ -154,7 +154,7 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        try {
+//        try {
             boolean dateExist = false;
             boolean findspace = true;
             boolean findSpace1 = true;
@@ -170,7 +170,9 @@ public class CheckIn extends javax.swing.JFrame {
                 }
             }
             int idGuest = Integer.parseInt(id57.getText());
-            Guest guestArrival = reservations.searchIdCheck(reservations.getRoot(), idGuest);
+            reservations.searchIdCheck(reservations.getRoot(), idGuest);
+                                       
+            Guest guestArrival = reservations.getGuestFind();
 
             if (guestArrival != null) {
                 String[] dateGuest = guestArrival.getArrival().split("/");
@@ -243,7 +245,7 @@ public class CheckIn extends javax.swing.JFrame {
                 String dateCheckout1 = "";
             }
 
-            if (dateExist == true && findspace == true) {
+            if (dateExist == false && findspace == true) {
                 HashTableClass table = (HashTableClass) status;
                 for (int i = 0; i < table.getTableSize(); i++) {
                     if (table.getTable()[i] != null) {
@@ -382,8 +384,7 @@ public class CheckIn extends javax.swing.JFrame {
                                     flag2 = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
                                     if (flag2 == false) {
                                         if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
-                                           
-                                           
+
                                             historic.insert(guestToAppend, historic.getRoot());
                                         }
                                         status.deleteGuest(guestToAppend);
@@ -398,55 +399,70 @@ public class CheckIn extends javax.swing.JFrame {
                                     status.deleteGuest(guestToAppend);
                                 } else {
                                     if (historic.searchIfisInHistoric(historic.getRoot(), guestToAppend.getId()) == false) {
-                                       
 
                                         historic.insert(guestToAppend, historic.getRoot());
                                     }
                                     status.deleteGuest(guestToAppend);
                                 }
                             }
-
+                            pointer = pointer.getNext();
                         }
                     }
                 }
-                
-                
-            historic.searchInHistoric(historic.getRoot(),day1.getText(),month1.getText(),year1.getText(),reservationsHistory,status);
-            status.printHashTable();
-            
+
+                historic.searchInHistoric(historic.getRoot(), day1.getText(), month1.getText(), year1.getText(), reservationsHistory, status);
+                status.printHashTable();
+
                 for (int i = 0; i < table.getTableSize(); i++) {
                     if (table.getTable()[i] != null) {
                         Nodo pointer = table.getTable()[i].getHead();
                         boolean[] occuped = status.getOccupiedRooms();
                         int j = 1;
                         for (; j <= 300; j++) {
-                            Guest guestToAppend  = (Guest) pointer.getElement();
-                            if (occuped[j] ==false) {
-                            if (j<=100 && j>=1 && "simple".equals(reservations.searchIdCheck(reservations.getRoot(),idGuest).getRoomType().toLowerCase())) {break;}
-                            if (j<=224 && j>=101 && "doble".equals(reservations.searchIdCheck(reservations.getRoot(),idGuest).getRoomType().toLowerCase())) {break;}
-                            if (j<=265 && j>=225 && "triple".equals(reservations.searchIdCheck(reservations.getRoot(),idGuest).getRoomType().toLowerCase())) {break;}
-                            if (j<=300 && j>=266 && "suite".equals(reservations.searchIdCheck(reservations.getRoot(),idGuest).getRoomType().toLowerCase())) {break;}
+                            if (occuped[j] == false) {
+                                System.out.println(reservations.getRoot());
+                                System.out.println(idGuest);
+                                
+                               
+                                        Guest hii = reservations.searchIdCheck(reservations.getRoot(), idGuest);
+                                System.out.println(hii);
+//                                System.out.println(reservations.searchIdCheck(reservations.getRoot(), idGuest).getRoomType());
+//                                System.out.println(reservations.searchIdCheck(reservations.getRoot(), idGuest).getRoomType().toLowerCase());
+                                
+                                
+                                if (j <= 100 && j >= 1 && "simple".equals(hii.getRoomType().toLowerCase())) {
+                                    break;
+                                }
+                                if (j <= 224 && j >= 101 && "doble".equals(hii.getRoomType().toLowerCase())) {
+                                    break;
+                                }
+                                if (j <= 265 && j >= 225 && "triple".equals(hii.getRoomType().toLowerCase())) {
+                                    break;
+                                }
+                                if (j <= 300 && j >= 266 && "suite".equals(hii.getRoomType().toLowerCase())) {
+                                    break;
+                                }
                             }
-                            }
-                            status.put(reservations.searchIdCheck(reservations.getRoot(),idGuest), j);
-                            
-                            
-                            pointer = pointer.getNext();
-                        
+                        }
+                        Guest hii = reservations.getGuestFind();
+                        status.put(hii, j);
+
+                        pointer = pointer.getNext();
+
                     }
                 }
-                
+
                 menu.setVisible(true);
                 this.setVisible(false);
             } else if (findspace == false) {
                 JOptionPane.showMessageDialog(null, "Error, dejo un argumento sin rellenar ");
-            } else if (dateExist == false) {
+            } else if (dateExist == true) {
                 JOptionPane.showMessageDialog(null, "Error, Usuario no encontrado o la fecha de hoy no es su fecha de llegada.");
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error, coloco un dato mal");
-        }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error, coloco un dato mal");
+//        }
 
 
     }//GEN-LAST:event_okActionPerformed

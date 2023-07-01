@@ -16,7 +16,7 @@ public class ABBClass {
 
     private ABBNode root;
     String guest_find = "";
-    Guest guestFind = null;
+    Guest guestFind;
     boolean flag = false;
     Functions verifyDateExits = new Functions();
     
@@ -203,29 +203,38 @@ public class ABBClass {
     }
     
     public Guest searchIdCheck(ABBNode root, int id) {
-        
+       
         if (root != null) {
             if (id == root.getElement()) {
                 guestFind = root.getGuest();
+                return guestFind = root.getGuest();
             }
         } else {
             if (id < root.getElement()) {
                 if (root.getLeftSon() != null) {
-                    searchIdCheck(root.getLeftSon(), id);
+                    return searchIdCheck(root.getLeftSon(), id);
                 }
             } else {
                 if (root.getRightSon() != null) {
-                    searchIdCheck(root.getRightSon(), id);
+                    return searchIdCheck(root.getRightSon(), id);
                 }
             }
-        }
+        }return guestFind;
+        
+    }
+
+    public Guest getGuestFind() {
         return guestFind;
+    }
+
+    public void setGuestFind(Guest guestFind) {
+        this.guestFind = guestFind;
     }
     public Object searchEmailCheck(ABBNode root, String email) {
         
         if (root != null) {
             if (email == root.getGuest().getEmail()) {
-                guestFind = root.getGuest();
+                return guestFind = root.getGuest();
             }
         
            
