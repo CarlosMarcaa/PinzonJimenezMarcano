@@ -99,7 +99,7 @@ public class CheckOut extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que no quieres seguir con el check-in?");
+        Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que no quieres seguir con el check-out?");
 
         if (confirm.equals(0)) {
 
@@ -115,23 +115,21 @@ public class CheckOut extends javax.swing.JFrame {
         
         String id3 = id57.getText();
         try {
-            System.out.println(reservationsHistory.searchId(reservationsHistory.getRoot(), Integer.parseInt(id3)));
-            System.out.println("HHHHHHHH");
+           
+          
             Guest guest = reservationsHistory.searchId(reservationsHistory.getRoot(), Integer.parseInt(id3));
-            System.out.println("NNNNNNNN");
-            System.out.println(guest);
+           
             String room = status.getGuestRoom(guest.getFirstName(), guest.getLastName());
-            System.out.println("PPPPPPPP");
-            System.out.println(room);
+          
             if ((guest != null) && (!room.equals(""))) {
                 LocalDate today = LocalDate.now(); //fecha de hoy
                 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //ejemplo de como se hace el formato de fecha
 
 //                Verifica que la fecha de la reserva coincide con la del día de hoy 
                 if (LocalDate.parse(guest.getCheckout(), DateTimeFormatter.ofPattern("dd/MM/yyyy")).equals(today)) {
-                    System.out.println("Bieeen");
+                   
 
-                        Object confirm2 = JOptionPane.showConfirmDialog(null, "Seguro que le quieres hacer checkIn a la persona con la cedula" + "\n" + guest.getId() + "?");
+                        Object confirm2 = JOptionPane.showConfirmDialog(null, "Seguro que le quieres hacer check-out a la persona con la cedula" + "\n" + guest.getId() + "?");
 
                         if (confirm2.equals(0)) {
                             
@@ -145,7 +143,7 @@ public class CheckOut extends javax.swing.JFrame {
                     
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "La persona con esta cedula no tiene su dia de checkOut para el dia de hoy." + "\n" + today.format(dateFormat));
+                    JOptionPane.showMessageDialog(null, "La persona con esta cedula no tiene su dia de check-out para el dia de hoy." + "\n" + today.format(dateFormat));
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "No existe una persona con esa cedula el hotel");

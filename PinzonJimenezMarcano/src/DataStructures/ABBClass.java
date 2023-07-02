@@ -85,7 +85,7 @@ public class ABBClass {
     public void delete(int element, ABBNode previousNode, ABBNode root) {
 
         if (isEmpty()) {
-            System.out.println("The tree is empty");
+
         } else {
             if (element != root.getElement()) {
                 if (element < root.getElement()) {
@@ -160,7 +160,7 @@ public class ABBClass {
 
     public void preOrden(ABBNode nodo) {
         if (nodo != null) {
-            System.out.print(" [" + nodo.getElement() + "]");
+
             preOrden(nodo.getLeftSon());
             preOrden(nodo.getRightSon());
         }
@@ -169,7 +169,7 @@ public class ABBClass {
     public void inOrden(ABBNode nodo) {
         if (nodo != null) {
             preOrden(nodo.getLeftSon());
-            System.out.print(" [" + nodo.getElement() + "]");
+            
             preOrden(nodo.getRightSon());
         }
     }
@@ -178,7 +178,7 @@ public class ABBClass {
         if (nodo != null) {
             preOrden(nodo.getLeftSon());
             preOrden(nodo.getRightSon());
-            System.out.print(" [" + nodo.getElement() + "]");
+         
         }
     }
 
@@ -223,29 +223,10 @@ public class ABBClass {
 
     }
 
-//    public Guest searchEmailCheck(ABBNode root, String email) {
-//        
-//        if (root != null) {
-//            if (email == root.getGuest().getEmail()) {
-//                return root.getGuest();
-//            }
-//        
-//           
-//                    return searchEmailCheck(root.getLeftSon(), email);
-//                
-//            
-//                   return searchEmailCheck(root.getRightSon(), email);
-//               
-//            
-//        }
-//        return null;
-//    }
-//    public void CheckOutAutomatic(String date, String dateToday,ABBNode root, int id,
     public Room searchRoom(ABBNode root, int room) {
         if (root != null) {
             if (room == root.getRoom().getRoomNumber()) {
-//                root.getRoom().printRoom();
-//                System.out.println("");
+
                 return root.getRoom();
             } else {
                 if (room < root.getRoom().getRoomNumber()) {

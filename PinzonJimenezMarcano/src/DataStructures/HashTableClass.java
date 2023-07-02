@@ -51,15 +51,12 @@ public class HashTableClass {
 
         guest.setRoom(room);
         if (occupiedRooms[room] == true) {
-            System.out.println("The rooom " + room + " is already occupied");
             return;
         }
         if (isFull()) {
-            System.out.println("Sorry, we are at full capacity at the moment");
 
         } else {
             if (room > maxCapacity || room < 1) {
-                System.out.println("The room " + room + " does not exist." + " Can't add " + guest.getFirstName() + " " + guest.getLastName());
                 return;
             }
 
@@ -89,7 +86,7 @@ public class HashTableClass {
         Guest guest = new Guest(firstName, lastName); // Este Guest creado solo sirve para generar el hashcode, no contiene toda la informacion.
         int index = generateHashCode(guest);
         if (getTable()[index] == null) {                 // Cuando no encuentra al huesped en el sistema, devuelve -1
-            JOptionPane.showMessageDialog(null, guest.getFullName() + "no se esta quedando en el hotel");
+            JOptionPane.showMessageDialog(null, guest.getFullName() +""+ "no se esta quedando en el hotel");
 
             return roomsFound;
 
@@ -113,7 +110,6 @@ public class HashTableClass {
         int index = generateHashCode(guestToDelete);
 
         if (getTable()[index] == null) {
-            System.out.println(guestToDelete.getFullName() + " isn't staying at the hotel"); // Posible nullpointer, si no encuentra el Guest que se esta buscando, devuelve null
             return null;
         } else {
             Nodo pointer = table[index].getHead();
@@ -133,7 +129,6 @@ public class HashTableClass {
                 capacity--;
                 return guestToDelete;
             } else {
-                System.out.println(guestToDelete.getFullName() + " isn't staying at the hotel");
                 return null;
             }
         }
@@ -149,9 +144,7 @@ public class HashTableClass {
 
                 while (pointer != null) {
                     Guest guestToPrint = (Guest) pointer.getElement();
-                    System.out.println("[ " + guestToPrint.getFirstName() + " " + guestToPrint.getLastName() + ": Room " + guestToPrint.getRoom() + " ]");
                     pointer = pointer.getNext();
-                    System.out.println(counter++);
                 }
             }
         }

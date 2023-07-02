@@ -396,15 +396,7 @@ public class NewClient extends javax.swing.JFrame {
                 typeRoomExist = true;
             }
             
-            System.out.println(findspace);
-            System.out.println("HHHHHH");
-            System.out.println(dateExist);
-            System.out.println("NNNNNNN");
-            System.out.println(emailGood);
-            System.out.println("PPPPPP");
-            System.out.println(typeRoomExist);
-            System.out.println("BBBBB ");
-            System.out.println(cellphone);
+           
             
             if ((findspace == true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
 
@@ -430,8 +422,7 @@ public class NewClient extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
-            System.out.println("ERRROOOOORRR");
-            System.out.println(e);
+          
         }
     }//GEN-LAST:event_okActionPerformed
 
