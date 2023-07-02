@@ -126,8 +126,8 @@ public class ListaClass {
             }
             length--;
 
-        Nodo current = getHead();
-        Nodo previous = null;
+        current = getHead();
+        previous = null;
 
         // Buscar el nodo que contiene el valor a eliminar
         while (current != null && current.getElement() != elementToDelete) {
