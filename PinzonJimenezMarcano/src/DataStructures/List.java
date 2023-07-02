@@ -25,7 +25,6 @@ public class List {
     public int getLength() {
         return length;
     }
-
     public void setHead(Nodo head) {
         this.head = head;
     }
@@ -77,7 +76,6 @@ public class List {
                     node.setNext((Nodo) pointer.getNext());
                     pointer.setNext(node);
                 } else {
-                    System.out.println("Error in index");
                 }
             }
         }

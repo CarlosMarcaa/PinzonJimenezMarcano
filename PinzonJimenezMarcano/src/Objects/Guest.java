@@ -27,7 +27,7 @@ public class Guest {
 
         this.firstName = Functions.capitalizeFirstLetter(firstName);
         this.lastName = Functions.capitalizeFirstLetter(lastName);
-        this.fullName = firstName.toLowerCase() + lastName.toLowerCase();
+        this.fullName = firstName.toLowerCase() +""+ lastName.toLowerCase();
     }
 
     public int getRoom() {

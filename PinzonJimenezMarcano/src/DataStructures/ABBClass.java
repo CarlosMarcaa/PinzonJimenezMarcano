@@ -90,7 +90,6 @@ public class ABBClass {
     public void delete(int element, ABBNode previousNode, ABBNode root) {
 
         if (isEmpty()) {
-            System.out.println("The tree is empty");
         } else {
             if (element != root.getElement()) {
                 if (element < root.getElement()) {
@@ -166,7 +165,6 @@ public class ABBClass {
     // Does the preOrder path (Only for developing)
     public void preOrden(ABBNode nodo) {
         if (nodo != null) {
-            System.out.print(" [" + nodo.getElement() + "]");
             preOrden(nodo.getLeftSon());
             preOrden(nodo.getRightSon());
         }
@@ -176,7 +174,7 @@ public class ABBClass {
     public void inOrden(ABBNode nodo) {
         if (nodo != null) {
             preOrden(nodo.getLeftSon());
-            System.out.print(" [" + nodo.getElement() + "]");
+            
             preOrden(nodo.getRightSon());
         }
     }
@@ -186,7 +184,7 @@ public class ABBClass {
         if (nodo != null) {
             preOrden(nodo.getLeftSon());
             preOrden(nodo.getRightSon());
-            System.out.print(" [" + nodo.getElement() + "]");
+         
         }
     }
 
@@ -353,6 +351,8 @@ public class ABBClass {
             }
 
             if (dateExist == true || dateExist2 == false) {
+//                    Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), nodo.getGuest().getEmail());
+//                                if (guestNew != null) {
                 String[] dateGuest1 = nodo.getGuest().getCheckout().split("/");
 
                 day5 = dateGuest1[0].charAt(0);

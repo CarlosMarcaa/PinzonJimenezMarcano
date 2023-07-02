@@ -58,7 +58,6 @@ public class CsvManager {
                     String[] data = data_split[i].split("(,|, )");
 //                    RESERVATIONS
                     if (path.equals("test/Booking_hotel_reservations.csv") && !data_split[i].equals("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida")) {
-//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6] + ", " + data[7] + ", " + data[8]);
                         Guest guest = new Guest(data[1], data[2]);
                         guest.setId(idToInt(data[0]));
                         guest.setEmail(data[3]);
@@ -72,7 +71,6 @@ public class CsvManager {
 
                     } //                    STATUS
                     if (path.equals("test/Booking_hotel_reservations_1.csv") && !data_split[i].equals("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida")) {
-//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6] + ", " + data[7] + ", " + data[8]);
                         Guest guest = new Guest(data[1], data[2]);
                         guest.setId(idToInt(data[0]));
                         guest.setEmail(data[3]);
@@ -85,7 +83,6 @@ public class CsvManager {
                         
                     }
                     else if (path.equals("test/Booking_hotel_status.csv") && !data_split[i].equals("num_hab,primer_nombre,apellido,email,genero,celular,llegada")) {
-//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);
                         if (!data[0].equals("")) {
                             Guest guest = new Guest(data[1], data[2]);
                             guest.setRoom(Integer.parseInt(data[0]));
@@ -97,7 +94,6 @@ public class CsvManager {
                         }
                     } //                    ROOMS
                     else if (path.equals("test/Booking_hotel_rooms.csv") && !data_split[i].equals("num_hab,tipo_hab,piso")) {
-//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2]);
                         List roomList = new List();
 
                         Room room = new Room(Integer.parseInt(data[0]), data[1], Integer.parseInt(data[2]), roomList);
@@ -108,7 +104,6 @@ public class CsvManager {
 
                     } //                    HISTORIC
                     else if (path.equals("test/Booking_hotel_historic.csv") && !data_split[i].equals("ci,primer_nombre,apellido,email,genero,llegada,num_hab")) {
-//                        System.out.println(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + ", " + data[6]);\
                         Guest guest = new Guest(data[1], data[2]);
                         guest.setId(idToInt(data[0]));
                         guest.setEmail(data[3]);
@@ -125,7 +120,7 @@ public class CsvManager {
 
             lector.close();
         } catch (Exception e) {
-            System.out.println(e);
+           
         }
 
         if (null != path) {
@@ -196,9 +191,9 @@ public class CsvManager {
 
             wr.close();
             bw.close();
-            System.out.println("LISTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+           
         } catch (IOException e) {
-            System.out.println(e);
+            
         }
     }
 

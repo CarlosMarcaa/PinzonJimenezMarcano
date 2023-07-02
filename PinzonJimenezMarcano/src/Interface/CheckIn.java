@@ -103,25 +103,22 @@ public class CheckIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void id57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id57ActionPerformed
-
     }//GEN-LAST:event_id57ActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
         String id3 = id57.getText();
         try {
-            System.out.println(reservations.searchId(reservations.getRoot(), Integer.parseInt(id3)));
-             System.out.println("HHHHHHHH");
+            
             Guest guest = reservations.searchId(reservations.getRoot(), Integer.parseInt(id3));
-            System.out.println(guest);
-            System.out.println("HHHHHHHH");
+           
             if (guest != null) {
                 LocalDate today = LocalDate.now(); //fecha de hoy
                 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //ejemplo de como se hace el formato de fecha
 
 //                Verifica que la fecha de la reserva coincide con la del día de hoy 
                 if (LocalDate.parse(guest.getArrival(), DateTimeFormatter.ofPattern("dd/MM/yyyy")).equals(today)) {
-                    System.out.println("Bieeen");
+                    
 //                    Agrega al usuario a status
                     HashTableClass table = (HashTableClass) status;
 

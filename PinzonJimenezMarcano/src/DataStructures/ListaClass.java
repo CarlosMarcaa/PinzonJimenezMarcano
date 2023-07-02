@@ -57,7 +57,6 @@ public class ListaClass {
     public Nodo getIndex(int index) {
         Nodo nodo = getHead();
         if (isEmpty()) {
-            System.out.println("Nonexistent index");
             return nodo;
         } else {
             if (index < 0 || index > length) {
