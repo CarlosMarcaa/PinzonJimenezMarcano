@@ -260,7 +260,7 @@ public class NewClient extends javax.swing.JFrame {
                         getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 90, 50));
 
                         typeRoom2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-                        typeRoom2.setForeground(new java.awt.Color(255, 255, 255));
+                        typeRoom2.setForeground(new java.awt.Color(0, 0, 0));
                         typeRoom2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Doble", "Triple", "Suite" }));
                         getContentPane().add(typeRoom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
 
