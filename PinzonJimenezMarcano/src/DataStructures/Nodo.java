@@ -16,7 +16,7 @@ public class Nodo {
         this.element = element;
         this.next = null;
     }
-
+    
     public Object getElement() {
         return element;
     }

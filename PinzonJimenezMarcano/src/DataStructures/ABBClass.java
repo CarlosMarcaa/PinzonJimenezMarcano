@@ -23,18 +23,22 @@ public class ABBClass {
     public ABBClass() {
         this.root = null;
     }
+
     // Returns the root of the tree
     public ABBNode getRoot() {
         return root;
     }
+
     // Changes the value of the root 
     public void setRoot(ABBNode root) {
         this.root = root;
     }
+
     // Verifies if the tree does not contain any node            
     public boolean isEmpty() {
         return root == null;
     }
+
     //  Adds a new node to the tree
     public void insert(Object element, ABBNode root) {
         if (element instanceof Guest) {
@@ -81,6 +85,7 @@ public class ABBClass {
             }
         }
     }
+
     // Given an element, if the tree contains that element, it deletes the element from the tree
     public void delete(int element, ABBNode previousNode, ABBNode root) {
 
@@ -157,6 +162,7 @@ public class ABBClass {
         }
 
     }
+
     // Does the preOrder path (Only for developing)
     public void preOrden(ABBNode nodo) {
         if (nodo != null) {
@@ -165,6 +171,7 @@ public class ABBClass {
             preOrden(nodo.getRightSon());
         }
     }
+
     // Does the inOrder path (Only for developing)
     public void inOrden(ABBNode nodo) {
         if (nodo != null) {
@@ -173,6 +180,7 @@ public class ABBClass {
             preOrden(nodo.getRightSon());
         }
     }
+
     // Does the postOrder path (Only for developing)
     public void postOrden(ABBNode nodo) {
         if (nodo != null) {
@@ -181,6 +189,7 @@ public class ABBClass {
             System.out.print(" [" + nodo.getElement() + "]");
         }
     }
+
     // Given an "Id" int, returns the Guest with that id, if the guest is contained in the tree
     public Guest searchId(ABBNode root, int id) {
         if (root != null) {
@@ -200,6 +209,7 @@ public class ABBClass {
         }
         return null;
     }
+
     // Given an "Id" int, returns the Guest with that id, if the guest is contained in the tree
     public Guest searchIdCheck(ABBNode root, int id) {
 
@@ -244,6 +254,7 @@ public class ABBClass {
         }
         return null;
     }
+
     // Necessary function for the deleteNode Function, do not use individually
     public ABBNode searchReplacementNode(ABBNode selected) {
         while (selected.getRightSon() != null) {
@@ -251,6 +262,7 @@ public class ABBClass {
         }
         return selected;
     }
+
     // Verifies if an element is contained in the tree
     public boolean searchIfisInHistoric(ABBNode nodo, int id) {
 
@@ -265,6 +277,7 @@ public class ABBClass {
         return flag;
 
     }
+
     // Searches for an element in the tree
     public void searchInHistoric(ABBNode nodo, String day1, String month1, String year1, ABBClass reservationsHistory, HashTableClass status) {
         boolean dateExist = false;
