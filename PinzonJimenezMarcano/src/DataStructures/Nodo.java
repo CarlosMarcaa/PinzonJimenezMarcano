@@ -17,18 +17,22 @@ public class Nodo {
         this.next = null;
     }
     
+    // Returns the element of the node
     public Object getElement() {
         return element;
     }
-
+    
+    // Changes the element of the node
     public void setElement(Object element) {
         this.element = element;
     }
 
+    // Returns the following node
     public Nodo getNext() {
         return next;
     }
-
+    
+    // Changes the following node
     public void setNext(Nodo next) {
         this.next = next;
     }

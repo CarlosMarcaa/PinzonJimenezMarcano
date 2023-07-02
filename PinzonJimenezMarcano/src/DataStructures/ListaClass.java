@@ -17,23 +17,28 @@ public class ListaClass {
         this.length = 0;
         this.head = null;
     }
-
+    
+    // Verifies if the list does not contain any nodes
     public boolean isEmpty() {
         return getLength() == 0;
     }
-
+    
+    // Returns the length of the list
     public int getLength() {
         return length;
     }
-
+    
+    // Returns the head of the list
     public Nodo getHead() {
         return head;
     }
-
+    
+    // Changes the head of the list
     public void setHead(Nodo head) {
         this.head = head;
     }
-
+    
+    // Inserts and element in the beginning of the list
     public void insertBegin(Object Element) {
         Nodo nodo = new Nodo(Element);
 
