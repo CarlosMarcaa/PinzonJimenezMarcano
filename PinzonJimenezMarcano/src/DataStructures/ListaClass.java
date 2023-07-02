@@ -17,27 +17,27 @@ public class ListaClass {
         this.length = 0;
         this.head = null;
     }
-    
+
     // Verifies if the list does not contain any nodes
     public boolean isEmpty() {
         return getLength() == 0;
     }
-    
+
     // Returns the length of the list
     public int getLength() {
         return length;
     }
-    
+
     // Returns the head of the list
     public Nodo getHead() {
         return head;
     }
-    
+
     // Changes the head of the list
     public void setHead(Nodo head) {
         this.head = head;
     }
-    
+
     // Inserts and element in the beginning of the list
     public void insertBegin(Object Element) {
         Nodo nodo = new Nodo(Element);
@@ -78,7 +78,8 @@ public class ListaClass {
 
     // Searches and returns an element from the list if it exist in the list
     public Nodo searchElement(Object elementToSearch) {
-        // Cuidado, posible nullpointer. Al momento de no encontrar el elemento en la lista, devuelve null.
+        // Cuidado, posible nullpointer. Al momento de no encontrar el elemento en la
+        // lista, devuelve null.
         if (isEmpty()) {
             return null;
         } else {
@@ -117,6 +118,29 @@ public class ListaClass {
             // Si el valor no se encuentra en la lista
             if (current == null) {
                 System.out.println("Element " + elementToDelete + " not found in the list");
+                return;
+            }
+
+            // Eliminar el nodo
+            if (previous != null) {
+                previous.setNext(current.getNext());
+            } else {
+                setHead(null);
+            }
+            length--;
+
+            current = getHead();
+            previous = null;
+
+            // Buscar el nodo que contiene el valor a eliminar
+            while (current != null && current.getElement() != elementToDelete) {
+                previous = current;
+                current = current.getNext();
+
+            }
+
+            // Si el valor no se encuentra en la lista
+            if (current == null) {
                 return;
             }
 
