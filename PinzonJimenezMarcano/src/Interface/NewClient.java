@@ -278,9 +278,9 @@ public class NewClient extends javax.swing.JFrame {
             boolean emailGood = false;
             boolean typeRoomExist = false;
             boolean cellphone = false;
-            
+
             Functions verifyDateExits = new Functions();
-            
+
             String information1 = name.getText() + "/" + lastName2.getText() + "/" + id2.getText() + "/" + gender2.getText() + "/" + email2.getText() + "/" + cell.getText() + "/" + phone.getText() + "/" + typeRoom2.getSelectedItem().toString() + "/" + day1.getText() + "/" + month1.getText() + "/" + year1.getText() + "/" + day2.getText() + "/" + month2.getText() + "/" + year2.getText();
             String[] information2 = information1.split("/");
             for (int i = 0; i > information2.length; i++) {
@@ -294,7 +294,7 @@ public class NewClient extends javax.swing.JFrame {
             int phone1 = Integer.parseInt(phone.getText());
             int cell1 = Integer.parseInt(cell.getText());
 
-            if ((email2.getText().contains("@")) ) {
+            if ((email2.getText().contains("@"))) {
                 emailGood = true;
             }
 
@@ -358,18 +358,17 @@ public class NewClient extends javax.swing.JFrame {
 
             int year3 = Integer.parseInt(year1.getText());
             int year4 = Integer.parseInt(year2.getText());
-            
-            
-            if ((year3 <= 9999 && year3 >= 2000) && (year4 <= 9999 && year4 >= 2000)){
-            dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3,year4);}
-            
-            String dateArrival1 = "";
-            String dateCheckout1 ="";
-            if (dateExist==true){
-                dateArrival1 = day1.getText()+"/"+month1.getText()+"/"+year1.getText();
-                dateCheckout1 = day2.getText()+"/"+month2.getText()+"/"+year2.getText();
+
+            if ((year3 <= 9999 && year3 >= 2000) && (year4 <= 9999 && year4 >= 2000)) {
+                dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);
             }
-         
+
+            String dateArrival1 = "";
+            String dateCheckout1 = "";
+            if (dateExist == true) {
+                dateArrival1 = day1.getText() + "/" + month1.getText() + "/" + year1.getText();
+                dateCheckout1 = day2.getText() + "/" + month2.getText() + "/" + year2.getText();
+            }
 
             if (cell1 >= 100 && cell1 <= 999) {
                 if (phone1 >= 1000000 && phone1 <= 9999999) {
@@ -378,23 +377,21 @@ public class NewClient extends javax.swing.JFrame {
             }
 
             String cellphone4 = "";
-            
-            if (cellphone==true){
-                cellphone4 = "("+cell.getText()+")"+phone.getText();
+
+            if (cellphone == true) {
+                cellphone4 = "(" + cell.getText() + ")" + phone.getText();
             }
-            
-            if (typeRoom2.getSelectedItem().toString().toUpperCase().equals("SIMPLE")){
+
+            if (typeRoom2.getSelectedItem().toString().toUpperCase().equals("SIMPLE")) {
                 typeRoomExist = true;
-            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("DOBLE")){
+            } else if (typeRoom2.getSelectedItem().toString().toUpperCase().equals("DOBLE")) {
                 typeRoomExist = true;
-            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("SUITE")){
+            } else if (typeRoom2.getSelectedItem().toString().toUpperCase().equals("SUITE")) {
                 typeRoomExist = true;
-            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("TRIPLE")){
+            } else if (typeRoom2.getSelectedItem().toString().toUpperCase().equals("TRIPLE")) {
                 typeRoomExist = true;
             }
-            
-           
-            
+
             if ((findspace == true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
 
                 Object confirm = JOptionPane.showConfirmDialog(null, "Desea continuar con la reservación? (Asegúrese que puso los datos correctos)");
@@ -409,17 +406,51 @@ public class NewClient extends javax.swing.JFrame {
                 guest.setRoomType(typeRoom2.getSelectedItem().toString().toLowerCase());
                 reservations.insert(guest, reservations.getRoot());
                 reservationsHistory.insert(guest, reservationsHistory.getRoot());
-                
-        if (confirm.equals(0)) {
-            menu.setVisible(true);
-            this.setVisible(false);
-        }
+
+                if (confirm.equals(0)) {
+                    menu.setVisible(true);
+                    this.setVisible(false);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
+                if ((findspace == false)) {
+                    JOptionPane.showMessageDialog(null, "Error, le falto llenar una casilla");
+
+                } else if ((dateExist == false)) {
+                    JOptionPane.showMessageDialog(null, "Error, coloco las fechas mal.");
+                    if ((emailGood == false)) {
+                        JOptionPane.showMessageDialog(null, "Error, coloco el email mal.");
+                        if ((cellphone == false)) {
+                            JOptionPane.showMessageDialog(null, "Error, coloco el numero celular mal.");
+                        }
+                    } else if (cellphone == false) {
+                        JOptionPane.showMessageDialog(null, "Error, coloco el numero celular mal.");
+                    }
+                } else if ((emailGood == false)) {
+                    JOptionPane.showMessageDialog(null, "Error, coloco el email mal.");
+                    if ((cellphone == false)) {
+                        JOptionPane.showMessageDialog(null, "Error, coloco el numero celular mal.");
+                        if ((dateExist == false)) {
+                            JOptionPane.showMessageDialog(null, "Error, coloco el email mal.");
+                        }
+                    } else if ((dateExist == false)) {
+                        JOptionPane.showMessageDialog(null, "Error, coloco el email mal.");
+                    }
+
+                } else if (cellphone == false) {
+                    JOptionPane.showMessageDialog(null, "Error, coloco el numero celular mal.");
+                    if ((emailGood == false)) {
+                        JOptionPane.showMessageDialog(null, "Error, coloco el numero celular mal.");
+                        if ((dateExist == false)) {
+                            JOptionPane.showMessageDialog(null, "Error, coloco el email mal.");
+                        }
+                    } else if ((dateExist == false)) {
+                        JOptionPane.showMessageDialog(null, "Error, coloco el email mal.");
+                    }
+                }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
-          
+            JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente." + "\n" + "Es probable que haya colocado una letra en vez de un numero en cedula, fecha o celular.");
+
         }
     }//GEN-LAST:event_okActionPerformed
 
