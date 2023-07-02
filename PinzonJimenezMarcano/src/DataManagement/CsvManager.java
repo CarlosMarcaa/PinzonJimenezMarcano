@@ -58,7 +58,6 @@ public class CsvManager {
                     String[] data = data_split[i].split("(,|, )");
 //                    RESERVATIONS
                     if (path.equals("test/Booking_hotel_reservations.csv") && !data_split[i].equals("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida")) {
-
                         Guest guest = new Guest(data[1], data[2]);
                         guest.setId(idToInt(data[0]));
                         guest.setEmail(data[3]);
@@ -121,7 +120,7 @@ public class CsvManager {
 
             lector.close();
         } catch (Exception e) {
-           
+            System.out.println(e);
         }
 
         if (null != path) {
@@ -192,9 +191,8 @@ public class CsvManager {
 
             wr.close();
             bw.close();
-           
         } catch (IOException e) {
-            
+            System.out.println(e);
         }
     }
 

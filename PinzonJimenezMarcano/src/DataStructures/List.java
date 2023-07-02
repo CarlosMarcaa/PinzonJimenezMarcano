@@ -25,7 +25,6 @@ public class List {
     public int getLength() {
         return length;
     }
-    
     public void setHead(Nodo head) {
         this.head = head;
     }
@@ -77,6 +76,7 @@ public class List {
                     node.setNext((Nodo) pointer.getNext());
                     pointer.setNext(node);
                 } else {
+                    System.out.println("Error in index");
                 }
             }
         }
@@ -85,6 +85,7 @@ public class List {
 
     public Nodo deleteFinal() {
         if (isEmpty()) {
+            System.out.println("List is Empty");
         } else {
             Nodo pointer = getHead();
             Nodo pointer2;
@@ -107,6 +108,7 @@ public class List {
 
     public Nodo deleteBegin() {
         if (isEmpty()) {
+            System.out.println("List is Empty");
         } else {
             Nodo pointer = getHead();
             setHead((Nodo) getHead().getNext());
@@ -120,6 +122,7 @@ public class List {
 
     public Nodo deleteInIndex(int index) {
         if (isEmpty()) {
+            System.out.println("List is Empty");
         } else {
             if (index == 0) {
                 deleteBegin();
@@ -137,6 +140,7 @@ public class List {
                     pointer2.setNext(null);
                     return pointer2;
                 } else {
+                    System.out.println("Error in index");
                 }
             }
         }
@@ -147,6 +151,7 @@ public class List {
     public void printList() {
         Nodo pointer = getHead();
         while (pointer != null) {
+            System.out.println("[ " + pointer.getElement() + " ]");
             pointer = (Nodo) pointer.getNext();
         }
     }
