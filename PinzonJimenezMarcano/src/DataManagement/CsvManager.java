@@ -39,7 +39,7 @@ public class CsvManager {
         ABBClass tree = new ABBClass();
         HashTableClass hashTable = new HashTableClass(301);
 
-        File cvsFile = new File(path);
+        File cvsFile = new File(path.equals("roomHistory") ? "test/Booking_hotel_historic.csv" : path);
         BufferedReader lector;
 
         String line;
@@ -81,9 +81,8 @@ public class CsvManager {
                         guest.setPhone(data[6]);
                         guest.setRoomType(data[5]);
                         tree.insert(guest, tree.getRoot());
-                        
-                    }
-                    else if (path.equals("test/Booking_hotel_status.csv") && !data_split[i].equals("num_hab,primer_nombre,apellido,email,genero,celular,llegada")) {
+
+                    } else if (path.equals("test/Booking_hotel_status.csv") && !data_split[i].equals("num_hab,primer_nombre,apellido,email,genero,celular,llegada")) {
                         if (!data[0].equals("")) {
                             Guest guest = new Guest(data[1], data[2]);
                             guest.setRoom(Integer.parseInt(data[0]));
@@ -111,17 +110,23 @@ public class CsvManager {
                         guest.setGender(data[4]);
                         guest.setArrival(data[5]);
                         guest.setRoom(Integer.parseInt(data[6]));
-//                            getHistoryTree().searchRoom(getHistoryTree().getRoot(), guest.getRoom()).printRoom();
-                        getHistoryTree().searchRoom(getHistoryTree().getRoot(), guest.getRoom()).getGuestHistory().insertFinal(guest);
-
                         tree.insert(guest, tree.getRoot());
-                    }
+
+                    } else if (path.equals("roomHistory") && !data_split[i].equals("ci,primer_nombre,apellido,email,genero,llegada,num_hab")) {
+                        Guest guest = new Guest(data[1], data[2]);
+                        guest.setId(idToInt(data[0]));
+                        guest.setEmail(data[3]);
+                        guest.setGender(data[4]);
+                        guest.setArrival(data[5]);
+                        guest.setRoom(Integer.parseInt(data[6]));
+                        getHistoryTree().searchRoom(getHistoryTree().getRoot(), guest.getRoom()).getGuestHistory().insertFinal(guest);
+                    }                    
                 }
             }
 
             lector.close();
         } catch (Exception e) {
-           
+
         }
 
         if (null != path) {
@@ -135,6 +140,8 @@ public class CsvManager {
                 case "test/Booking_hotel_rooms.csv":
                     return tree;
                 case "test/Booking_hotel_historic.csv":
+                    return tree;
+                case "roomHistory":
                     return getHistoryTree();
                 default:
                     break;
@@ -184,7 +191,7 @@ public class CsvManager {
                 wr.append("ci,primer_nombre,apellido,email,genero,llegada,num_hab\n");
                 ABBClass tree = (ABBClass) element;
                 getTree(tree.getRoot(), wr, "historic");
-            }else if ("test/Booking_hotel_reservations_1.csv".equals(path)) {
+            } else if ("test/Booking_hotel_reservations_1.csv".equals(path)) {
                 wr.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
                 ABBClass tree = (ABBClass) element;
                 getTree(tree.getRoot(), wr, "reservations_1");
@@ -192,9 +199,9 @@ public class CsvManager {
 
             wr.close();
             bw.close();
-           
+
         } catch (IOException e) {
-            
+
         }
     }
 
@@ -220,6 +227,19 @@ public class CsvManager {
 
                 getTree(nodo.getLeftSon(), wr, "historic");
                 getTree(nodo.getRightSon(), wr, "historic");
+            }
+        } else if (type.equals("reservations_1")) {
+            if (nodo != null) {
+//                ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida
+
+                wr.append(String.valueOf(nodo.getGuest().getId()) + "," + nodo.getGuest().getFirstName() + ","
+                        + nodo.getGuest().getLastName() + "," + nodo.getGuest().getEmail() + "," + nodo.getGuest().getGender() + ","
+                        + nodo.getGuest().getRoomType() + "," + nodo.getGuest().getPhone() + "," + nodo.getGuest().getArrival() + ","
+                        + nodo.getGuest().getCheckout() + "\n");
+
+                getTree(nodo.getLeftSon(), wr, "reservations");
+                getTree(nodo.getRightSon(), wr, "reservations");
+
             }
         }
     }

@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import static Interface.Menu.historic;
+import static Interface.Menu.roomH;
 import javax.swing.JOptionPane;
 
 /**
@@ -95,7 +95,7 @@ public class RoomHistory extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         try {
             if (Integer.parseInt(numberRoom16.getText()) <= 300) {
-                historyRoom16 = historic.searchRoom(historic.getRoot(), Integer.parseInt(numberRoom16.getText())).stringRoomHistory();
+                historyRoom16 = roomH.searchRoom(roomH.getRoot(), Integer.parseInt(numberRoom16.getText())).stringRoomHistory();
                 RoomHistory2 roomHistory2 = new RoomHistory2(this);
 
             } else {
