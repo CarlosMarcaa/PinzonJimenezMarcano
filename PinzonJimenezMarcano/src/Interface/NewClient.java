@@ -358,8 +358,7 @@ public class NewClient extends javax.swing.JFrame {
 
             int year3 = Integer.parseInt(year1.getText());
             int year4 = Integer.parseInt(year2.getText());
-            System.out.println(day3 +"\n" + day4+"\n" +month3+"\n" + month4+"\n" + year3+"\n" + year4);
-            System.out.println("PRueba");
+            
             
             if ((year3 <= 9999 && year3 >= 2000) && (year4 <= 9999 && year4 >= 2000)){
             dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3,year4);}
@@ -370,9 +369,7 @@ public class NewClient extends javax.swing.JFrame {
                 dateArrival1 = day1.getText()+"/"+month1.getText()+"/"+year1.getText();
                 dateCheckout1 = day2.getText()+"/"+month2.getText()+"/"+year2.getText();
             }
-            System.out.println("HOLAAAAAAA");
-            System.out.println(dateArrival1);
-            System.out.println(dateCheckout1);
+         
 
             if (cell1 >= 100 && cell1 <= 999) {
                 if (phone1 >= 1000000 && phone1 <= 9999999) {

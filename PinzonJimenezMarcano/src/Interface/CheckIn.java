@@ -128,8 +128,6 @@ public class CheckIn extends javax.swing.JFrame {
                     for (; j <= 300; j++) {
                         if (occuped[j] == false) {
 
-//                                System.out.println(reservations.searchIdCheck(reservations.getRoot(), idGuest).getRoomType());
-//                                System.out.println(reservations.searchIdCheck(reservations.getRoot(), idGuest).getRoomType().toLowerCase());
                             if (j <= 100 && j >= 1 && "simple".equals(guest.getRoomType().toLowerCase())) {
                                 guest.setRoom(j);
                                 break;
@@ -172,7 +170,7 @@ public class CheckIn extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No existe una persona con esa cedula en reservaciones.");
             }
         } catch (Exception e) {
-            System.out.println(e);
+
             JOptionPane.showMessageDialog(null, "Pofavor ponga un dato numerico.");
         }
     }//GEN-LAST:event_okActionPerformed
