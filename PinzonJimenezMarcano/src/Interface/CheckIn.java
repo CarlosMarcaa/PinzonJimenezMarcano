@@ -109,18 +109,16 @@ public class CheckIn extends javax.swing.JFrame {
 
         String id3 = id57.getText();
         try {
-            System.out.println(reservations.searchId(reservations.getRoot(), Integer.parseInt(id3)));
-             System.out.println("HHHHHHHH");
+            
             Guest guest = reservations.searchId(reservations.getRoot(), Integer.parseInt(id3));
-            System.out.println(guest);
-            System.out.println("HHHHHHHH");
+           
             if (guest != null) {
                 LocalDate today = LocalDate.now(); //fecha de hoy
                 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //ejemplo de como se hace el formato de fecha
 
 //                Verifica que la fecha de la reserva coincide con la del día de hoy 
                 if (LocalDate.parse(guest.getArrival(), DateTimeFormatter.ofPattern("dd/MM/yyyy")).equals(today)) {
-                    System.out.println("Bieeen");
+                    
 //                    Agrega al usuario a status
                     HashTableClass table = (HashTableClass) status;
 
@@ -170,7 +168,7 @@ public class CheckIn extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "La persona con esta cedula no tiene reservacion para el dia de hoy." + "\n" + today.format(dateFormat));
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "No esxiste una persona con esa cedula en reservaciones.");
+                JOptionPane.showMessageDialog(null, "No existe una persona con esa cedula en reservaciones.");
             }
         } catch (Exception e) {
             System.out.println(e);

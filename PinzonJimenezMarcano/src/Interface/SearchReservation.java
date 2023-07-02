@@ -104,7 +104,7 @@ public class SearchReservation extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error. Este id no tiene ninguna reservacion"); 
             }
         }catch ( Exception e){
-            System.out.println(e);
+            
         JOptionPane.showMessageDialog(null, "Error. No coloco solo numeros sin ningun espacio");
     }
     }//GEN-LAST:event_okActionPerformed

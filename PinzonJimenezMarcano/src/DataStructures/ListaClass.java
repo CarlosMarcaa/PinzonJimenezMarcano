@@ -57,11 +57,9 @@ public class ListaClass {
     public Nodo getIndex(int index) {
         Nodo nodo = getHead();
         if (isEmpty()) {
-            System.out.println("Nonexistent index");
             return nodo;
-        } else {
-            if (index < 0 || index > length) {
-                System.out.println("Nonexistent index");
+        }else{
+            if (index<0 || index > length) {
                 return nodo;
             } else {
 
@@ -96,8 +94,7 @@ public class ListaClass {
     // Deletes an element from the list
     public void deleteElement(Object elementToDelete) {
         if (isEmpty()) {
-            System.out.println("The list is empty.");
-        } else {
+        }else{
             // Si el elemento a eliminar es el primer nodo
             if (getHead() == elementToDelete) {
                 setHead(getHead().getNext());
@@ -129,14 +126,36 @@ public class ListaClass {
             }
             length--;
 
+        Nodo current = getHead();
+        Nodo previous = null;
+
+        // Buscar el nodo que contiene el valor a eliminar
+        while (current != null && current.getElement() != elementToDelete) {
+            previous = current;
+            current = current.getNext();
+            
+        }
+
+        // Si el valor no se encuentra en la lista
+        if (current == null) {
+            return;
+        }
+
+        // Eliminar el nodo
+        if (previous != null){
+            previous.setNext(current.getNext());
+        }else{
+            setHead(null);
+        }
+        length--;
+        
         }
     }
 
     // Prints the list (Only for developing usage)
     public void printList() {
         Nodo nodo = getHead();
-        while (nodo != null) {
-            System.out.print(" [" + nodo.getElement() + "]");
+        while (nodo != null){
             nodo = (Nodo) nodo.getNext();
         }
     }
