@@ -115,11 +115,11 @@ public class CheckOut extends javax.swing.JFrame {
         
         String id3 = id57.getText();
         try {
-           
+           String room ="";
           
             Guest guest = reservationsHistory.searchId(reservationsHistory.getRoot(), Integer.parseInt(id3));
-           
-            String room = status.getGuestRoom(guest.getFirstName(), guest.getLastName());
+           if (guest!=null){
+            room = status.getGuestRoom(guest.getFirstName(), guest.getLastName());}
           
             if ((guest != null) && (!room.equals(""))) {
                 LocalDate today = LocalDate.now(); //fecha de hoy
@@ -149,6 +149,7 @@ public class CheckOut extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No existe una persona con esa cedula el hotel");
             }
         } catch (Exception e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "Pofavor ponga un dato numerico.");
         }
     }//GEN-LAST:event_okActionPerformed
