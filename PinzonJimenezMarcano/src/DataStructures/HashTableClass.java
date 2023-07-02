@@ -159,7 +159,6 @@ public class HashTableClass {
                     Guest guestToPrint = (Guest) pointer.getElement();
                     System.out.println("[ " + guestToPrint.getFirstName() + " " + guestToPrint.getLastName() + ": Room " + guestToPrint.getRoom() + " ]");
                     pointer = pointer.getNext();
-                    System.out.println(counter++);
                 }
             }
         }
