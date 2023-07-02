@@ -25,7 +25,6 @@ public class List {
     public int getLength() {
         return length;
     }
-    
     public void setHead(Nodo head) {
         this.head = head;
     }

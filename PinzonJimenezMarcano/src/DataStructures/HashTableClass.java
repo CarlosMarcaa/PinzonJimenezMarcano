@@ -13,13 +13,15 @@ import javax.swing.JOptionPane;
  * @author Carlos Marcano
  */
 public class HashTableClass {
-
+    
+    // The hashtable will alwais be created 3 times bigger than the cuantity needed, so it can avoid collisions
+    
     private ListaClass[] table;
     private int tableSize;
     private int capacity;
     private int maxCapacity;
     private boolean[] occupiedRooms;
-
+    
     public boolean[] getOccupiedRooms() {
         return occupiedRooms;
     }
@@ -32,21 +34,23 @@ public class HashTableClass {
         this.occupiedRooms = new boolean[maxCapacity];
 
     }
-
+    // Returns the size of the table
     public int getTableSize() {
         return tableSize;
     }
-
+    // Given a Guest, generates a hashcode using the fullname attribute
     public int generateHashCode(Guest guest) {
         String key1 = guest.getFullName();
         int code = java.lang.Math.abs(Objects.hash(key1)) % tableSize;
         return code;
     }
-
+    
+    // Verifies if the table is at max capaity
     public boolean isFull() {
         return capacity == maxCapacity;
     }
-
+    
+    //Inserts an element into the hashtable
     public void put(Guest guest, int room) {
 
         guest.setRoom(room);
@@ -77,6 +81,8 @@ public class HashTableClass {
         }
     }
 
+    /* Given a firstname and a lastname String, it searches the hashtable and returns the room number of all 
+    the guests with those names, as a string variable*/
     public String getGuestRoom(String firstName, String lastName) {
         firstName = Functions.capitalizeFirstLetter(firstName);
         lastName = Functions.capitalizeFirstLetter(lastName);
@@ -105,7 +111,8 @@ public class HashTableClass {
             return roomsFound;
         }
     }
-
+    
+    // Deletes a guest from the hashtable
     public Guest deleteGuest(Guest guestToDelete) {
         int index = generateHashCode(guestToDelete);
 
@@ -134,7 +141,8 @@ public class HashTableClass {
         }
 
     }
-
+    
+    // Prints the hashtable (only for developing use)
     public void printHashTable() {
         int counter = 0;
         for (int i = 0; i != tableSize; i++) {
@@ -149,7 +157,8 @@ public class HashTableClass {
             }
         }
     }
-
+    
+    // Returns the table
     public ListaClass[] getTable() {
         return table;
     }
