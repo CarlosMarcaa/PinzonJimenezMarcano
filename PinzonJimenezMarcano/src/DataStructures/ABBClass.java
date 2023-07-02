@@ -23,19 +23,19 @@ public class ABBClass {
     public ABBClass() {
         this.root = null;
     }
-
+    // Returns the root of the tree
     public ABBNode getRoot() {
         return root;
     }
-
+    // Changes the value of the root 
     public void setRoot(ABBNode root) {
         this.root = root;
     }
-
+    // Verifies if the tree does not contain any node            
     public boolean isEmpty() {
         return root == null;
     }
-
+    //  Adds a new node to the tree
     public void insert(Object element, ABBNode root) {
         if (element instanceof Guest) {
             ABBNode nodo = new ABBNode((Guest) element, null);
@@ -81,7 +81,7 @@ public class ABBClass {
             }
         }
     }
-
+    // Given an element, if the tree contains that element, it deletes the element from the tree
     public void delete(int element, ABBNode previousNode, ABBNode root) {
 
         if (isEmpty()) {
@@ -157,7 +157,7 @@ public class ABBClass {
         }
 
     }
-
+    // Does the preOrder path (Only for developing)
     public void preOrden(ABBNode nodo) {
         if (nodo != null) {
             System.out.print(" [" + nodo.getElement() + "]");
@@ -165,7 +165,7 @@ public class ABBClass {
             preOrden(nodo.getRightSon());
         }
     }
-
+    // Does the inOrder path (Only for developing)
     public void inOrden(ABBNode nodo) {
         if (nodo != null) {
             preOrden(nodo.getLeftSon());
@@ -173,7 +173,7 @@ public class ABBClass {
             preOrden(nodo.getRightSon());
         }
     }
-
+    // Does the postOrder path (Only for developing)
     public void postOrden(ABBNode nodo) {
         if (nodo != null) {
             preOrden(nodo.getLeftSon());
@@ -181,7 +181,7 @@ public class ABBClass {
             System.out.print(" [" + nodo.getElement() + "]");
         }
     }
-
+    // Given an "Id" int, returns the Guest with that id, if the guest is contained in the tree
     public Guest searchId(ABBNode root, int id) {
         if (root != null) {
             if (id == root.getElement()) {
@@ -200,7 +200,7 @@ public class ABBClass {
         }
         return null;
     }
-
+    // Given an "Id" int, returns the Guest with that id, if the guest is contained in the tree
     public Guest searchIdCheck(ABBNode root, int id) {
 
         if (root != null) {
@@ -223,29 +223,11 @@ public class ABBClass {
 
     }
 
-//    public Guest searchEmailCheck(ABBNode root, String email) {
-//        
-//        if (root != null) {
-//            if (email == root.getGuest().getEmail()) {
-//                return root.getGuest();
-//            }
-//        
-//           
-//                    return searchEmailCheck(root.getLeftSon(), email);
-//                
-//            
-//                   return searchEmailCheck(root.getRightSon(), email);
-//               
-//            
-//        }
-//        return null;
-//    }
-//    public void CheckOutAutomatic(String date, String dateToday,ABBNode root, int id,
+    // Given an "room" int, returns the room, if the node with that room number is contained in the tree
     public Room searchRoom(ABBNode root, int room) {
         if (root != null) {
             if (room == root.getRoom().getRoomNumber()) {
-//                root.getRoom().printRoom();
-//                System.out.println("");
+
                 return root.getRoom();
             } else {
                 if (room < root.getRoom().getRoomNumber()) {
@@ -262,14 +244,14 @@ public class ABBClass {
         }
         return null;
     }
-
+    // Necessary function for the deleteNode Function, do not use individually
     public ABBNode searchReplacementNode(ABBNode selected) {
         while (selected.getRightSon() != null) {
             selected = selected.getRightSon();
         }
         return selected;
     }
-
+    // Verifies if an element is contained in the tree
     public boolean searchIfisInHistoric(ABBNode nodo, int id) {
 
         if (nodo != null) {
@@ -283,7 +265,7 @@ public class ABBClass {
         return flag;
 
     }
-
+    // Searches for an element in the tree
     public void searchInHistoric(ABBNode nodo, String day1, String month1, String year1, ABBClass reservationsHistory, HashTableClass status) {
         boolean dateExist = false;
         boolean flag2 = false;
@@ -358,8 +340,6 @@ public class ABBClass {
             }
 
             if (dateExist == true || dateExist2 == false) {
-//                    Object guestNew = reservationsHistory.searchEmailCheck(reservationsHistory.getRoot(), nodo.getGuest().getEmail());
-//                                if (guestNew != null) {
                 String[] dateGuest1 = nodo.getGuest().getCheckout().split("/");
 
                 day5 = dateGuest1[0].charAt(0);
@@ -425,16 +405,7 @@ public class ABBClass {
                 if (flag2 == true || flag3 == true) {
                     status.put(nodo.getGuest(), nodo.getGuest().getRoom());
                 }
-
-//                }else {
-//                                    nodo.getGuest().setPhone("");
-//                                    status.put(nodo.getGuest(), nodo.getGuest().getRoom());}
             }
-
-//                wr.append(String.valueOf(nodo.getGuest().getId()) + "," + nodo.getGuest().getFirstName() + ","
-//                        + nodo.getGuest().getLastName() + "," + nodo.getGuest().getEmail() + "," + nodo.getGuest().getGender() + ","
-//                        + nodo.getGuest().getRoomType() + "," + nodo.getGuest().getPhone() + "," + nodo.getGuest().getArrival() + ","
-//                        + nodo.getGuest().getCheckout() + "\n");
             searchInHistoric(nodo.getLeftSon(), day1, month1, year1, reservationsHistory, status);
             searchInHistoric(nodo.getRightSon(), day1, month1, year1, reservationsHistory, status);
         }
