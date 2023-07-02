@@ -32,34 +32,42 @@ public class ABBNode {
         this.room = room;
     }
 
+    // Verifies if the node is a leaf
     public boolean isLeaf() {
         return (getRightSon() == null && getLeftSon() == null);
     }
 
+    // Returns the right son
     public ABBNode getRightSon() {
         return rightSon;
     }
 
+    // Changes the value of the right son
     public void setRightSon(ABBNode rightSon) {
         this.rightSon = rightSon;
     }
 
+    // Returns the left son
     public ABBNode getLeftSon() {
         return leftSon;
     }
 
+    // Changes the value of the left son
     public void setLeftSon(ABBNode leftSon) {
         this.leftSon = leftSon;
     }
 
+    //Returns the element of the node
     public int getElement() {
         return element;
     }
 
+    // Returns the guest of the node
     public Guest getGuest() {
         return guest;
     }
 
+    // Returns the room of the node
     public Room getRoom() {
         return room;
     }

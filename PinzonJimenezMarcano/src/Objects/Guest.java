@@ -64,7 +64,7 @@ public class Guest {
 
     public String stringGuest(){
         String guest = "";
-        guest = "ln"+"     Name: " + firstName + " " + lastName+"ln"+"     Id: " + id+"ln"+"     Email: " + email+"ln"+"     Phone number: " + phone+"ln"+"     Arrival: " + arrival+"ln"+"     Checkout: " + checkout+"ln";
+        guest = "\n"+"     Name: " + firstName + " " + lastName+"\n"+"     Id: " + id+"\n"+"     Email: " + email+"\n"+"     Phone number: " + phone+"\n"+"     Arrival: " + arrival+"\n"+"     Checkout: " + checkout+"\n";
         return guest;
     }
     

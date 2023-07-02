@@ -10,6 +10,7 @@ import static Interface.Menu.reservations;
 import static Interface.Menu.reservationsHistory;
 import Objects.Guest;
 import javax.swing.JOptionPane;
+import javax.swing.SpringLayout;
 
 /**
  *
@@ -63,7 +64,6 @@ public class NewClient extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        typeRoom2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         month1 = new javax.swing.JTextField();
@@ -79,6 +79,7 @@ public class NewClient extends javax.swing.JFrame {
         year2 = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         back = new javax.swing.JButton();
+        typeRoom2 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -189,9 +190,6 @@ public class NewClient extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cohete.png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
 
-        typeRoom2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(typeRoom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 110, -1));
-
         jLabel19.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("\\");
@@ -261,6 +259,11 @@ public class NewClient extends javax.swing.JFrame {
                         });
                         getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 90, 50));
 
+                        typeRoom2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+                        typeRoom2.setForeground(new java.awt.Color(0, 0, 0));
+                        typeRoom2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Doble", "Triple", "Suite" }));
+                        getContentPane().add(typeRoom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
+
                         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/fondo.png"))); // NOI18N
                         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
@@ -275,8 +278,10 @@ public class NewClient extends javax.swing.JFrame {
             boolean emailGood = false;
             boolean typeRoomExist = false;
             boolean cellphone = false;
+            
             Functions verifyDateExits = new Functions();
-            String information1 = name.getText() + "/" + lastName2.getText() + "/" + id2.getText() + "/" + gender2.getText() + "/" + email2.getText() + "/" + cell.getText() + "/" + phone.getText() + "/" + typeRoom2.getText() + "/" + day1.getText() + "/" + month1.getText() + "/" + year1.getText() + "/" + day2.getText() + "/" + month2.getText() + "/" + year2.getText();
+            
+            String information1 = name.getText() + "/" + lastName2.getText() + "/" + id2.getText() + "/" + gender2.getText() + "/" + email2.getText() + "/" + cell.getText() + "/" + phone.getText() + "/" + typeRoom2.getSelectedItem().toString() + "/" + day1.getText() + "/" + month1.getText() + "/" + year1.getText() + "/" + day2.getText() + "/" + month2.getText() + "/" + year2.getText();
             String[] information2 = information1.split("/");
             for (int i = 0; i > information2.length; i++) {
                 findSpace1 = space(information2[0]);
@@ -289,79 +294,85 @@ public class NewClient extends javax.swing.JFrame {
             int phone1 = Integer.parseInt(phone.getText());
             int cell1 = Integer.parseInt(cell.getText());
 
-            if ((email2.getText().contains("@")) && (email2.getText().contains(".com"))) {
+            if ((email2.getText().contains("@")) ) {
                 emailGood = true;
             }
 
-            char day6 = day1.getText().charAt(0);
+            char day5 = day1.getText().charAt(0);
 
-            char day5 = day2.getText().charAt(0);
+            char day6 = day2.getText().charAt(0);
             int day3 = 0;
             int day4 = 0;
 
             if ((Integer.parseInt(Integer.toString(day6)) == 0) || (Integer.parseInt(Integer.toString(day5)) == 0)) {
-                if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                if (Integer.parseInt(Integer.toString(day6)) == 0) {
 
-                    day3 = Integer.parseInt(day2.getText().substring(1));
-                    if (Integer.parseInt(Integer.toString(day6)) == 0) {
-                        day4 = Integer.parseInt(day1.getText().substring(1));
-                    } else {
-                        day4 = Integer.parseInt(day1.getText());
-                    }
-                } else if (Integer.parseInt(Integer.toString(day6)) == 0) {
-                    day4 = Integer.parseInt(day1.getText().substring(1));
+                    day4 = Integer.parseInt(day2.getText().substring(1));
                     if (Integer.parseInt(Integer.toString(day5)) == 0) {
-                        day3 = Integer.parseInt(day2.getText().substring(1));
+                        day3 = Integer.parseInt(day1.getText().substring(1));
+                    } else {
+                        day3 = Integer.parseInt(day1.getText());
+                    }
+                } else if (Integer.parseInt(Integer.toString(day5)) == 0) {
+                    day3 = Integer.parseInt(day1.getText().substring(1));
+                    if (Integer.parseInt(Integer.toString(day6)) == 0) {
+                        day4 = Integer.parseInt(day2.getText().substring(1));
 
                     } else {
-                        day3 = Integer.parseInt(day2.getText());
+                        day4 = Integer.parseInt(day2.getText());
                     }
                 }
             } else {
-                day4 = Integer.parseInt(day1.getText());
-                day3 = Integer.parseInt(day2.getText());
+                day3 = Integer.parseInt(day1.getText());
+                day4 = Integer.parseInt(day2.getText());
             }
 
-            char month6 = month1.getText().charAt(0);
+            char month5 = month1.getText().charAt(0);
 
-            char month5 = month2.getText().charAt(0);
+            char month6 = month2.getText().charAt(0);
             int month3 = 0;
             int month4 = 0;
 
             if ((Integer.parseInt(Integer.toString(month6)) == 0) || (Integer.parseInt(Integer.toString(month5)) == 0)) {
-                if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                if (Integer.parseInt(Integer.toString(month6)) == 0) {
 
-                    month3 = Integer.parseInt(month2.getText().substring(1));
-                    if (Integer.parseInt(Integer.toString(month6)) == 0) {
-                        month4 = Integer.parseInt(month1.getText().substring(1));
-                    } else {
-                        month4 = Integer.parseInt(month1.getText());
-                    }
-                } else if (Integer.parseInt(Integer.toString(month6)) == 0) {
-                    month4 = Integer.parseInt(month1.getText().substring(1));
+                    month4 = Integer.parseInt(month2.getText().substring(1));
                     if (Integer.parseInt(Integer.toString(month5)) == 0) {
-                        month3 = Integer.parseInt(month2.getText().substring(1));
+                        month3 = Integer.parseInt(month1.getText().substring(1));
+                    } else {
+                        month3 = Integer.parseInt(month1.getText());
+                    }
+                } else if (Integer.parseInt(Integer.toString(month5)) == 0) {
+                    month3 = Integer.parseInt(month1.getText().substring(1));
+                    if (Integer.parseInt(Integer.toString(month6)) == 0) {
+                        month4 = Integer.parseInt(month2.getText().substring(1));
 
                     } else {
-                        month3 = Integer.parseInt(month2.getText());
+                        month4 = Integer.parseInt(month2.getText());
                     }
                 }
             } else {
-                month4 = Integer.parseInt(month1.getText());
-                month3 = Integer.parseInt(month2.getText());
+                month3 = Integer.parseInt(month1.getText());
+                month4 = Integer.parseInt(month2.getText());
             }
 
-            int year4 = Integer.parseInt(year1.getText());
-            int year3 = Integer.parseInt(year2.getText());
-            if ((year3 <= 9999 && year3 >= 2000) || (year4 <= 9999 && year4 >= 2000)){
-            dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3, year4);}
+            int year3 = Integer.parseInt(year1.getText());
+            int year4 = Integer.parseInt(year2.getText());
+            System.out.println(day3 +"\n" + day4+"\n" +month3+"\n" + month4+"\n" + year3+"\n" + year4);
+            System.out.println("PRueba");
+            
+            if ((year3 <= 9999 && year3 >= 2000) && (year4 <= 9999 && year4 >= 2000)){
+            dateExist = verifyDateExits.GoodDate(day3, day4, month3, month4, year3,year4);}
             
             String dateArrival1 = "";
             String dateCheckout1 ="";
-            if (dateExist=true){
+            if (dateExist==true){
                 dateArrival1 = day1.getText()+"/"+month1.getText()+"/"+year1.getText();
                 dateCheckout1 = day2.getText()+"/"+month2.getText()+"/"+year2.getText();
             }
+            System.out.println("HOLAAAAAAA");
+            System.out.println(dateArrival1);
+            System.out.println(dateCheckout1);
 
             if (cell1 >= 100 && cell1 <= 999) {
                 if (phone1 >= 1000000 && phone1 <= 9999999) {
@@ -375,19 +386,29 @@ public class NewClient extends javax.swing.JFrame {
                 cellphone4 = "("+cell.getText()+")"+phone.getText();
             }
             
-            if (typeRoom2.getText().toUpperCase()== "SIMPLE"){
+            if (typeRoom2.getSelectedItem().toString().toUpperCase().equals("SIMPLE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase()== "DOBLE"){
+            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("DOBLE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase()== "SUITE"){
+            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("SUITE")){
                 typeRoomExist = true;
-            }else if(typeRoom2.getText().toUpperCase()== "TRIPLE"){
+            }else if(typeRoom2.getSelectedItem().toString().toUpperCase().equals("TRIPLE")){
                 typeRoomExist = true;
             }
             
-            if ((findspace = true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
+            System.out.println(findspace);
+            System.out.println("HHHHHH");
+            System.out.println(dateExist);
+            System.out.println("NNNNNNN");
+            System.out.println(emailGood);
+            System.out.println("PPPPPP");
+            System.out.println(typeRoomExist);
+            System.out.println("BBBBB ");
+            System.out.println(cellphone);
+            
+            if ((findspace == true) && (dateExist == true) && (emailGood == true) && (typeRoomExist == true) && (cellphone == true)) {
 
-                Object confirm = JOptionPane.showConfirmDialog(null, "Seguro que pusiste todos los datos bien?");
+                Object confirm = JOptionPane.showConfirmDialog(null, "Desea continuar con la reservación? (Asegúrese que puso los datos correctos)");
 
                 Guest guest = new Guest(name.getText(), lastName2.getText());
                 guest.setId(id3);
@@ -396,16 +417,21 @@ public class NewClient extends javax.swing.JFrame {
                 guest.setCheckout(dateCheckout1);
                 guest.setGender(gender2.getText());
                 guest.setPhone(cellphone4);
-                guest.setRoomType(typeRoom2.getText().toLowerCase());
+                guest.setRoomType(typeRoom2.getSelectedItem().toString().toLowerCase());
                 reservations.insert(guest, reservations.getRoot());
                 reservationsHistory.insert(guest, reservationsHistory.getRoot());
-                menu.setVisible(true);
-                this.setVisible(false);
+                
+        if (confirm.equals(0)) {
+            menu.setVisible(true);
+            this.setVisible(false);
+        }
             } else {
                 JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error, revise que puso todos los datos correctamente");
+            System.out.println("ERRROOOOORRR");
+            System.out.println(e);
         }
     }//GEN-LAST:event_okActionPerformed
 
@@ -505,7 +531,7 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JTextField name;
     private javax.swing.JButton ok;
     private javax.swing.JTextField phone;
-    private javax.swing.JTextField typeRoom2;
+    private javax.swing.JComboBox<String> typeRoom2;
     private javax.swing.JTextField year1;
     private javax.swing.JTextField year2;
     // End of variables declaration//GEN-END:variables
