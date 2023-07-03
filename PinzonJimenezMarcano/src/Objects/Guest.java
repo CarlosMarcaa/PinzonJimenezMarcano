@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DataStructures;
+package Objects;
+
+import DataStructures.Functions;
+
 /**
  *
  * @author Carlos Marcano
@@ -59,13 +62,16 @@ public class Guest {
         return fullName;
     }
 
-    public void printGuest(){
-        System.out.println("Name: " + firstName + " " + lastName);
-        System.out.println("Id: " + id);
-        System.out.println("Email: " + email);
-        System.out.println("Phone number: " + phone);
-        System.out.println("Arrival: " + arrival);
-        System.out.println("Checkout: " + checkout);
+    public String stringGuest(){
+        String guest = "";
+        guest = "\n"+"     Name: " + firstName + " " + lastName+"\n"+"     Id: " + id+"\n"+"     Email: " + email+"\n"+"     Phone number: " + phone+"\n"+"     Arrival: " + arrival+"\n"+"     Checkout: " + checkout+"\n";
+        return guest;
+    }
+    
+    public String information(){
+        String guest = "";
+        guest = firstName +","+ lastName+","+Integer.toString(id)+","+email+","+phone+","+gender+","+roomType+","+arrival+","+checkout;
+        return guest;
     }
 
     public void setId(int id) {
