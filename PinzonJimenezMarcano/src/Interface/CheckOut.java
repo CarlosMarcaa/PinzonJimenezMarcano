@@ -118,6 +118,7 @@ public class CheckOut extends javax.swing.JFrame {
            String room ="";
           
             Guest guest = reservationsHistory.searchId(reservationsHistory.getRoot(), Integer.parseInt(id3));
+            
            if (guest!=null){
             room = status.getGuestRoom(guest.getFirstName(), guest.getLastName());}
           
@@ -132,9 +133,9 @@ public class CheckOut extends javax.swing.JFrame {
                         Object confirm2 = JOptionPane.showConfirmDialog(null, "Seguro que le quieres hacer check-out a la persona con la cedula" + "\n" + guest.getId() + "?");
 
                         if (confirm2.equals(0)) {
-                            
-                            historic.insert(guest, historic.getRoot());
-                            status.deleteGuest(guest);
+                            Guest guestToEliminate = status.getGuest(guest.getFirstName(), guest.getLastName());
+                            historic.insert(guestToEliminate, historic.getRoot());
+                            status.deleteGuest(guestToEliminate);
 
                             
                             menu.setVisible(true);

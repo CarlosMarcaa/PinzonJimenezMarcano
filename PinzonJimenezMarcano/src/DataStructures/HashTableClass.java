@@ -54,7 +54,7 @@ public class HashTableClass {
     public void put(Guest guest, int room) {
 
         guest.setRoom(room);
-        if (occupiedRooms[room] == true) {
+        if (getOccupiedRooms()[room] == true) {
             return;
         }
         if (isFull()) {
@@ -70,12 +70,12 @@ public class HashTableClass {
                 table[index] = new ListaClass();
                 table[index].insertBegin(guest);
                 capacity++;
-                occupiedRooms[room] = true;
+                getOccupiedRooms()[room] = true;
             } else {
 
                 getTable()[index].insertBegin(guest);
                 capacity++;
-                occupiedRooms[room] = true;
+                getOccupiedRooms()[room] = true;
             }
 
         }
@@ -92,7 +92,7 @@ public class HashTableClass {
         Guest guest = new Guest(firstName, lastName); // Este Guest creado solo sirve para generar el hashcode, no contiene toda la informacion.
         int index = generateHashCode(guest);
         if (getTable()[index] == null) {                 // Cuando no encuentra al huesped en el sistema, devuelve -1
-            JOptionPane.showMessageDialog(null, guest.getFullName() +""+ "no se esta quedando en el hotel");
+            JOptionPane.showMessageDialog(null, guest.getFullName() +" "+ "no se esta quedando en el hotel");
 
             return roomsFound;
 
@@ -104,6 +104,34 @@ public class HashTableClass {
                 if (pointerGuest.getFullName().equals(fullName)) {
                     String roomToAdd = String.valueOf(pointerGuest.getRoom());
                     roomsFound = roomsFound + roomToAdd + " ";
+
+                }
+                pointer = pointer.getNext();
+            }
+            return roomsFound;
+        }
+    }
+    public Guest getGuest(String firstName, String lastName) {
+        firstName = Functions.capitalizeFirstLetter(firstName);
+        lastName = Functions.capitalizeFirstLetter(lastName);
+        String fullName = firstName.toLowerCase() + lastName.toLowerCase();
+        Guest roomsFound = null;
+
+        Guest guest = new Guest(firstName, lastName); // Este Guest creado solo sirve para generar el hashcode, no contiene toda la informacion.
+        int index = generateHashCode(guest);
+        if (getTable()[index] == null) {                 // Cuando no encuentra al huesped en el sistema, devuelve -1
+            JOptionPane.showMessageDialog(null, guest.getFullName() +" "+ "no se esta quedando en el hotel");
+
+            return roomsFound;
+
+        } else {
+            Nodo pointer = table[index].getHead();
+
+            while (pointer != null) {
+                Guest pointerGuest = (Guest) pointer.getElement();
+                if (pointerGuest.getFullName().equals(fullName)) {
+                   
+                    roomsFound = pointerGuest;
 
                 }
                 pointer = pointer.getNext();
@@ -131,7 +159,7 @@ public class HashTableClass {
                 pointer = pointer.getNext();
             }
             if (flag == true) {
-                occupiedRooms[guestToDelete.getRoom()] = false;
+                getOccupiedRooms()[guestToDelete.getRoom()] = false;
                 table[index].deleteElement(guestToDelete);
                 capacity--;
                 return guestToDelete;
