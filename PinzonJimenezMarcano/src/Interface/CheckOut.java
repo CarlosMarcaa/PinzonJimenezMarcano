@@ -10,6 +10,7 @@ import DataStructures.HashTableClass;
 import DataStructures.Nodo;
 import static Interface.CheckIn.menu;
 import static Interface.Menu.historic;
+import static Interface.Menu.roomH;
 import static Interface.Menu.reservations;
 import static Interface.Menu.reservationsHistory;
 import static Interface.Menu.status;
@@ -136,6 +137,7 @@ public class CheckOut extends javax.swing.JFrame {
                             Guest guestToEliminate = status.getGuest(guest.getFirstName(), guest.getLastName());
                             historic.insert(guestToEliminate, historic.getRoot());
                             status.deleteGuest(guestToEliminate);
+                            roomH.searchRoom(roomH.getRoot(), guestToEliminate.getRoom()).guestHistory.insertFinal(guestToEliminate);
 
                             
                             menu.setVisible(true);
