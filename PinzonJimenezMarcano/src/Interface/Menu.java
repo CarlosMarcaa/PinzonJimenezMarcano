@@ -27,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
 
     public static ABBClass reservations = (ABBClass) csvManager.ReadText("test/Booking_hotel_reservations.csv");
     public static ABBClass rooms = (ABBClass) csvManager.ReadText("test/Booking_hotel_rooms.csv");
+    public static ABBClass roomH = (ABBClass) csvManager.ReadText("roomHistory");
     public static ABBClass historic = (ABBClass) csvManager.ReadText("test/Booking_hotel_historic.csv");
     public static HashTableClass status = (HashTableClass) csvManager.ReadText("test/Booking_hotel_status.csv");
     public static ABBClass reservationsHistory = (ABBClass) csvManager.ReadText("test/Booking_hotel_reservations_1.csv");

@@ -10,6 +10,7 @@ import DataStructures.HashTableClass;
 import DataStructures.Nodo;
 import static Interface.CheckIn.menu;
 import static Interface.Menu.historic;
+import static Interface.Menu.roomH;
 import static Interface.Menu.reservations;
 import static Interface.Menu.reservationsHistory;
 import static Interface.Menu.status;
@@ -115,11 +116,12 @@ public class CheckOut extends javax.swing.JFrame {
         
         String id3 = id57.getText();
         try {
-           
+           String room ="";
           
             Guest guest = reservationsHistory.searchId(reservationsHistory.getRoot(), Integer.parseInt(id3));
-           
-            String room = status.getGuestRoom(guest.getFirstName(), guest.getLastName());
+            
+           if (guest!=null){
+            room = status.getGuestRoom(guest.getFirstName(), guest.getLastName());}
           
             if ((guest != null) && (!room.equals(""))) {
                 LocalDate today = LocalDate.now(); //fecha de hoy
@@ -132,9 +134,10 @@ public class CheckOut extends javax.swing.JFrame {
                         Object confirm2 = JOptionPane.showConfirmDialog(null, "Seguro que le quieres hacer check-out a la persona con la cedula" + "\n" + guest.getId() + "?");
 
                         if (confirm2.equals(0)) {
-                            
-                            historic.insert(guest, historic.getRoot());
-                            status.deleteGuest(guest);
+                            Guest guestToEliminate = status.getGuest(guest.getFirstName(), guest.getLastName());
+                            historic.insert(guestToEliminate, historic.getRoot());
+                            status.deleteGuest(guestToEliminate);
+                            roomH.searchRoom(roomH.getRoot(), guestToEliminate.getRoom()).guestHistory.insertFinal(guestToEliminate);
 
                             
                             menu.setVisible(true);
@@ -149,6 +152,7 @@ public class CheckOut extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No existe una persona con esa cedula el hotel");
             }
         } catch (Exception e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "Pofavor ponga un dato numerico.");
         }
     }//GEN-LAST:event_okActionPerformed
